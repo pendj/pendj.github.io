@@ -9,23 +9,23 @@ customText = ""
 
 [dateFormat]
 published = "2023-07-18"
-lastUpdated = "2023-07-18 12:00:00"
+lastUpdated = "2023-07-18"
 
 [sidebar]
 emoji = "🍥"
-subtitle = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+subtitle = "想到就去做"
 
 [sidebar.avatar]
 enabled = true
 local = true
-src = "img/avatar.png"
+src = "img/avatar.jpg"
 
 [article]
 math = false
 readingTime = true
 
 [article.license]
-enabled = true
+enabled = false
 default = "Licensed under CC BY-NC-SA 4.0"
 
 ## Widgets
