@@ -18,7 +18,7 @@ subtitle = "想到就去做"
 [sidebar.avatar]
 enabled = true
 local = true
-src = "img/avatar.jpg"
+src = "img/avatar.png"
 
 [article]
 math = false
