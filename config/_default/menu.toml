@@ -13,4 +13,4 @@ name = "GitHub"
 url = "https://github.com/pendj"
 
 [social.params]
-icon = "brand-github"
+icon = "github-icon"
