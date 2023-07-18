@@ -1,0 +1,17 @@
+---
+title: "学习CY_StarUp课程有感"
+description: 
+date: 2023-07-18T16:56:44+08:00
+image: 
+math: 
+license: 
+hidden: false
+comments: true
+draft: true
+---
+
+> 很多人在你刚开始时就给你提供建议,告知风险以及需要承担的后果,但我想告诉你的是:想到就去做,不然点子就只会点子而不是现实.
+1. 想到就去做(Just do it!)
+2. 一个点子(新的或者是借鉴别人的)
+3. 一份计划书
+4. 启动金

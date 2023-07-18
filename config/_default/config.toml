@@ -13,4 +13,7 @@ defaultContentLanguage = "zh-cn"
 hasCJKLanguage = false
 
 # Change it to your Disqus shortname before using
-disqusShortname = "天才熊猫君"
+disqusShortname = "hugo-theme-stack"
+
+# GA Tracking ID
+googleAnalytics = "UA-130446397-1"

@@ -6,7 +6,7 @@ favicon = "/favicon.ico"
 
 [footer]
 since = 2023
-customText = ""
+customText = "<a href='https://beian.miit.gov.cn/' target='_blank'>鄂ICP备2021016891号</a>"
 
 [dateFormat]
 published = "2006-01-02"
@@ -76,7 +76,7 @@ enabled = true
 ## Comments
 [comments]
 enabled = true
-provider = "disqus"
+provider = "waline"
 
 [comments.disqusjs]
 shortname = ""
@@ -104,16 +104,18 @@ clientSecret = ""
 autoCreateIssue = false
 
 [comments.waline]
-serverURL = ""
+serverURL = "https://waline-test-two-umber.vercel.app/"
 lang = ""
 visitor = ""
 avatar = ""
-emoji = ["https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo"]
+emoji = ["https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo","https://cdn.jsdelivr.net/gh/walinejs/emojis/qq",
+        "https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/tieba","https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/"]
 requiredMeta = ["name", "email", "url"]
 placeholder = ""
 
 [comments.waline.locale]
-admin = "Admin"
+admin = "👻狗管理"
+placeholder = "🎉留下你的脚印."
 
 [comments.twikoo]
 envId = ""
