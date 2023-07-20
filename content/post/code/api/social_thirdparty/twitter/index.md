@@ -25,8 +25,14 @@ keywords:
 ## Twitter
 ### 接入前准备流程
 1. 申请Twitter账号,访问[开发者平台](https://developer.twitter.com/en)并点击订阅
-2. 订阅选择套餐,此处为了演示我选择免费套餐.套餐如下图![img_6.png](img_6.png)
-3. 填写描述信息,点击提交![img_7.png](img_7.png)
+2. 订阅选择套餐,此处为了演示我选择免费套餐.套餐如下图
+
+![img_6.png](img_6.png)
+
+3. 填写描述信息,点击提交
+
+![img_7.png](img_7.png)
+
 > 参考示例:
 > ```text
 > As a platform developer, my use cases of Twitter's data and API include integrating real-time tweets into applications,
@@ -34,9 +40,19 @@ keywords:
 > schedule tweets, and access their timelines. Analyzing user sentiment, engagement metrics, and trending content helps optimize content strategies.
 > I also utilize Twitter's data to gather insights for research and sentiment analysis. Ensuring compliance with Twitter's data usage policies and user privacy is a priority in all use cases.
 > ```
-4. 点击`Keys and tokens`,Regenerate重新生成`API Key`和`API Key Secret`,保存下来![img_8.png](img_8.png)![img_9.png](img_9.png)
-5. 点击`User authentication settings`模块下的`Set up`按钮,配置`Twitter`授权登录的必填信息![img_10.png](img_10.png)
-6. 保存后会生成`Client ID`和`Client Secret`,保存下来![img_11.png](img_11.png)
+4. 点击`Keys and tokens`,Regenerate重新生成`API Key`和`API Key Secret`,保存下来
+
+![img_8.png](img_8.png)
+
+![img_9.png](img_9.png)
+
+5. 点击`User authentication settings`模块下的`Set up`按钮,配置`Twitter`授权登录的必填信息
+
+![img_10.png](img_10.png)
+
+6. 保存后会生成`Client ID`和`Client Secret`,保存下来
+
+![img_11.png](img_11.png)
 
 ### 接入工作
 1. 导入Twitter API依赖

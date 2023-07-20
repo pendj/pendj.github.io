@@ -1,12 +1,12 @@
 # Rename this file to _languages.toml to enable multilingual support
-[en]
-languageName = "English"
-languagedirection = "ltr"
-title = "Pandj"
-weight = 1
-
-[zh-cn]
-languageName = "中文"
-languagedirection = "ltr"
-title = "天才熊猫君"
-weight = 1
+#[en]
+#languageName = "English"
+#languagedirection = "ltr"
+#title = "Pandj"
+#weight = 1
+#
+#[zh-cn]
+#languageName = "中文"
+#languagedirection = "ltr"
+#title = "天才熊猫君"
+#weight = 1
