@@ -25,7 +25,7 @@ keywords:
 ## Twitter
 ### 接入前准备流程
 1. 申请Twitter账号,访问[开发者平台](https://developer.twitter.com/en)并点击订阅
-2. 订阅选择套餐,,此处为了演示我选择免费套餐.套餐如下图![img_6.png](img_6.png)
+2. 订阅选择套餐,此处为了演示我选择免费套餐.套餐如下图![img_6.png](img_6.png)
 3. 填写描述信息,点击提交![img_7.png](img_7.png)
 > 参考示例:
 > ```text

@@ -25,8 +25,8 @@ keywords:
 ## Youtube
 ### 接入前准备流程
 1. 申请Google账号,访问[谷歌云平台](https://console.cloud.google.com/)
-2. 在导航栏中找到`API和服务`,点击进入`已启用的API和服务`,搜索`YouTube Data API v3`![img.png](img.png)
-3. 点击进入`YouTube Data API v3`,点击`启用`![img_1.png](img_1.png)
+2. 在导航栏中找到`API和服务`,进入`已启用的API和服务`,搜索`YouTube Data API v3`![img.png](img.png)
+3. 进入`YouTube Data API v3`,点击`启用`![img_1.png](img_1.png)
 4. 进入`YouTube Data API v3`API/服务详情,点击创建凭据![img_2.png](img_2.png)
 5. 勾选用户数据,点击下一步,填写每一个步骤的信息,在第五步下载凭证,最后点击完成![img_4.png](img_4.png)
 > 注意,在范围中选择`YouTube Data API v3`的部分,按需选择![img_3.png](img_3.png)
