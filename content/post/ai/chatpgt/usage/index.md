@@ -1,5 +1,5 @@
 ---
-title: "Usage"
+title: "ChatGPT使用技巧"
 description: 
 date: 2023-07-27T10:23:05+08:00
 image: 
