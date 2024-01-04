@@ -1,0 +1,1303 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>天才熊猫君</title><link>https://blog.icharles.work/</link><description>Recent content on 天才熊猫君</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 04 Jan 2024 13:41:04 +0800</lastBuildDate><atom:link href="https://blog.icharles.work/index.xml" rel="self" type="application/rss+xml"/><item><title>人工智能 - 神经网络</title><link>https://blog.icharles.work/p/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</link><pubDate>Thu, 04 Jan 2024 13:41:04 +0800</pubDate><guid>https://blog.icharles.work/p/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</guid><description>&lt;h3 id="人工智能">人工智能&lt;/h3>
+&lt;blockquote>
+&lt;p>学习参考资料: &lt;a class="link" href="https://www.captainbed.cn/whatisnn/" target="_blank" rel="noopener"
+>1.1.1 什么是神经网络 (captainbed.cn)&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;h4 id="神经网络">神经网络&lt;/h4>
+&lt;h5 id="什么是神经网络">什么是神经网络&lt;/h5>
+&lt;p>人工智能的神经网络受到人体大脑的启发，构建出来。&lt;/p>
+&lt;p>在人的大脑中，有着数十亿叫神经元的细胞，它们连接成为一个网络。&lt;/p>
+&lt;p>而在人工智能中，模仿人的大脑，也创建出N个神经元，它们连接成为神经网络。&lt;/p>
+&lt;p>而每个神经元负责接受外部刺激，处理信息，转化成结果。&lt;/p>
+&lt;p>&lt;img src="https://pendjun.obs.cn-south-4.myhuaweicloud.com/img/timg-2.jpg"
+loading="lazy"
+alt="神经网络"
+>&lt;/p>
+&lt;p>&lt;img src="https://pendjun.obs.cn-south-4.myhuaweicloud.com/img/TIME59BBEE7898720180827112521.png"
+loading="lazy"
+alt="人工神经网络"
+>&lt;/p>
+&lt;p>&lt;img src="https://pendjun.obs.cn-south-4.myhuaweicloud.com/img/20181014193738897.png"
+loading="lazy"
+alt="神经元处理刺激"
+>&lt;/p>
+&lt;h5 id="数据传入神经网络">数据传入神经网络&lt;/h5>
+&lt;p>对于不同特征的数据（例如语音、图像、传感器或其他等等）在计算机中都会有对应的数字表示形式。通常它们会被转化成一个特征向量，传入到神经网络中。&lt;/p>
+&lt;p>举例：假设一个图像有64*64个像素，每个像素就是一个颜色点，每个颜色点在(红(0-255),蓝(0-255),绿(0-255))&lt;code>三原色可以调配出所有色彩&lt;/code>之间,&lt;/p>
+&lt;p>所以在计算机中,3*64*64个颜色点构成这张图像 = 12288 总特征数,这个12288维特征向量就代表了这张图像.神经网络接收这个特征向量,预测并得出结果.&lt;/p>
+&lt;h5 id="神经网络如何进行预测">神经网络如何进行预测&lt;/h5>
+&lt;h6 id="逻辑回归公式">逻辑回归公式&lt;/h6>
+&lt;p>预测的过程其实只是基于一个简单的公式(&lt;code>逻辑回归公式&lt;/code>)：&lt;code>z = dot(w,x) + b &lt;/code>&lt;/p>
+&lt;p>&lt;code>x&lt;/code>表示&lt;code>输入特征向量&lt;/code>,如果有三个特征就可以用(x1,x2,x3)表示&lt;/p>
+&lt;p>&lt;code>w&lt;/code>表示&lt;code>权重&lt;/code>,代表每个特征的重要程度&lt;/p>
+&lt;p>&lt;code>b&lt;/code>表示&lt;code>阈值&lt;/code>,用于影响预测结果&lt;/p>
+&lt;p>&lt;code>dot&lt;/code>表示&lt;code>将w和x进行向量相乘&lt;/code>&lt;/p>
+&lt;p>&lt;code>z&lt;/code>表示&lt;code>预测结果&lt;/code>&lt;/p>
+&lt;p>于是上面的公式展开后就成 &lt;code>z = (w1*x1 + w2*x2 + w3*x3) + b&lt;/code>&lt;/p>
+&lt;p>&lt;img src="https://pendjun.obs.cn-south-4.myhuaweicloud.com/img/20181014210626518.png"
+loading="lazy"
+alt="逻辑回归公式"
+>&lt;/p>
+&lt;p>举例:&lt;/p>
+&lt;p>假设你现在想喝奶茶,但现在天气不好,配送时间太长,而你又可能马上要下班了.&lt;/p>
+&lt;p>那么影响结果的因素有3个特征,而你对每个因素的看重程度代表着权重,&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>天气好不好对你不重要. &lt;code>w1=0,x1=1&lt;/code>(w1=0表示无所谓,x1=1表示确实不好);&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>配送时间太长有影响. &lt;code>w2=3,x2=1&lt;/code> (w2=3表示有一定程度影响但不大,x2=1表示确实有影响)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>马上要下班了,想马上回家. &lt;code>w3=6,x3=1&lt;/code>(w3=1表示想回家的优先级很高,x3=0表示想回家)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>想回家的期望值很高. &lt;code>b=-10&lt;/code>&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>那么我们得出公式: &lt;code>z = (0*1 + 3*1 + 6*1) - 10&lt;/code> ,结果是-1.&lt;/p>
+&lt;p>根据结果表示&lt;code>z&amp;lt;0&lt;/code>则不会喝,&lt;code>z&amp;gt;0&lt;/code>会喝,所以我们预测你不会现在想喝奶茶.&lt;/p>
+&lt;h6 id="激活函数">激活函数&lt;/h6>
+&lt;p>在实际的神经网络中,上面的&lt;code>逻辑回归&lt;/code>只能适用于非常简单的逻辑.在复杂场景中计算得出的z值就不太准确,所以我们需要在&lt;code>逻辑回归&lt;/code>外面再套一层函数.&lt;/p>
+&lt;p>这个函数就叫做&lt;code>激活函数&lt;/code>.下面简单介绍一种激活函数:&lt;code>sigmoid&lt;/code>&lt;/p>
+&lt;p>&lt;img src="https://pendjun.obs.cn-south-4.myhuaweicloud.com/img/201810142126508048-3.png"
+loading="lazy"
+alt="激活函数公式"
+>&lt;/p>
+&lt;p>&lt;img src="https://pendjun.obs.cn-south-4.myhuaweicloud.com/img/timg-34.jpg"
+loading="lazy"
+alt="激活函数图像"
+>&lt;/p>
+&lt;p>这个函数的作用是: 将z映射到[0,1]之间.x表示z值,y表示预测结果.可以看出,z越大,y越趋向于1,z越小,y越趋向于0.&lt;/p>
+&lt;p>在刚才的例子中,假设z的结果是1,而y&amp;rsquo;值=0.8,则表示有80%的概率会买.但z值是-1,所以不会买.&lt;/p></description></item><item><title>读创业有感</title><link>https://blog.icharles.work/p/%E8%AF%BB%E5%88%9B%E4%B8%9A%E6%9C%89%E6%84%9F/</link><pubDate>Thu, 04 Jan 2024 13:36:34 +0800</pubDate><guid>https://blog.icharles.work/p/%E8%AF%BB%E5%88%9B%E4%B8%9A%E6%9C%89%E6%84%9F/</guid><description>&lt;h3 id="读创业有感">读创业有感&lt;/h3>
+&lt;blockquote>
+&lt;p>非常感谢&lt;a class="link" href="*tomhawstein@gmail.com*" >Hawstein&lt;/a>,以及他的文章&lt;a class="link" href="https://mp.weixin.qq.com/s/x6PLSIMn_1qcKnXWPT-J-Q" target="_blank" rel="noopener"
+>一个独立创造者的五年&lt;/a>,让我深受启发,在此记录观后心得.&lt;/p>
+&lt;/blockquote>
+&lt;h4 id="起点---梦想开始的地方">起点 - 梦想开始的地方&lt;/h4>
+&lt;p>独立创造者的故事: &lt;a class="link" href="https://www.indiehackers.com/" target="_blank" rel="noopener"
+>Indie Hackers: Work Together to Build Profitable Online Businesses&lt;/a>&lt;/p>
+&lt;p>在这里每天会有独立创造者分享他们的故事,如果脑中缺少想要做什么东西的想法,不妨多看一看他人的故事.&lt;/p>
+&lt;h4 id="轴承---梦想的支撑">轴承 - 梦想的支撑&lt;/h4>
+&lt;p>有了好的想法,甚至是有了自己的产品之后,需要处理的东西.&lt;/p>
+&lt;ul>
+&lt;li>银行账户 - 美国账户(BOA 支行)&lt;/li>
+&lt;li>海外支付服务提供商 - &lt;a class="link" href="https://stripe.com/zh-cn-jp" target="_blank" rel="noopener"
+>Stripe&lt;/a>&lt;/li>
+&lt;li>电话 - SSN (Social Security Number)/EIN(Employer Identification Number)&lt;/li>
+&lt;li>注册公司 - &lt;a class="link" href="https://www.firstbase.io/" target="_blank" rel="noopener"
+>Firstbase&lt;/a> / Stripe Atlas&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>注意事项:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>Stripe会要求提供美国政府签发的文件,以进一步验证账户所有人的名字以及地址,提供 &lt;code>办理 EIN 时 IRS 给的 147C 信件&lt;/code>就可以了.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>EIN 则每个人都可以申请。更妙的是，你可以在 Fiverr 花点钱让别人帮你快速申请下来。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>使用&lt;a class="link" href="https://www.firstbase.io/" target="_blank" rel="noopener"
+>Firstbase&lt;/a>注册公司. &lt;a class="link" href="https://stripe.com/zh-cn-jp/atlas" target="_blank" rel="noopener"
+>Stripe Atlas&lt;/a> 只能做 C 公司.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>使用&lt;a class="link" href="https://mercury.com/" target="_blank" rel="noopener"
+>Mercury&lt;/a>用于银行业务.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>美国公司可以做到 0 交税（在美国只报税不交税）&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>仔细选择免税地点，以避免双重征税 (&lt;a class="link" href="https://incorporations.io/" target="_blank" rel="noopener"
+>https://incorporations.io/&lt;/a>)&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;h4 id="挥棒---抓住梦想">挥棒 - 抓住梦想&lt;/h4>
+&lt;p>产品可以停留在想法,待进行各方面的调研之后(竞品调研、用户调研、市场调研)，先沉淀下来。&lt;/p>
+&lt;p>当想要实现的欲望越来越强烈时，就该主动出击，抓住机会。&lt;/p>
+&lt;blockquote>
+&lt;p>可以什么都不做。但是一旦发现一个绝佳好球，再全力挥棒.&lt;/p>
+&lt;/blockquote>
+&lt;p>做MVP产品 , 快速发布 , 快速响应 , 快速调整.&lt;/p>
+&lt;h4 id="推广---梦想成为现实">推广 - 梦想成为现实&lt;/h4>
+&lt;ul>
+&lt;li>朋友帮忙写好评&lt;/li>
+&lt;li>用户帮忙写好评&lt;/li>
+&lt;li>给潜在客户发私信或邮件&lt;/li>
+&lt;li>在互联网留下产品名字和官网链接&lt;/li>
+&lt;li>内容营销&lt;/li>
+&lt;li>付费广告(Google Ads)&lt;/li>
+&lt;li>推广佣金给用户&lt;/li>
+&lt;li>口碑传播&lt;/li>
+&lt;/ul>
+&lt;h4 id="随想">随想&lt;/h4>
+&lt;ul>
+&lt;li>在产品运行时,与客户沟通,搜集他们的问题和需求,也可能是成为一个新产品的机会.&lt;/li>
+&lt;li>在做产品时,碰到的问题或解决方案不够好时,也可能是成为一个新产品的机会.&lt;/li>
+&lt;li>与客户交朋友.&lt;/li>
+&lt;li>生意即艺术,享受做生意的过程,并在每一步都可以发挥自己的创造力.将会成为更好的产品.&lt;/li>
+&lt;li>遇见有趣的人或事,也是一种收获.&lt;/li>
+&lt;/ul></description></item><item><title>饥荒 蜗牛神教</title><link>https://blog.icharles.work/p/%E9%A5%A5%E8%8D%92-%E8%9C%97%E7%89%9B%E7%A5%9E%E6%95%99/</link><pubDate>Wed, 30 Aug 2023 12:11:12 +0800</pubDate><guid>https://blog.icharles.work/p/%E9%A5%A5%E8%8D%92-%E8%9C%97%E7%89%9B%E7%A5%9E%E6%95%99/</guid><description>&lt;h2 id="蜗牛壳攻略">蜗牛壳攻略&lt;/h2>
+&lt;h3 id="刷蜗牛壳流程">刷蜗牛壳流程&lt;/h3>
+&lt;ol>
+&lt;li>准备物资: 火把 + 3个水壶 + 1个火腿棒 + 2-3个猪皮头盔 + 食物(找蓝蘑菇林,挖蘑菇+活木)&lt;/li>
+&lt;li>在石笋区找到蜗牛巢,将矿石放入背包,远离蜗牛巢一个屏幕距离放下背包,避免矿石吸引蜗牛仇恨攻击人物&lt;/li>
+&lt;li>用火把点燃蜗牛巢,概率刷新尖壳蜗牛和圆壳蜗牛,然后熄灭蜗牛巢.圆壳蜗牛会收到惊吓远离玩家,杀死会掉落蜗牛壳,尖壳蜗牛会回到蜗牛巢&lt;/li>
+&lt;li>用鼠标点击蜗牛攻击,避免F键打到蜗牛巢&lt;/li>
+&lt;/ol>
+&lt;h3 id="注意事项">注意事项:&lt;/h3>
+&lt;ol>
+&lt;li>点击右键缩壳,在缩壳状态下点击右键会脱下.可以使用走位或F键脱离缩壳状态.&lt;/li>
+&lt;li>缩壳5秒后可以脱离仇恨,但如果护甲被打掉,人物就会站起来,脱离仇恨失败.&lt;/li>
+&lt;/ol>
+&lt;h2 id="清理远古流程">清理远古流程&lt;/h2>
+&lt;h3 id="远古暴动">远古暴动&lt;/h3>
+&lt;p>远古暴动分为四个周期,周期循环:&lt;/p>
+&lt;ol>
+&lt;li>平静期 : 影灯闭合,无影怪 &lt;code>危险指数: *&lt;/code>&lt;/li>
+&lt;li>预警期 : 影灯开启,但无影怪 &lt;code>危险指数: **&lt;/code>&lt;/li>
+&lt;li>暴动期 : 影灯开启,并有大量影怪 &lt;code>危险指数: *****&lt;/code>&lt;/li>
+&lt;li>黎明期 : 影灯部分闭合,但有残留影怪 &lt;code>危险指数: ***&lt;/code>&lt;/li>
+&lt;/ol>
+&lt;h3 id="清理远古">清理远古&lt;/h3>
+&lt;p>远古分为几个区域,每个区域有不同数量的雕像和怪物&lt;/p>
+&lt;h4 id="五雕像区域">五雕像区域&lt;/h4>
+&lt;p>区域特征: 有5个雕像,1个主教和2个战车.&lt;/p>
+&lt;p>清理思路: 站在主教外侧偏雕像的位置, F键攻击主教,并吸引战车撞主教. 当主教攻击或战车撞击时,缩壳躲避攻击. 利用战车清理雕像.&lt;/p>
+&lt;h4 id="八雕像区域">八雕像区域&lt;/h4>
+&lt;p>区域特征: 有8个雕像,2个主教.&lt;/p>
+&lt;p>清理思路: 注意主教攻击时缩壳,就可以简单清理了.&lt;/p>
+&lt;h4 id="危险圣地">危险圣地&lt;/h4>
+&lt;p>区域特征: 多个五雕像区域连接到了一起,同样每个区域会有1个主教和2个战车.但会有更多的发条怪.&lt;/p>
+&lt;p>清理思路: 同五雕像区域,但注意别贪刀,多利用蜗牛壳躲避战车撞击.&lt;/p></description></item><item><title>饥荒 初期建家</title><link>https://blog.icharles.work/p/%E9%A5%A5%E8%8D%92-%E5%88%9D%E6%9C%9F%E5%BB%BA%E5%AE%B6/</link><pubDate>Sat, 29 Jul 2023 12:11:12 +0800</pubDate><guid>https://blog.icharles.work/p/%E9%A5%A5%E8%8D%92-%E5%88%9D%E6%9C%9F%E5%BB%BA%E5%AE%B6/</guid><description>&lt;h2 id="初期建家">初期建家&lt;/h2>
+&lt;h3 id="基础合成公式">基础合成公式&lt;/h3>
+&lt;h4 id="工具">工具&lt;/h4>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>工具&lt;/th>
+&lt;th>材料1&lt;/th>
+&lt;th>材料2&lt;/th>
+&lt;th>材料3&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>火把&lt;/td>
+&lt;td>草*2&lt;/td>
+&lt;td>树枝*2&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>斧头&lt;/td>
+&lt;td>燧石*1&lt;/td>
+&lt;td>树枝*1&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>鹤嘴锄(铲子、剃刀)&lt;/td>
+&lt;td>燧石*2&lt;/td>
+&lt;td>树枝*2&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>锤子&lt;/td>
+&lt;td>石头*3&lt;/td>
+&lt;td>树枝*3&lt;/td>
+&lt;td>草*6&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>捕虫网&lt;/td>
+&lt;td>蜘蛛丝*2&lt;/td>
+&lt;td>树枝*4&lt;/td>
+&lt;td>绳子&lt;em>1(草&lt;/em>3)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>陷阱&lt;/td>
+&lt;td>草*6&lt;/td>
+&lt;td>树枝*2&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>黄金斧头(铲子、鹤嘴锄、干草叉、园艺锄)&lt;/td>
+&lt;td>金*2&lt;/td>
+&lt;td>树枝*4&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>长矛&lt;/td>
+&lt;td>燧石*1&lt;/td>
+&lt;td>树枝*2&lt;/td>
+&lt;td>绳子*1&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>背包&lt;/td>
+&lt;td>草*4&lt;/td>
+&lt;td>树枝*4&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>养蜂帽&lt;/td>
+&lt;td>蜘蛛丝*8&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>绳子*1&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>提灯&lt;/td>
+&lt;td>荧光果*2&lt;/td>
+&lt;td>树枝*3&lt;/td>
+&lt;td>绳子*2&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>火腿棒&lt;/td>
+&lt;td>猪皮*1&lt;/td>
+&lt;td>树枝*2&lt;/td>
+&lt;td>肉*2&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>橄榄球头盔&lt;/td>
+&lt;td>猪皮*1&lt;/td>
+&lt;td>绳子*1&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>牛角帽&lt;/td>
+&lt;td>牛角*1&lt;/td>
+&lt;td>牛毛*8&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>鼹鼠帽&lt;/td>
+&lt;td>电子元件*2&lt;/td>
+&lt;td>鼹鼠*2&lt;/td>
+&lt;td>发光浆果*1&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>排箫&lt;/td>
+&lt;td>曼德拉草*1&lt;/td>
+&lt;td>芦苇*5&lt;/td>
+&lt;td>绳子*1&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h4 id="建筑">建筑&lt;/h4>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>建筑&lt;/th>
+&lt;th>材料1&lt;/th>
+&lt;th>材料2&lt;/th>
+&lt;th>材料3&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>精炼材料&lt;/td>
+&lt;td>木板=木*4&lt;/td>
+&lt;td>石砖=石头*3&lt;/td>
+&lt;td>绳子=草*3&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>电子元件&lt;/td>
+&lt;td>金子&lt;em>2+石砖&lt;/em>1(石头*3)&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>莎草纸=芦苇*4&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>科技一本&lt;/td>
+&lt;td>金子*1&lt;/td>
+&lt;td>木*4&lt;/td>
+&lt;td>石头*4&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>科技二本&lt;/td>
+&lt;td>木板&lt;em>4(木&lt;/em>16)&lt;/td>
+&lt;td>石砖&lt;em>2(石头&lt;/em>6)&lt;/td>
+&lt;td>电子元件&lt;em>2(金&lt;/em>4 石头*6)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>魔法一本&lt;/td>
+&lt;td>兔子*4&lt;/td>
+&lt;td>木板&lt;em>4(木&lt;/em>16)&lt;/td>
+&lt;td>高礼帽&lt;em>1(蜘蛛丝&lt;/em>6)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>魔法二本&lt;/td>
+&lt;td>活木*3&lt;/td>
+&lt;td>紫宝石*1&lt;/td>
+&lt;td>噩梦燃料*7&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>火坑&lt;/td>
+&lt;td>木*2&lt;/td>
+&lt;td>石头*12&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>烹饪锅&lt;/td>
+&lt;td>石砖&lt;em>3(石头&lt;/em>9)&lt;/td>
+&lt;td>木炭*6&lt;/td>
+&lt;td>树枝*6&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>箱子&lt;/td>
+&lt;td>木板&lt;em>3(木&lt;/em>12)&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>冰箱&lt;/td>
+&lt;td>金子*5&lt;/td>
+&lt;td>齿轮*1&lt;/td>
+&lt;td>石砖&lt;em>1(石头&lt;/em>3)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>晾肉架&lt;/td>
+&lt;td>木炭*2&lt;/td>
+&lt;td>树枝*3&lt;/td>
+&lt;td>绳子&lt;em>3(草&lt;/em>9)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>帐篷&lt;/td>
+&lt;td>蜘蛛丝*6&lt;/td>
+&lt;td>树枝*4&lt;/td>
+&lt;td>绳子*3&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>遮阳棚&lt;/td>
+&lt;td>蜘蛛丝*2&lt;/td>
+&lt;td>木板*4&lt;/td>
+&lt;td>绳子*3&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>猪屋&lt;/td>
+&lt;td>木板*4&lt;/td>
+&lt;td>石砖*3&lt;/td>
+&lt;td>猪皮*4&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>兔屋&lt;/td>
+&lt;td>木板*4&lt;/td>
+&lt;td>胡萝卜*10&lt;/td>
+&lt;td>兔绒*4&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>避雷针&lt;/td>
+&lt;td>金子*4&lt;/td>
+&lt;td>石头*3&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>捕鸟陷阱&lt;/td>
+&lt;td>树枝*3&lt;/td>
+&lt;td>蜘蛛丝*4&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>鸟笼&lt;/td>
+&lt;td>莎草纸*2&lt;/td>
+&lt;td>金子*6&lt;/td>
+&lt;td>种子*2&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>蜂箱&lt;/td>
+&lt;td>蜜蜂*4&lt;/td>
+&lt;td>木板*2&lt;/td>
+&lt;td>蜂巢*1&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;blockquote>
+&lt;p>最小工具开局:&lt;/p>
+&lt;ol>
+&lt;li>燧石3+树枝10+草8+3石头(斧子 稿子 锤子 火把 铲子) 草4+树枝4(背包)&lt;/li>
+&lt;li>木头4+石头4+金子1(打包1本)&lt;/li>
+&lt;li>敲2个猪人房,金子4,大肉2,草6,树枝2(二本,火腿棒,头盔*2)&lt;/li>
+&lt;/ol>
+&lt;p>总共需要: 燧石3,石头7,树枝16,草18,金子5,大肉2&lt;/p>
+&lt;hr>
+&lt;p>以常规开局为例,需要准备的建筑有:&lt;/p>
+&lt;p>日常: 1个石坑+1个帐篷+1个遮阳棚&lt;/p>
+&lt;p>烹饪:2个冰箱+6个烹饪锅+6个晾肉架+1个鸟笼&lt;/p>
+&lt;p>科技:1个科技2本(包含了科技1本) 1个魔法2本(包含了魔法1本)&lt;/p>
+&lt;p>需要准备的材料有:&lt;/p>
+&lt;ul>
+&lt;li>木: 2+16+4+16+16 = 54&lt;/li>
+&lt;li>石头: 12+6+54+4+6+6 = 88&lt;/li>
+&lt;li>草: 9+9 = 18&lt;/li>
+&lt;li>金子: 10+12+1+4 = 27&lt;/li>
+&lt;li>木炭: 36&lt;/li>
+&lt;li>树枝: 4+36 = 40&lt;/li>
+&lt;li>蜘蛛丝: 6+2+6 = 14&lt;/li>
+&lt;li>齿轮:2 | 芦苇:8 | 种子:2&lt;/li>
+&lt;li>兔子:4 | 活木:3| 紫宝石:1|噩梦燃料:7&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;h3 id="地图资源点">地图资源点&lt;/h3>
+&lt;blockquote>
+&lt;p>为了更快找到资源点,必须要做的事情: 跳每一个虫洞,下每一个洞穴&lt;/p>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>龙蝇沙漠(必须找到)&lt;/li>
+&lt;li>绿洲沙漠(必须找到)&lt;/li>
+&lt;li>带海象的平原或森林(必须找到)&lt;/li>
+&lt;li>沼泽(必须找到)&lt;/li>
+&lt;li>猪王(必须找到)&lt;/li>
+&lt;li>蜂后(必须找到)&lt;/li>
+&lt;li>马赛克混合地区(可不找到)&lt;/li>
+&lt;li>带曼德拉草的森林(可不找到)&lt;/li>
+&lt;/ul></description></item><item><title>ChatGPT使用技巧</title><link>https://blog.icharles.work/p/chatgpt%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</link><pubDate>Thu, 27 Jul 2023 10:23:05 +0800</pubDate><guid>https://blog.icharles.work/p/chatgpt%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</guid><description>&lt;h2 id="chatgpt使用技巧">ChatGPT使用技巧&lt;/h2>
+&lt;h3 id="基础篇">基础篇&lt;/h3>
+&lt;ol>
+&lt;li>
+&lt;p>给定prompt更多,更精准的定义词或条件.&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;code>Write a short inspiring poem about OpenAI, focusing on the recent DALL-E product launch (DALL-E is a text to image ML model) in the style of a {famous poet}&lt;/code>&lt;/p>
+&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>明确知道自己想要什么时,告诉它要做什么(to do),而不是不要做什么(not to do).&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;code>Please suggest me 10 essential words for IELTS&lt;/code>&lt;/p>
+&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>不明确自己想要什么时,先告诉它不要什么(not to do)后,缩小范围,再告诉它要做什么(to do).&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;code>Please recommend me some places to visit in Hong Kong including amusement parks.&lt;/code>&lt;/p>
+&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>在prompt中给出示例,基于示例回答.&lt;/p>
+&lt;blockquote>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">Suggest three names for an animal that is a superhero.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Animal: Cat
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Names: Captain Sharpclaw, Agent Fluffball, The Incredible Feline
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Animal: Dog
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Names: Ruff the Protector, Wonder Canine, Sir Barks-a-Lot
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Animal: Horse
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Names:
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>越完整的题目越容易生成更好的答案.&lt;/p>
+&lt;blockquote>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">如果一个房地产经纪人的佣金是某个房子的售价的6％，那么这个房子的售价是多少？
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">（1）售价减去房地产经纪人的佣金为84,600美元。
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">（2）购买价是36,000美元，售价是购买价的250%。
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">（A）仅陈述（1）足以回答问题，但仅陈述（2）不能回答问题。
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">（B）仅陈述（2）足以回答问题，但仅陈述（1）不能回答问题。
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">（C）两个陈述合起来足以回答问题，但没有一个陈述单独足以回答问题。
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">（D）每个陈述单独足以回答问题。
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">（E）陈述（1）和（2）合起来不能回答问题。
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>给出引导词,引导模型输出特定引导的内容.&lt;/p>
+&lt;blockquote>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">Create a MySQL query for all students in the Computer Science Department:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Table departments, columns = [DepartmentId, DepartmentName]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Table students, columns = [DepartmentId, StudentId, StudentName]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">SELECT
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>增加温度(temperature)，[0-2]的有效区间.&lt;/p>
+&lt;blockquote>
+&lt;p>如果你是梅西的追随者，请用100字表达情感。temperature=2&lt;/p>
+&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>加入角色，让内容更符合需求.&lt;/p>
+&lt;blockquote>
+&lt;p>假如你是一个 Redis 终端，我将输入命令，您将回复终端应显示的内容&lt;/p>
+&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>信息解释&lt;/p>
+&lt;blockquote>
+&lt;p>Explanation of what the code does:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">Python&lt;/span> &lt;span class="mi">3&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">remove_common_prefix&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">prefix&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">ws_prefix&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">x&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;completion&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">x&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;completion&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">str&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="nb">len&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">prefix&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">:]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="n">ws_prefix&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> \&lt;span class="c1"># keep the single whitespace as prefix &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">x&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;completion&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34; &amp;#34;&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="n">x&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;completion&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">return&lt;/span> &lt;span class="n">x&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>用“”“(或###)将指令和文本分开,增加”“”会提升 AI 反馈的准确性.&lt;/p>
+&lt;blockquote>
+&lt;p>text = f&amp;quot;&amp;quot;&amp;quot;
+You should express what you want a model to do by &lt;br>
+providing instructions that are as clear and &lt;br>
+specific as you can possibly make them. &lt;br>
+This will guide the model towards the desired output, &lt;br>
+and reduce the chances of receiving irrelevant &lt;br>
+or incorrect responses. Don&amp;rsquo;t confuse writing a &lt;br>
+clear prompt with writing a short prompt. &lt;br>
+In many cases, longer prompts provide more clarity &lt;br>
+and context for the model, which can lead to &lt;br>
+more detailed and relevant outputs.
+&amp;quot;&amp;quot;&amp;quot;&lt;/p>
+&lt;p>prompt = f&amp;quot;&amp;quot;&amp;quot;
+Summarize the text delimited by triple backticks &lt;br>
+into a single sentence.
+&lt;code>{text}&lt;/code>
+&amp;quot;&amp;quot;&amp;quot;&lt;/p>
+&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>指定内容进行提炼,按格式输出&lt;/p>
+&lt;blockquote>
+&lt;p>Extract the important entities mentioned in the article below. First extract all company names, then extract all people names, then extract specific topics which fit the content and finally extract general overarching themes
+Desired format:
+Company names: &amp;lt;comma_separated_list_of_company_names&amp;gt;
+People names: -||-
+Specific topics: -||-
+General themes: -||-&lt;/p>
+&lt;p>Text: &amp;ldquo;&amp;ldquo;&amp;ldquo;Powering Next Generation
+Applications with OpenAI Codex
+Codex is now powering 70 different applications across a variety of use cases through the OpenAI API.&lt;/p>
+&lt;p>May 24, 2022
+4 minute read
+OpenAI Codex, a natural language-to-code system based on GPT-3, helps turn simple English instructions into over a dozen popular coding languages. Codex was released last August through our API and is the principal building block of GitHub Copilot.&lt;/p>
+&lt;p>Warp is a Rust-based terminal, reimagined from the ground up to help both individuals and teams be more productive in the command-line.&lt;/p>
+&lt;p>Terminal commands are typically difficult to remember, find and construct. Users often have to leave the terminal and search the web for answers and even then the results might not give them the right command to execute. Warp uses Codex to allow users to run a natural language command to search directly from within the terminal and get a result they can immediately use.&lt;/p>
+&lt;p>“Codex allows Warp to make the terminal more accessible and powerful. Developers search for entire commands using natural language rather than trying to remember them or assemble them piecemeal. Codex-powered command search has become one of our game changing features.”&lt;/p>
+&lt;p>—Zach Lloyd, Founder, Warp&lt;/p>
+&lt;p>Machinet helps professional Java developers write quality code by using Codex to generate intelligent unit test templates.&lt;/p>
+&lt;p>Machinet was able to accelerate their development several-fold by switching from building their own machine learning systems to using Codex. The flexibility of Codex allows for the ability to easily add new features and capabilities saving their users time and helping them be more productive.&lt;/p>
+&lt;p>“Codex is an amazing tool in our arsenal. Not only does it allow us to generate more meaningful code, but it has also helped us find a new design of product architecture and got us out of a local maximum.”&lt;/p>
+&lt;p>—Vladislav Yanchenko, Founder, Machinet&amp;rdquo;&amp;rdquo;&amp;rdquo;&lt;/p>
+&lt;/blockquote>
+&lt;p>output:&lt;/p>
+&lt;blockquote>
+&lt;p>Company names: OpenAI, Microsoft, GitHub, Pygma, Replit, Warp, Machinet
+People names: Emile Paffard-Wray, Amjad Masad, Zach Lloyd, Vladislav Yanchenko
+Specific topics: GPT-3, OpenAI API, Azure OpenAI Service, GitHub Copilot, Pygma, Replit, Warp, Machinet
+General themes: Natural language-to-code, Productivity, Problem solving, Creativity, Learning&lt;/p>
+&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>根据格式词,格式化输出&lt;/p>
+&lt;blockquote>
+&lt;p>Summarize the main points of the following speech
+Use the following format:
+Topic 1: &amp;lt;topic_name_1&amp;gt;&lt;/p>
+&lt;ul>
+&lt;li>&amp;lt;point_1&amp;gt;
+&amp;gt; ..
+&amp;gt; Topic 2: &amp;lt;topic_name_2&amp;gt;&lt;/li>
+&lt;li>&amp;lt;point_1&amp;gt;
+&amp;gt; ..
+&amp;gt; Topic 10: ..&lt;/li>
+&lt;/ul>
+&lt;p>Text: &amp;quot;&amp;quot;&amp;quot;
+Thank you so much, Fred, for that lovely introduction. And thanks to the Atlantic Council for hosting me today.&lt;/p>
+&lt;p>The course of the global economy over the past two years has been shaped by COVID-19 and our efforts to fight the pandemic. It’s now evident, though, that the war between Russia and Ukraine has redrawn the contours of the world economic outlook. Vladimir Putin’s unprovoked attack on Ukraine and its people is taking a devastating human toll, with lives tragically lost, families internally displaced or becoming refugees, and communities and cities destroyed.
+&amp;hellip;&lt;/p>
+&lt;p>&amp;quot;&amp;quot;&amp;quot;&lt;/p>
+&lt;/blockquote>
+&lt;p>output&lt;/p>
+&lt;blockquote>
+&lt;p>Topic 1: The war in Ukraine&lt;/p>
+&lt;ul>
+&lt;li>The war is taking a human toll with lives lost, families displaced, and communities destroyed&lt;/li>
+&lt;li>The Biden administration is committed to holding Russia accountable&lt;/li>
+&lt;li>The war has violated international law and is a challenge to the international order&lt;/li>
+&lt;/ul>
+&lt;p>Topic 2: The global economy&lt;/p>
+&lt;ul>
+&lt;li>The war is having negative impacts on the global economy, including higher commodity prices and inflation&lt;/li>
+&lt;li>The IMF and World Bank will be focused on helping developing countries weather the impacts of the war&lt;/li>
+&lt;li>The ultimate outcome for the global economy depends on the path of the war&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;/li>
+&lt;/ol>
+&lt;h3 id="高级篇">高级篇&lt;/h3>
+&lt;h4 id="chatgpt-prompt-framework">ChatGPT Prompt Framework&lt;/h4>
+&lt;h5 id="basic-prompt-framework">Basic Prompt Framework&lt;/h5>
+&lt;ul>
+&lt;li>&lt;strong>Instruction（必须）：&lt;/strong> 指令，即你希望模型执行的具体任务。&lt;/li>
+&lt;li>&lt;strong>Context（选填）：&lt;/strong> 背景信息，或者说是上下文信息，这可以引导模型做出更好的反应。&lt;/li>
+&lt;li>&lt;strong>Input Data（选填）：&lt;/strong> 输入数据，告知模型需要处理的数据。&lt;/li>
+&lt;li>&lt;strong>Output Indicator（选填）：&lt;/strong> 输出指示器，告知模型我们要输出的类型或格式&lt;/li>
+&lt;/ul>
+&lt;h5 id="crispe-prompt-framework">CRISPE Prompt Framework&lt;/h5>
+&lt;ul>
+&lt;li>&lt;strong>CR：&lt;/strong> Capacity and Role（能力与角色）。你希望 ChatGPT 扮演怎样的角色。&lt;/li>
+&lt;li>&lt;strong>I：&lt;/strong> Insight（洞察力），背景信息和上下文（坦率说来我觉得用 Context 更好）。&lt;/li>
+&lt;li>&lt;strong>S：&lt;/strong> Statement（指令），你希望 ChatGPT 做什么。&lt;/li>
+&lt;li>&lt;strong>P：&lt;/strong> Personality（个性），你希望 ChatGPT 以什么风格或方式回答你。&lt;/li>
+&lt;li>&lt;strong>E：&lt;/strong> Experiment（尝试），要求 ChatGPT 为你提供多个答案。&lt;/li>
+&lt;/ul>
+&lt;h4 id="chain-of-thought">Chain of Thought&lt;/h4>
+&lt;h5 id="step-of-thought">Step of thought&lt;/h5>
+&lt;blockquote>
+&lt;p>Let&amp;rsquo;s work this out in a step by step way to be sure we have the right answer.&lt;/p>
+&lt;/blockquote>
+&lt;h5 id="self-consistency">Self-Consistency&lt;/h5>
+&lt;blockquote>
+&lt;p>推理路径A：&lt;/p>
+&lt;p>商店有 10 个苹果。
+店里有 8 个橙子。
+卖了 6 个苹果。
+卖了 4 个橙子。
+还剩下 10 - 6 = 4 个苹果。
+剩下 8 - 4 = 4 个橙子。
+商店现在有 4 个苹果 + 4 个橙子 = 8 个水果。&lt;/p>
+&lt;p>推理路径 B：&lt;/p>
+&lt;p>商店最初有 10 个苹果和 8 个橙子。
+商店卖了 6 个苹果，所以还剩下 10 - 6 = 4 个苹果。
+商店卖了 4 个橙子，所以还剩下 8 - 4 = 4 个橙子。
+商店现在有 4 个苹果 + 4 个橙子 = 8 个水果。&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;img src="https://pan.icharles.work/images/2023/06/26/649947b590654.jpg"
+loading="lazy"
+>&lt;/p></description></item><item><title>接入社交媒体三方平台-Twitter篇</title><link>https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/</link><pubDate>Thu, 20 Jul 2023 14:36:31 +0800</pubDate><guid>https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/</guid><description>&lt;h1 id="社交媒体三方平台">社交媒体三方平台&lt;/h1>
+&lt;h2 id="twitter">Twitter&lt;/h2>
+&lt;h3 id="接入前准备流程">接入前准备流程&lt;/h3>
+&lt;ol>
+&lt;li>申请Twitter账号,访问&lt;a class="link" href="https://developer.twitter.com/en" target="_blank" rel="noopener"
+>开发者平台&lt;/a>并点击订阅&lt;/li>
+&lt;li>订阅选择套餐,此处为了演示我选择免费套餐.套餐如下图&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/img_6.png"
+width="1920"
+height="937"
+srcset="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/img_6_hu616d4bd9617d6582e32ceebe5664bc7b_264050_480x0_resize_box_3.png 480w, https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/img_6_hu616d4bd9617d6582e32ceebe5664bc7b_264050_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="img_6.png"
+class="gallery-image"
+data-flex-grow="204"
+data-flex-basis="491px"
+>&lt;/p>
+&lt;ol start="3">
+&lt;li>填写描述信息,点击提交&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/img_7.png"
+width="1920"
+height="937"
+srcset="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/img_7_huffc482de8332f8396a2d4d0223cc52f2_52687_480x0_resize_box_3.png 480w, https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/img_7_huffc482de8332f8396a2d4d0223cc52f2_52687_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="img_7.png"
+class="gallery-image"
+data-flex-grow="204"
+data-flex-basis="491px"
+>&lt;/p>
+&lt;blockquote>
+&lt;p>参考示例:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-text" data-lang="text">&lt;span class="line">&lt;span class="cl">As a platform developer, my use cases of Twitter&amp;#39;s data and API include integrating real-time tweets into applications,
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">allowing users to view and interact with trending topics, hashtags, and user profiles. Additionally, I leverage the API to enable users to post tweets,
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">schedule tweets, and access their timelines. Analyzing user sentiment, engagement metrics, and trending content helps optimize content strategies.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">I also utilize Twitter&amp;#39;s data to gather insights for research and sentiment analysis. Ensuring compliance with Twitter&amp;#39;s data usage policies and user privacy is a priority in all use cases.
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/blockquote>
+&lt;ol start="4">
+&lt;li>点击&lt;code>Keys and tokens&lt;/code>,Regenerate重新生成&lt;code>API Key&lt;/code>和&lt;code>API Key Secret&lt;/code>,保存下来&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/img_8.png"
+width="1920"
+height="937"
+srcset="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/img_8_hu807c019bcca4a944e1ef9184b39e4488_75588_480x0_resize_box_3.png 480w, https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/img_8_hu807c019bcca4a944e1ef9184b39e4488_75588_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="img_8.png"
+class="gallery-image"
+data-flex-grow="204"
+data-flex-basis="491px"
+>&lt;/p>
+&lt;p>&lt;img src="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/img_9.png"
+width="1920"
+height="937"
+srcset="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/img_9_huf4725ba71a607820a0ad1b52934df287_76746_480x0_resize_box_3.png 480w, https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/img_9_huf4725ba71a607820a0ad1b52934df287_76746_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="img_9.png"
+class="gallery-image"
+data-flex-grow="204"
+data-flex-basis="491px"
+>&lt;/p>
+&lt;ol start="5">
+&lt;li>点击&lt;code>User authentication settings&lt;/code>模块下的&lt;code>Set up&lt;/code>按钮,配置&lt;code>Twitter&lt;/code>授权登录的必填信息&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/img_10.png"
+width="1920"
+height="937"
+srcset="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/img_10_huc26ce97f645dc2a870d4fae76c3aa939_176427_480x0_resize_box_3.png 480w, https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/img_10_huc26ce97f645dc2a870d4fae76c3aa939_176427_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="img_10.png"
+class="gallery-image"
+data-flex-grow="204"
+data-flex-basis="491px"
+>&lt;/p>
+&lt;ol start="6">
+&lt;li>保存后会生成&lt;code>Client ID&lt;/code>和&lt;code>Client Secret&lt;/code>,保存下来&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/img_11.png"
+width="1920"
+height="937"
+srcset="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/img_11_hucf69be47ba95e9e5de45d92e6a1d6a09_334782_480x0_resize_box_3.png 480w, https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/img_11_hucf69be47ba95e9e5de45d92e6a1d6a09_334782_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="img_11.png"
+class="gallery-image"
+data-flex-grow="204"
+data-flex-basis="491px"
+>&lt;/p>
+&lt;h3 id="接入工作">接入工作&lt;/h3>
+&lt;ol>
+&lt;li>导入Twitter API依赖&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-xml" data-lang="xml">&lt;span class="line">&lt;span class="cl">&lt;span class="c">&amp;lt;!--twitter--&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;dependency&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;groupId&amp;gt;&lt;/span>org.twitter4j&lt;span class="nt">&amp;lt;/groupId&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;artifactId&amp;gt;&lt;/span>twitter4j-core&lt;span class="nt">&amp;lt;/artifactId&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;version&amp;gt;&lt;/span>4.1.2&lt;span class="nt">&amp;lt;/version&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;/dependency&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol start="2">
+&lt;li>参考&lt;a class="link" href="https://developer.twitter.com/en/docs/twitter-api/tweets/manage-tweets/introduction" target="_blank" rel="noopener"
+>Twitter API&lt;/a>官方文档和&lt;a class="link" href="https://github.com/Twitter4J/Twitter4J/tree/main/twitter4j-examples/src/main/java/examples" target="_blank" rel="noopener"
+>twitter4j&lt;/a>编写代码&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>创建授权凭据&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-java" data-lang="java">&lt;span class="line">&lt;span class="cl">&lt;span class="n">ConfigurationBuilder&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">cb&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">ConfigurationBuilder&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">cb&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">setDebugEnabled&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kc">true&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">setOAuthConsumerKey&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">CONSUMER_KEY&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">setOAuthConsumerSecret&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">CONSUMER_SECRET&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">setOAuthAccessToken&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">ACCESS_TOKEN&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">setOAuthAccessTokenSecret&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">ACCESS_TOKEN_SECRET&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">TwitterFactory&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">tf&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">TwitterFactory&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">cb&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">build&lt;/span>&lt;span class="p">());&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">Twitter&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">twitter&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">tf&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">getInstance&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>访问API接口&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-java" data-lang="java">&lt;span class="line">&lt;span class="cl">&lt;span class="cm">/**
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cm"> * 获取用户时间线
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cm"> */&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">User&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">user&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">twitter&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">verifyCredentials&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">System&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">out&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Welcome, @&amp;#34;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">user&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">getScreenName&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s">&amp;#34;!&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">Paging&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">paging&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">Paging&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">1&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">10&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c1">// Get the first 10 tweets on the user&amp;#39;s timeline&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">ResponseList&lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="n">Status&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">timeline&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">twitter&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">getUserTimeline&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">paging&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="k">for&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">Status&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">status&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">timeline&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">System&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">out&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">status&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">getText&lt;/span>&lt;span class="p">());&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>接入社交媒体三方平台-Youtube篇</title><link>https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/</link><pubDate>Wed, 19 Jul 2023 10:06:18 +0800</pubDate><guid>https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/</guid><description>&lt;h1 id="社交媒体三方平台">社交媒体三方平台&lt;/h1>
+&lt;h2 id="youtube">Youtube&lt;/h2>
+&lt;h3 id="接入前准备流程">接入前准备流程&lt;/h3>
+&lt;ol>
+&lt;li>申请Google账号,访问&lt;a class="link" href="https://console.cloud.google.com/" target="_blank" rel="noopener"
+>谷歌云平台&lt;/a>&lt;/li>
+&lt;li>在导航栏中找到&lt;code>API和服务&lt;/code>,进入&lt;code>已启用的API和服务&lt;/code>,搜索&lt;code>YouTube Data API v3&lt;/code>&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/img.png"
+width="1920"
+height="930"
+srcset="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/img_huaef687d03d8fc819a4414ed7506b29ac_153172_480x0_resize_box_3.png 480w, https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/img_huaef687d03d8fc819a4414ed7506b29ac_153172_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="img.png"
+class="gallery-image"
+data-flex-grow="206"
+data-flex-basis="495px"
+>&lt;/p>
+&lt;ol start="3">
+&lt;li>进入&lt;code>YouTube Data API v3&lt;/code>,点击&lt;code>启用&lt;/code>&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/img_1.png"
+width="1041"
+height="716"
+srcset="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/img_1_huaf2034347d00fbaa3616c1070011e269_47082_480x0_resize_box_3.png 480w, https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/img_1_huaf2034347d00fbaa3616c1070011e269_47082_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="img_1.png"
+class="gallery-image"
+data-flex-grow="145"
+data-flex-basis="348px"
+>&lt;/p>
+&lt;ol start="4">
+&lt;li>进入&lt;code>YouTube Data API v3&lt;/code>API/服务详情,点击创建凭据&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/img_2.png"
+width="1920"
+height="937"
+srcset="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/img_2_hubf492fb09fe3d494e2cca5097cc6621d_71672_480x0_resize_box_3.png 480w, https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/img_2_hubf492fb09fe3d494e2cca5097cc6621d_71672_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="img_2.png"
+class="gallery-image"
+data-flex-grow="204"
+data-flex-basis="491px"
+>&lt;/p>
+&lt;ol start="5">
+&lt;li>勾选用户数据,点击下一步,填写每一个步骤的信息,在第五步下载凭证,最后点击完成&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/img_4.png"
+width="1556"
+height="932"
+srcset="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/img_4_hu0b84208300361d6cfec0dcaeb9c325f9_62718_480x0_resize_box_3.png 480w, https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/img_4_hu0b84208300361d6cfec0dcaeb9c325f9_62718_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="img_4.png"
+class="gallery-image"
+data-flex-grow="166"
+data-flex-basis="400px"
+>&lt;/p>
+&lt;blockquote>
+&lt;p>注意,在范围中选择&lt;code>YouTube Data API v3&lt;/code>的部分,按需选择&lt;/p>
+&lt;p>&lt;img src="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/img_3.png"
+width="1920"
+height="937"
+srcset="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/img_3_hu9a66ec90955cfb9ec07897fd94c25be8_113872_480x0_resize_box_3.png 480w, https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/img_3_hu9a66ec90955cfb9ec07897fd94c25be8_113872_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="img_3.png"
+class="gallery-image"
+data-flex-grow="204"
+data-flex-basis="491px"
+>&lt;/p>
+&lt;/blockquote>
+&lt;ol start="6">
+&lt;li>下载凭证后,将凭证放入项目的&lt;code>config&lt;/code>文件夹中,并重命名为&lt;code>client_secret.json&lt;/code>&lt;/li>
+&lt;/ol>
+&lt;h3 id="接入工作">接入工作&lt;/h3>
+&lt;ol>
+&lt;li>导入YouTube API依赖&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-xml" data-lang="xml">&lt;span class="line">&lt;span class="cl">&lt;span class="c">&amp;lt;!--Youtube--&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;dependency&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;groupId&amp;gt;&lt;/span>com.google.apis&lt;span class="nt">&amp;lt;/groupId&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;artifactId&amp;gt;&lt;/span>google-api-services-youtube&lt;span class="nt">&amp;lt;/artifactId&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;version&amp;gt;&lt;/span>v3-rev20230123-2.0.0&lt;span class="nt">&amp;lt;/version&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;/dependency&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;dependency&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;groupId&amp;gt;&lt;/span>com.google.api-client&lt;span class="nt">&amp;lt;/groupId&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;artifactId&amp;gt;&lt;/span>google-api-client-gson&lt;span class="nt">&amp;lt;/artifactId&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;version&amp;gt;&lt;/span>2.2.0&lt;span class="nt">&amp;lt;/version&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;/dependency&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol start="2">
+&lt;li>参考&lt;a class="link" href="https://developers.google.com/youtube/v3/docs?hl=zh-cn" target="_blank" rel="noopener"
+>YouTube API&lt;/a>官方文档,编写代码&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>创建授权凭据(准备工作中的client_secret.json文件)&lt;/li>
+&lt;li>确定访问权限范围&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/img_5.png"
+width="920"
+height="727"
+srcset="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/img_5_hucd678098ca4097f6acf562654ce40a7a_74144_480x0_resize_box_3.png 480w, https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/img_5_hucd678098ca4097f6acf562654ce40a7a_74144_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="img_5.png"
+class="gallery-image"
+data-flex-grow="126"
+data-flex-basis="303px"
+>&lt;/p>
+&lt;ul>
+&lt;li>运行授权请求&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-java" data-lang="java">&lt;span class="line">&lt;span class="cl">&lt;span class="n">List&lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="n">NameValuePair&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">parameters&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">ArrayList&lt;/span>&lt;span class="o">&amp;lt;&amp;gt;&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">parameters&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">add&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">BasicNameValuePair&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;code&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">code&lt;/span>&lt;span class="p">));&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">parameters&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">add&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">BasicNameValuePair&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;client_id&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">clientSecrets&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">getWeb&lt;/span>&lt;span class="p">().&lt;/span>&lt;span class="na">getClientId&lt;/span>&lt;span class="p">()));&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">parameters&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">add&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">BasicNameValuePair&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;client_secret&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">clientSecrets&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">getWeb&lt;/span>&lt;span class="p">().&lt;/span>&lt;span class="na">getClientSecret&lt;/span>&lt;span class="p">()));&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">parameters&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">add&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">BasicNameValuePair&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;grant_type&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s">&amp;#34;authorization_code&amp;#34;&lt;/span>&lt;span class="p">));&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">parameters&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">add&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">BasicNameValuePair&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;redirect_uri&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="n">redirectUri&lt;/span>&lt;span class="p">));&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">UrlEncodedFormEntity&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">encodedFormEntity&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">UrlEncodedFormEntity&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">parameters&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">StandardCharsets&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">UTF_8&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">name&lt;/span>&lt;span class="p">());&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">String&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">url&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s">&amp;#34;https://oauth2.googleapis.com/token&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">HttpPost&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">request&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">HttpPost&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">request&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">setEntity&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">encodedFormEntity&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">String&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">response&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">HttpClientUtil&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">doPost&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">url&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">encodedFormEntity&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">System&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">out&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">response&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">TokenResponse&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">tokenResponse&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">JSON&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">parseObject&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">response&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="n">TokenResponse&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">class&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">Credential&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">credential&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">flow&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">createAndStoreCredential&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">tokenResponse&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">state&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">CREDENTIAL_MAP&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">put&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">state&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="n">credential&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>访问API接口&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;span class="lnt">35
+&lt;/span>&lt;span class="lnt">36
+&lt;/span>&lt;span class="lnt">37
+&lt;/span>&lt;span class="lnt">38
+&lt;/span>&lt;span class="lnt">39
+&lt;/span>&lt;span class="lnt">40
+&lt;/span>&lt;span class="lnt">41
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-java" data-lang="java">&lt;span class="line">&lt;span class="cl">&lt;span class="cm">/**
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cm">* 上传视频接口
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cm">* @return
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cm">*/&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">Credential&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">credential&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">YoutubeAuthController&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">CREDENTIAL_MAP&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">get&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">uid&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">YouTube&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">youtubeService&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">YouTube&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">Builder&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">httpTransport&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">jsonFactory&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">credential&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="na">build&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">Video&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">uploadedVideo&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">Video&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">VideoStatus&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">status&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">VideoStatus&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">status&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">setPrivacyStatus&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;public&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">uploadedVideo&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">setStatus&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">status&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">VideoSnippet&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">snippet&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">VideoSnippet&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">snippet&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">setTitle&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">file&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">getOriginalFilename&lt;/span>&lt;span class="p">());&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">uploadedVideo&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">setSnippet&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">snippet&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">InputStreamContent&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">mediaContent&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">InputStreamContent&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;application/octet-stream&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">BufferedInputStream&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">file&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">getInputStream&lt;/span>&lt;span class="p">()));&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">YouTube&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">Videos&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">Insert&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">videoInsert&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">youtubeService&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">videos&lt;/span>&lt;span class="p">().&lt;/span>&lt;span class="na">insert&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;snippet,status,id,player&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">uploadedVideo&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">mediaContent&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">MediaHttpUploader&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">uploader&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">videoInsert&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">getMediaHttpUploader&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">uploader&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">setDirectUploadEnabled&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kc">false&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">MediaHttpUploaderProgressListener&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">progressListener&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">e&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="k">switch&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">e&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">getUploadState&lt;/span>&lt;span class="p">())&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">case&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">INITIATION_STARTED&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">System&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">out&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Initiation Started&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">break&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">case&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">INITIATION_COMPLETE&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">System&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">out&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Initiation Completed&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">break&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">case&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">MEDIA_IN_PROGRESS&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">System&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">out&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Upload in progress&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">System&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">out&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Upload percentage: &amp;#34;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">e&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">getProgress&lt;/span>&lt;span class="p">());&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">break&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">case&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">MEDIA_COMPLETE&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">System&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">out&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Upload Completed!&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">break&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">case&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">NOT_STARTED&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">System&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">out&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Upload Not Started!&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">break&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">};&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">uploader&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">setProgressListener&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">progressListener&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">videoInsert&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">execute&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>学习CY_StarUp课程有感</title><link>https://blog.icharles.work/p/%E5%AD%A6%E4%B9%A0cy_starup%E8%AF%BE%E7%A8%8B%E6%9C%89%E6%84%9F/</link><pubDate>Tue, 18 Jul 2023 16:56:44 +0800</pubDate><guid>https://blog.icharles.work/p/%E5%AD%A6%E4%B9%A0cy_starup%E8%AF%BE%E7%A8%8B%E6%9C%89%E6%84%9F/</guid><description>&lt;blockquote>
+&lt;p>很多人在你刚开始时就给你提供建议,告知风险以及需要承担的后果,但我想告诉你的是:想到就去做,不然点子就只会点子而不是现实.&lt;/p>
+&lt;/blockquote>
+&lt;ol>
+&lt;li>想到就去做(Just do it!)&lt;/li>
+&lt;li>一个点子(新的或者是借鉴别人的)&lt;/li>
+&lt;li>一份计划书&lt;/li>
+&lt;li>启动金&lt;/li>
+&lt;/ol></description></item><item><title>Stack使用方式</title><link>https://blog.icharles.work/p/stack%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F/</link><pubDate>Tue, 18 Jul 2023 12:11:12 +0800</pubDate><guid>https://blog.icharles.work/p/stack%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F/</guid><description>&lt;h3 id="shortcodes">Shortcodes&lt;/h3>
+&lt;p>Stack 附带了一组可以在内容中使用的短代码。
+此页面仅包含特定于 Stack 的短代码。Hugo 的内置短代码记录在此处。&lt;/p>
+&lt;blockquote>
+&lt;p>下面为了避免代码执行,在&amp;lt;&amp;gt;侧加了转义符&amp;rsquo;',使用时去掉&lt;/p>
+&lt;/blockquote>
+&lt;h4 id="哔哩哔哩视频">哔哩哔哩视频&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">{{\&amp;lt; bilibili VIDEO_ID PART_NUMBER \&amp;gt;}}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="腾讯视频">腾讯视频&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">{{\&amp;lt; tencent VIDEO_ID \&amp;gt;}}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="youtube-视频">Youtube 视频&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">{{\&amp;lt; youtube VIDEO_ID \&amp;gt;}}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="通用视频文件">通用视频文件&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">{{\&amp;lt; video VIDEO_URL \&amp;gt;}}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">{{\&amp;lt; video src=&amp;#34;VIDEO_URL&amp;#34; autoplay=&amp;#34;true&amp;#34; poster=&amp;#34;./video-poster.png&amp;#34; \&amp;gt;}}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>可以VIDEO_URL是 URL 或相对于目录的路径static。
+例如，src=&amp;quot;/video/my-video.mp4&amp;quot;将嵌入您网站文件夹的视频文件static/video/my-video.mp4。
+该autoplay属性是可选的。它可用于指定是否应自动播放视频。该poster属性是可选的。它可用于指定视频的海报图像。&lt;/p>
+&lt;h4 id="gitlab">GitLab&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">{{\&amp;lt; gitlab SNIPPET_ID \&amp;gt;}}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>可以SNIPPET_ID在片段的 URL 中找到。例如，https://gitlab.com/-/snippets/1234567 为1234567。&lt;/p>
+&lt;h4 id="引用">引用&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">{{\&amp;lt; quote author=&amp;#34;A famous person&amp;#34; source=&amp;#34;The book they wrote&amp;#34; url=&amp;#34;https://en.wikipedia.org/wiki/Book&amp;#34; \&amp;gt;}}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">{{\&amp;lt; /quote \&amp;gt;}}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>饥荒 奶奶岛篇</title><link>https://blog.icharles.work/p/%E9%A5%A5%E8%8D%92-%E5%A5%B6%E5%A5%B6%E5%B2%9B%E7%AF%87/</link><pubDate>Tue, 18 Jul 2023 12:11:12 +0800</pubDate><guid>https://blog.icharles.work/p/%E9%A5%A5%E8%8D%92-%E5%A5%B6%E5%A5%B6%E5%B2%9B%E7%AF%87/</guid><description>&lt;h2 id="奶奶岛篇">奶奶岛篇&lt;/h2>
+&lt;h3 id="任务">任务&lt;/h3>
+&lt;blockquote>
+&lt;p>完成下面任务会增加好感度,但重复完成任务不会增加好感度, 参考视频:
+&lt;a class="link" href="https://www.bilibili.com/video/BV1nk4y1N7Uv/?p=17&amp;amp;spm_id_from=pageDriver" target="_blank" rel="noopener"
+>https://www.bilibili.com/video/BV1nk4y1N7Uv/?p=17&amp;spm_id_from=pageDriver&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;h4 id="任务一修房子">任务一:修房子&lt;/h4>
+&lt;ul>
+&lt;li>一阶段:收集10个木板,10个饼干切割机壳(盐水浅滩群系,带新鲜火腿棒+船补丁),1只萤火虫(捕虫网捕捉)&lt;/li>
+&lt;li>二阶段:收集10个大理石,5个石砖,3个荧光果&lt;/li>
+&lt;li>三阶段:收集10个月岩,5个绳子,5个地毯地板&lt;/li>
+&lt;/ul>
+&lt;h4 id="任务二种植">任务二:种植&lt;/h4>
+&lt;ul>
+&lt;li>蜂巢周围种十朵花&lt;/li>
+&lt;li>种植8个浆果丛并施肥&lt;/li>
+&lt;/ul>
+&lt;h4 id="任务三杀花">任务三:杀花&lt;/h4>
+&lt;ul>
+&lt;li>春季,蜂箱旁会刷食人花,杀死食人花&lt;/li>
+&lt;/ul>
+&lt;h4 id="任务四清理垃圾">任务四:清理垃圾&lt;/h4>
+&lt;ul>
+&lt;li>用夹夹绞盘打捞岛旁的水中垃圾&lt;/li>
+&lt;/ul>
+&lt;h4 id="任务五送伞">任务五:送伞&lt;/h4>
+&lt;ul>
+&lt;li>下雨时给奶奶送伞(花伞,雨伞,眼球伞,暗影伞均可)&lt;/li>
+&lt;/ul>
+&lt;h4 id="任务六保暖">任务六:保暖&lt;/h4>
+&lt;ul>
+&lt;li>下雪时给奶奶送保暖衣物(透气背心,松软背心,犬牙背心,熊皮背心均可)&lt;/li>
+&lt;/ul>
+&lt;h4 id="任务七晒肉">任务七:晒肉&lt;/h4>
+&lt;ul>
+&lt;li>岛上的6个晒肉架,晒肉&lt;/li>
+&lt;/ul>
+&lt;h4 id="任务八喂食">任务八:喂食&lt;/h4>
+&lt;ul>
+&lt;li>给奶奶吃花沙拉(需要仙人掌花材料)&lt;/li>
+&lt;/ul></description></item><item><title>归档</title><link>https://blog.icharles.work/archives/</link><pubDate>Sun, 06 Mar 2022 00:00:00 +0000</pubDate><guid>https://blog.icharles.work/archives/</guid><description/></item><item><title>链接</title><link>https://blog.icharles.work/%E9%93%BE%E6%8E%A5/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://blog.icharles.work/%E9%93%BE%E6%8E%A5/</guid><description>&lt;p>To use this feature, add &lt;code>links&lt;/code> section to frontmatter.&lt;/p>
+&lt;p>This page&amp;rsquo;s frontmatter:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">links&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">title&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">GitHub&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">description&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">GitHub is the world&amp;#39;s largest software development platform.&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">website&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">https://github.com&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">title&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">TypeScript&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">description&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">website&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">https://www.typescriptlang.org&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ts-logo-128.jpg&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>image&lt;/code> field accepts both local and external images.&lt;/p></description></item><item><title>搜索</title><link>https://blog.icharles.work/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://blog.icharles.work/search/</guid><description/></item></channel></rss>

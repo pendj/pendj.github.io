@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Youtube on 天才熊猫君</title><link>https://blog.icharles.work/tags/youtube/</link><description>Recent content in Youtube on 天才熊猫君</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 19 Jul 2023 10:06:18 +0800</lastBuildDate><atom:link href="https://blog.icharles.work/tags/youtube/index.xml" rel="self" type="application/rss+xml"/><item><title>接入社交媒体三方平台-Youtube篇</title><link>https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/</link><pubDate>Wed, 19 Jul 2023 10:06:18 +0800</pubDate><guid>https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/</guid><description>&lt;h1 id="社交媒体三方平台">社交媒体三方平台&lt;/h1>
+&lt;h2 id="youtube">Youtube&lt;/h2>
+&lt;h3 id="接入前准备流程">接入前准备流程&lt;/h3>
+&lt;ol>
+&lt;li>申请Google账号,访问&lt;a class="link" href="https://console.cloud.google.com/" target="_blank" rel="noopener"
+>谷歌云平台&lt;/a>&lt;/li>
+&lt;li>在导航栏中找到&lt;code>API和服务&lt;/code>,进入&lt;code>已启用的API和服务&lt;/code>,搜索&lt;code>YouTube Data API v3&lt;/code>&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/img.png"
+width="1920"
+height="930"
+srcset="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/img_huaef687d03d8fc819a4414ed7506b29ac_153172_480x0_resize_box_3.png 480w, https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/img_huaef687d03d8fc819a4414ed7506b29ac_153172_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="img.png"
+class="gallery-image"
+data-flex-grow="206"
+data-flex-basis="495px"
+>&lt;/p>
+&lt;ol start="3">
+&lt;li>进入&lt;code>YouTube Data API v3&lt;/code>,点击&lt;code>启用&lt;/code>&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/img_1.png"
+width="1041"
+height="716"
+srcset="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/img_1_huaf2034347d00fbaa3616c1070011e269_47082_480x0_resize_box_3.png 480w, https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/img_1_huaf2034347d00fbaa3616c1070011e269_47082_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="img_1.png"
+class="gallery-image"
+data-flex-grow="145"
+data-flex-basis="348px"
+>&lt;/p>
+&lt;ol start="4">
+&lt;li>进入&lt;code>YouTube Data API v3&lt;/code>API/服务详情,点击创建凭据&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/img_2.png"
+width="1920"
+height="937"
+srcset="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/img_2_hubf492fb09fe3d494e2cca5097cc6621d_71672_480x0_resize_box_3.png 480w, https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/img_2_hubf492fb09fe3d494e2cca5097cc6621d_71672_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="img_2.png"
+class="gallery-image"
+data-flex-grow="204"
+data-flex-basis="491px"
+>&lt;/p>
+&lt;ol start="5">
+&lt;li>勾选用户数据,点击下一步,填写每一个步骤的信息,在第五步下载凭证,最后点击完成&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/img_4.png"
+width="1556"
+height="932"
+srcset="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/img_4_hu0b84208300361d6cfec0dcaeb9c325f9_62718_480x0_resize_box_3.png 480w, https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/img_4_hu0b84208300361d6cfec0dcaeb9c325f9_62718_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="img_4.png"
+class="gallery-image"
+data-flex-grow="166"
+data-flex-basis="400px"
+>&lt;/p>
+&lt;blockquote>
+&lt;p>注意,在范围中选择&lt;code>YouTube Data API v3&lt;/code>的部分,按需选择&lt;/p>
+&lt;p>&lt;img src="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/img_3.png"
+width="1920"
+height="937"
+srcset="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/img_3_hu9a66ec90955cfb9ec07897fd94c25be8_113872_480x0_resize_box_3.png 480w, https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/img_3_hu9a66ec90955cfb9ec07897fd94c25be8_113872_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="img_3.png"
+class="gallery-image"
+data-flex-grow="204"
+data-flex-basis="491px"
+>&lt;/p>
+&lt;/blockquote>
+&lt;ol start="6">
+&lt;li>下载凭证后,将凭证放入项目的&lt;code>config&lt;/code>文件夹中,并重命名为&lt;code>client_secret.json&lt;/code>&lt;/li>
+&lt;/ol>
+&lt;h3 id="接入工作">接入工作&lt;/h3>
+&lt;ol>
+&lt;li>导入YouTube API依赖&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-xml" data-lang="xml">&lt;span class="line">&lt;span class="cl">&lt;span class="c">&amp;lt;!--Youtube--&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;dependency&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;groupId&amp;gt;&lt;/span>com.google.apis&lt;span class="nt">&amp;lt;/groupId&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;artifactId&amp;gt;&lt;/span>google-api-services-youtube&lt;span class="nt">&amp;lt;/artifactId&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;version&amp;gt;&lt;/span>v3-rev20230123-2.0.0&lt;span class="nt">&amp;lt;/version&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;/dependency&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;dependency&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;groupId&amp;gt;&lt;/span>com.google.api-client&lt;span class="nt">&amp;lt;/groupId&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;artifactId&amp;gt;&lt;/span>google-api-client-gson&lt;span class="nt">&amp;lt;/artifactId&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;version&amp;gt;&lt;/span>2.2.0&lt;span class="nt">&amp;lt;/version&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;/dependency&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol start="2">
+&lt;li>参考&lt;a class="link" href="https://developers.google.com/youtube/v3/docs?hl=zh-cn" target="_blank" rel="noopener"
+>YouTube API&lt;/a>官方文档,编写代码&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>创建授权凭据(准备工作中的client_secret.json文件)&lt;/li>
+&lt;li>确定访问权限范围&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/img_5.png"
+width="920"
+height="727"
+srcset="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/img_5_hucd678098ca4097f6acf562654ce40a7a_74144_480x0_resize_box_3.png 480w, https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/img_5_hucd678098ca4097f6acf562654ce40a7a_74144_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="img_5.png"
+class="gallery-image"
+data-flex-grow="126"
+data-flex-basis="303px"
+>&lt;/p>
+&lt;ul>
+&lt;li>运行授权请求&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-java" data-lang="java">&lt;span class="line">&lt;span class="cl">&lt;span class="n">List&lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="n">NameValuePair&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">parameters&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">ArrayList&lt;/span>&lt;span class="o">&amp;lt;&amp;gt;&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">parameters&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">add&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">BasicNameValuePair&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;code&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">code&lt;/span>&lt;span class="p">));&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">parameters&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">add&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">BasicNameValuePair&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;client_id&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">clientSecrets&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">getWeb&lt;/span>&lt;span class="p">().&lt;/span>&lt;span class="na">getClientId&lt;/span>&lt;span class="p">()));&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">parameters&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">add&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">BasicNameValuePair&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;client_secret&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">clientSecrets&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">getWeb&lt;/span>&lt;span class="p">().&lt;/span>&lt;span class="na">getClientSecret&lt;/span>&lt;span class="p">()));&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">parameters&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">add&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">BasicNameValuePair&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;grant_type&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s">&amp;#34;authorization_code&amp;#34;&lt;/span>&lt;span class="p">));&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">parameters&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">add&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">BasicNameValuePair&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;redirect_uri&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="n">redirectUri&lt;/span>&lt;span class="p">));&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">UrlEncodedFormEntity&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">encodedFormEntity&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">UrlEncodedFormEntity&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">parameters&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">StandardCharsets&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">UTF_8&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">name&lt;/span>&lt;span class="p">());&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">String&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">url&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s">&amp;#34;https://oauth2.googleapis.com/token&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">HttpPost&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">request&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">HttpPost&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">request&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">setEntity&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">encodedFormEntity&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">String&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">response&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">HttpClientUtil&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">doPost&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">url&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">encodedFormEntity&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">System&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">out&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">response&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">TokenResponse&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">tokenResponse&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">JSON&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">parseObject&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">response&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="n">TokenResponse&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">class&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">Credential&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">credential&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">flow&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">createAndStoreCredential&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">tokenResponse&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">state&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">CREDENTIAL_MAP&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">put&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">state&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="n">credential&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>访问API接口&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;span class="lnt">35
+&lt;/span>&lt;span class="lnt">36
+&lt;/span>&lt;span class="lnt">37
+&lt;/span>&lt;span class="lnt">38
+&lt;/span>&lt;span class="lnt">39
+&lt;/span>&lt;span class="lnt">40
+&lt;/span>&lt;span class="lnt">41
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-java" data-lang="java">&lt;span class="line">&lt;span class="cl">&lt;span class="cm">/**
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cm">* 上传视频接口
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cm">* @return
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cm">*/&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">Credential&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">credential&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">YoutubeAuthController&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">CREDENTIAL_MAP&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">get&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">uid&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">YouTube&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">youtubeService&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">YouTube&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">Builder&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">httpTransport&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">jsonFactory&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">credential&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="na">build&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">Video&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">uploadedVideo&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">Video&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">VideoStatus&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">status&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">VideoStatus&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">status&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">setPrivacyStatus&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;public&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">uploadedVideo&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">setStatus&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">status&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">VideoSnippet&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">snippet&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">VideoSnippet&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">snippet&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">setTitle&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">file&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">getOriginalFilename&lt;/span>&lt;span class="p">());&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">uploadedVideo&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">setSnippet&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">snippet&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">InputStreamContent&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">mediaContent&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">InputStreamContent&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;application/octet-stream&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">BufferedInputStream&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">file&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">getInputStream&lt;/span>&lt;span class="p">()));&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">YouTube&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">Videos&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">Insert&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">videoInsert&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">youtubeService&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">videos&lt;/span>&lt;span class="p">().&lt;/span>&lt;span class="na">insert&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;snippet,status,id,player&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">uploadedVideo&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">mediaContent&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">MediaHttpUploader&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">uploader&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">videoInsert&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">getMediaHttpUploader&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">uploader&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">setDirectUploadEnabled&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kc">false&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">MediaHttpUploaderProgressListener&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">progressListener&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">e&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="k">switch&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">e&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">getUploadState&lt;/span>&lt;span class="p">())&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">case&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">INITIATION_STARTED&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">System&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">out&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Initiation Started&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">break&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">case&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">INITIATION_COMPLETE&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">System&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">out&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Initiation Completed&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">break&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">case&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">MEDIA_IN_PROGRESS&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">System&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">out&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Upload in progress&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">System&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">out&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Upload percentage: &amp;#34;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">e&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">getProgress&lt;/span>&lt;span class="p">());&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">break&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">case&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">MEDIA_COMPLETE&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">System&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">out&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Upload Completed!&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">break&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">case&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">NOT_STARTED&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">System&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">out&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Upload Not Started!&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">break&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">};&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">uploader&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">setProgressListener&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">progressListener&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">videoInsert&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">execute&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item></channel></rss>

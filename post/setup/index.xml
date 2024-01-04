@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>创业 on 天才熊猫君</title><link>https://blog.icharles.work/post/setup/</link><description>Recent content in 创业 on 天才熊猫君</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 04 Jan 2024 13:36:34 +0800</lastBuildDate><atom:link href="https://blog.icharles.work/post/setup/index.xml" rel="self" type="application/rss+xml"/><item><title>读创业有感</title><link>https://blog.icharles.work/p/%E8%AF%BB%E5%88%9B%E4%B8%9A%E6%9C%89%E6%84%9F/</link><pubDate>Thu, 04 Jan 2024 13:36:34 +0800</pubDate><guid>https://blog.icharles.work/p/%E8%AF%BB%E5%88%9B%E4%B8%9A%E6%9C%89%E6%84%9F/</guid><description>&lt;h3 id="读创业有感">读创业有感&lt;/h3>
+&lt;blockquote>
+&lt;p>非常感谢&lt;a class="link" href="*tomhawstein@gmail.com*" >Hawstein&lt;/a>,以及他的文章&lt;a class="link" href="https://mp.weixin.qq.com/s/x6PLSIMn_1qcKnXWPT-J-Q" target="_blank" rel="noopener"
+>一个独立创造者的五年&lt;/a>,让我深受启发,在此记录观后心得.&lt;/p>
+&lt;/blockquote>
+&lt;h4 id="起点---梦想开始的地方">起点 - 梦想开始的地方&lt;/h4>
+&lt;p>独立创造者的故事: &lt;a class="link" href="https://www.indiehackers.com/" target="_blank" rel="noopener"
+>Indie Hackers: Work Together to Build Profitable Online Businesses&lt;/a>&lt;/p>
+&lt;p>在这里每天会有独立创造者分享他们的故事,如果脑中缺少想要做什么东西的想法,不妨多看一看他人的故事.&lt;/p>
+&lt;h4 id="轴承---梦想的支撑">轴承 - 梦想的支撑&lt;/h4>
+&lt;p>有了好的想法,甚至是有了自己的产品之后,需要处理的东西.&lt;/p>
+&lt;ul>
+&lt;li>银行账户 - 美国账户(BOA 支行)&lt;/li>
+&lt;li>海外支付服务提供商 - &lt;a class="link" href="https://stripe.com/zh-cn-jp" target="_blank" rel="noopener"
+>Stripe&lt;/a>&lt;/li>
+&lt;li>电话 - SSN (Social Security Number)/EIN(Employer Identification Number)&lt;/li>
+&lt;li>注册公司 - &lt;a class="link" href="https://www.firstbase.io/" target="_blank" rel="noopener"
+>Firstbase&lt;/a> / Stripe Atlas&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>注意事项:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>Stripe会要求提供美国政府签发的文件,以进一步验证账户所有人的名字以及地址,提供 &lt;code>办理 EIN 时 IRS 给的 147C 信件&lt;/code>就可以了.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>EIN 则每个人都可以申请。更妙的是，你可以在 Fiverr 花点钱让别人帮你快速申请下来。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>使用&lt;a class="link" href="https://www.firstbase.io/" target="_blank" rel="noopener"
+>Firstbase&lt;/a>注册公司. &lt;a class="link" href="https://stripe.com/zh-cn-jp/atlas" target="_blank" rel="noopener"
+>Stripe Atlas&lt;/a> 只能做 C 公司.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>使用&lt;a class="link" href="https://mercury.com/" target="_blank" rel="noopener"
+>Mercury&lt;/a>用于银行业务.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>美国公司可以做到 0 交税（在美国只报税不交税）&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>仔细选择免税地点，以避免双重征税 (&lt;a class="link" href="https://incorporations.io/" target="_blank" rel="noopener"
+>https://incorporations.io/&lt;/a>)&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;h4 id="挥棒---抓住梦想">挥棒 - 抓住梦想&lt;/h4>
+&lt;p>产品可以停留在想法,待进行各方面的调研之后(竞品调研、用户调研、市场调研)，先沉淀下来。&lt;/p>
+&lt;p>当想要实现的欲望越来越强烈时，就该主动出击，抓住机会。&lt;/p>
+&lt;blockquote>
+&lt;p>可以什么都不做。但是一旦发现一个绝佳好球，再全力挥棒.&lt;/p>
+&lt;/blockquote>
+&lt;p>做MVP产品 , 快速发布 , 快速响应 , 快速调整.&lt;/p>
+&lt;h4 id="推广---梦想成为现实">推广 - 梦想成为现实&lt;/h4>
+&lt;ul>
+&lt;li>朋友帮忙写好评&lt;/li>
+&lt;li>用户帮忙写好评&lt;/li>
+&lt;li>给潜在客户发私信或邮件&lt;/li>
+&lt;li>在互联网留下产品名字和官网链接&lt;/li>
+&lt;li>内容营销&lt;/li>
+&lt;li>付费广告(Google Ads)&lt;/li>
+&lt;li>推广佣金给用户&lt;/li>
+&lt;li>口碑传播&lt;/li>
+&lt;/ul>
+&lt;h4 id="随想">随想&lt;/h4>
+&lt;ul>
+&lt;li>在产品运行时,与客户沟通,搜集他们的问题和需求,也可能是成为一个新产品的机会.&lt;/li>
+&lt;li>在做产品时,碰到的问题或解决方案不够好时,也可能是成为一个新产品的机会.&lt;/li>
+&lt;li>与客户交朋友.&lt;/li>
+&lt;li>生意即艺术,享受做生意的过程,并在每一步都可以发挥自己的创造力.将会成为更好的产品.&lt;/li>
+&lt;li>遇见有趣的人或事,也是一种收获.&lt;/li>
+&lt;/ul></description></item><item><title>学习CY_StarUp课程有感</title><link>https://blog.icharles.work/p/%E5%AD%A6%E4%B9%A0cy_starup%E8%AF%BE%E7%A8%8B%E6%9C%89%E6%84%9F/</link><pubDate>Tue, 18 Jul 2023 16:56:44 +0800</pubDate><guid>https://blog.icharles.work/p/%E5%AD%A6%E4%B9%A0cy_starup%E8%AF%BE%E7%A8%8B%E6%9C%89%E6%84%9F/</guid><description>&lt;blockquote>
+&lt;p>很多人在你刚开始时就给你提供建议,告知风险以及需要承担的后果,但我想告诉你的是:想到就去做,不然点子就只会点子而不是现实.&lt;/p>
+&lt;/blockquote>
+&lt;ol>
+&lt;li>想到就去做(Just do it!)&lt;/li>
+&lt;li>一个点子(新的或者是借鉴别人的)&lt;/li>
+&lt;li>一份计划书&lt;/li>
+&lt;li>启动金&lt;/li>
+&lt;/ol></description></item></channel></rss>

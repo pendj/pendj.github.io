@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>蜗牛神教 on 天才熊猫君</title><link>https://blog.icharles.work/tags/%E8%9C%97%E7%89%9B%E7%A5%9E%E6%95%99/</link><description>Recent content in 蜗牛神教 on 天才熊猫君</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 30 Aug 2023 12:11:12 +0800</lastBuildDate><atom:link href="https://blog.icharles.work/tags/%E8%9C%97%E7%89%9B%E7%A5%9E%E6%95%99/index.xml" rel="self" type="application/rss+xml"/><item><title>饥荒 蜗牛神教</title><link>https://blog.icharles.work/p/%E9%A5%A5%E8%8D%92-%E8%9C%97%E7%89%9B%E7%A5%9E%E6%95%99/</link><pubDate>Wed, 30 Aug 2023 12:11:12 +0800</pubDate><guid>https://blog.icharles.work/p/%E9%A5%A5%E8%8D%92-%E8%9C%97%E7%89%9B%E7%A5%9E%E6%95%99/</guid><description>&lt;h2 id="蜗牛壳攻略">蜗牛壳攻略&lt;/h2>
+&lt;h3 id="刷蜗牛壳流程">刷蜗牛壳流程&lt;/h3>
+&lt;ol>
+&lt;li>准备物资: 火把 + 3个水壶 + 1个火腿棒 + 2-3个猪皮头盔 + 食物(找蓝蘑菇林,挖蘑菇+活木)&lt;/li>
+&lt;li>在石笋区找到蜗牛巢,将矿石放入背包,远离蜗牛巢一个屏幕距离放下背包,避免矿石吸引蜗牛仇恨攻击人物&lt;/li>
+&lt;li>用火把点燃蜗牛巢,概率刷新尖壳蜗牛和圆壳蜗牛,然后熄灭蜗牛巢.圆壳蜗牛会收到惊吓远离玩家,杀死会掉落蜗牛壳,尖壳蜗牛会回到蜗牛巢&lt;/li>
+&lt;li>用鼠标点击蜗牛攻击,避免F键打到蜗牛巢&lt;/li>
+&lt;/ol>
+&lt;h3 id="注意事项">注意事项:&lt;/h3>
+&lt;ol>
+&lt;li>点击右键缩壳,在缩壳状态下点击右键会脱下.可以使用走位或F键脱离缩壳状态.&lt;/li>
+&lt;li>缩壳5秒后可以脱离仇恨,但如果护甲被打掉,人物就会站起来,脱离仇恨失败.&lt;/li>
+&lt;/ol>
+&lt;h2 id="清理远古流程">清理远古流程&lt;/h2>
+&lt;h3 id="远古暴动">远古暴动&lt;/h3>
+&lt;p>远古暴动分为四个周期,周期循环:&lt;/p>
+&lt;ol>
+&lt;li>平静期 : 影灯闭合,无影怪 &lt;code>危险指数: *&lt;/code>&lt;/li>
+&lt;li>预警期 : 影灯开启,但无影怪 &lt;code>危险指数: **&lt;/code>&lt;/li>
+&lt;li>暴动期 : 影灯开启,并有大量影怪 &lt;code>危险指数: *****&lt;/code>&lt;/li>
+&lt;li>黎明期 : 影灯部分闭合,但有残留影怪 &lt;code>危险指数: ***&lt;/code>&lt;/li>
+&lt;/ol>
+&lt;h3 id="清理远古">清理远古&lt;/h3>
+&lt;p>远古分为几个区域,每个区域有不同数量的雕像和怪物&lt;/p>
+&lt;h4 id="五雕像区域">五雕像区域&lt;/h4>
+&lt;p>区域特征: 有5个雕像,1个主教和2个战车.&lt;/p>
+&lt;p>清理思路: 站在主教外侧偏雕像的位置, F键攻击主教,并吸引战车撞主教. 当主教攻击或战车撞击时,缩壳躲避攻击. 利用战车清理雕像.&lt;/p>
+&lt;h4 id="八雕像区域">八雕像区域&lt;/h4>
+&lt;p>区域特征: 有8个雕像,2个主教.&lt;/p>
+&lt;p>清理思路: 注意主教攻击时缩壳,就可以简单清理了.&lt;/p>
+&lt;h4 id="危险圣地">危险圣地&lt;/h4>
+&lt;p>区域特征: 多个五雕像区域连接到了一起,同样每个区域会有1个主教和2个战车.但会有更多的发条怪.&lt;/p>
+&lt;p>清理思路: 同五雕像区域,但注意别贪刀,多利用蜗牛壳躲避战车撞击.&lt;/p></description></item></channel></rss>
