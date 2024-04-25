@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Twitter on 天才熊猫君</title><link>https://blog.icharles.work/tags/twitter/</link><description>Recent content in Twitter on 天才熊猫君</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 20 Jul 2023 14:36:31 +0800</lastBuildDate><atom:link href="https://blog.icharles.work/tags/twitter/index.xml" rel="self" type="application/rss+xml"/><item><title>接入社交媒体三方平台-Twitter篇</title><link>https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/</link><pubDate>Thu, 20 Jul 2023 14:36:31 +0800</pubDate><guid>https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/</guid><description>&lt;h1 id="社交媒体三方平台">社交媒体三方平台&lt;/h1>
+&lt;h2 id="twitter">Twitter&lt;/h2>
+&lt;h3 id="接入前准备流程">接入前准备流程&lt;/h3>
+&lt;ol>
+&lt;li>申请Twitter账号,访问&lt;a class="link" href="https://developer.twitter.com/en" target="_blank" rel="noopener"
+>开发者平台&lt;/a>并点击订阅&lt;/li>
+&lt;li>订阅选择套餐,此处为了演示我选择免费套餐.套餐如下图&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/img_6.png"
+width="1920"
+height="937"
+srcset="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/img_6_hu616d4bd9617d6582e32ceebe5664bc7b_264050_480x0_resize_box_3.png 480w, https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/img_6_hu616d4bd9617d6582e32ceebe5664bc7b_264050_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="img_6.png"
+class="gallery-image"
+data-flex-grow="204"
+data-flex-basis="491px"
+>&lt;/p>
+&lt;ol start="3">
+&lt;li>填写描述信息,点击提交&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/img_7.png"
+width="1920"
+height="937"
+srcset="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/img_7_huffc482de8332f8396a2d4d0223cc52f2_52687_480x0_resize_box_3.png 480w, https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/img_7_huffc482de8332f8396a2d4d0223cc52f2_52687_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="img_7.png"
+class="gallery-image"
+data-flex-grow="204"
+data-flex-basis="491px"
+>&lt;/p>
+&lt;blockquote>
+&lt;p>参考示例:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-text" data-lang="text">&lt;span class="line">&lt;span class="cl">As a platform developer, my use cases of Twitter&amp;#39;s data and API include integrating real-time tweets into applications,
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">allowing users to view and interact with trending topics, hashtags, and user profiles. Additionally, I leverage the API to enable users to post tweets,
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">schedule tweets, and access their timelines. Analyzing user sentiment, engagement metrics, and trending content helps optimize content strategies.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">I also utilize Twitter&amp;#39;s data to gather insights for research and sentiment analysis. Ensuring compliance with Twitter&amp;#39;s data usage policies and user privacy is a priority in all use cases.
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/blockquote>
+&lt;ol start="4">
+&lt;li>点击&lt;code>Keys and tokens&lt;/code>,Regenerate重新生成&lt;code>API Key&lt;/code>和&lt;code>API Key Secret&lt;/code>,保存下来&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/img_8.png"
+width="1920"
+height="937"
+srcset="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/img_8_hu807c019bcca4a944e1ef9184b39e4488_75588_480x0_resize_box_3.png 480w, https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/img_8_hu807c019bcca4a944e1ef9184b39e4488_75588_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="img_8.png"
+class="gallery-image"
+data-flex-grow="204"
+data-flex-basis="491px"
+>&lt;/p>
+&lt;p>&lt;img src="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/img_9.png"
+width="1920"
+height="937"
+srcset="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/img_9_huf4725ba71a607820a0ad1b52934df287_76746_480x0_resize_box_3.png 480w, https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/img_9_huf4725ba71a607820a0ad1b52934df287_76746_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="img_9.png"
+class="gallery-image"
+data-flex-grow="204"
+data-flex-basis="491px"
+>&lt;/p>
+&lt;ol start="5">
+&lt;li>点击&lt;code>User authentication settings&lt;/code>模块下的&lt;code>Set up&lt;/code>按钮,配置&lt;code>Twitter&lt;/code>授权登录的必填信息&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/img_10.png"
+width="1920"
+height="937"
+srcset="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/img_10_huc26ce97f645dc2a870d4fae76c3aa939_176427_480x0_resize_box_3.png 480w, https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/img_10_huc26ce97f645dc2a870d4fae76c3aa939_176427_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="img_10.png"
+class="gallery-image"
+data-flex-grow="204"
+data-flex-basis="491px"
+>&lt;/p>
+&lt;ol start="6">
+&lt;li>保存后会生成&lt;code>Client ID&lt;/code>和&lt;code>Client Secret&lt;/code>,保存下来&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/img_11.png"
+width="1920"
+height="937"
+srcset="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/img_11_hucf69be47ba95e9e5de45d92e6a1d6a09_334782_480x0_resize_box_3.png 480w, https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/img_11_hucf69be47ba95e9e5de45d92e6a1d6a09_334782_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="img_11.png"
+class="gallery-image"
+data-flex-grow="204"
+data-flex-basis="491px"
+>&lt;/p>
+&lt;h3 id="接入工作">接入工作&lt;/h3>
+&lt;ol>
+&lt;li>导入Twitter API依赖&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-xml" data-lang="xml">&lt;span class="line">&lt;span class="cl">&lt;span class="c">&amp;lt;!--twitter--&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;dependency&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;groupId&amp;gt;&lt;/span>org.twitter4j&lt;span class="nt">&amp;lt;/groupId&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;artifactId&amp;gt;&lt;/span>twitter4j-core&lt;span class="nt">&amp;lt;/artifactId&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;version&amp;gt;&lt;/span>4.1.2&lt;span class="nt">&amp;lt;/version&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;/dependency&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol start="2">
+&lt;li>参考&lt;a class="link" href="https://developer.twitter.com/en/docs/twitter-api/tweets/manage-tweets/introduction" target="_blank" rel="noopener"
+>Twitter API&lt;/a>官方文档和&lt;a class="link" href="https://github.com/Twitter4J/Twitter4J/tree/main/twitter4j-examples/src/main/java/examples" target="_blank" rel="noopener"
+>twitter4j&lt;/a>编写代码&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>创建授权凭据&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-java" data-lang="java">&lt;span class="line">&lt;span class="cl">&lt;span class="n">ConfigurationBuilder&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">cb&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">ConfigurationBuilder&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">cb&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">setDebugEnabled&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kc">true&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">setOAuthConsumerKey&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">CONSUMER_KEY&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">setOAuthConsumerSecret&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">CONSUMER_SECRET&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">setOAuthAccessToken&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">ACCESS_TOKEN&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">setOAuthAccessTokenSecret&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">ACCESS_TOKEN_SECRET&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">TwitterFactory&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">tf&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">TwitterFactory&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">cb&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">build&lt;/span>&lt;span class="p">());&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">Twitter&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">twitter&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">tf&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">getInstance&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>访问API接口&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-java" data-lang="java">&lt;span class="line">&lt;span class="cl">&lt;span class="cm">/**
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cm"> * 获取用户时间线
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cm"> */&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">User&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">user&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">twitter&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">verifyCredentials&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">System&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">out&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Welcome, @&amp;#34;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">user&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">getScreenName&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s">&amp;#34;!&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">Paging&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">paging&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">Paging&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">1&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">10&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c1">// Get the first 10 tweets on the user&amp;#39;s timeline&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">ResponseList&lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="n">Status&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">timeline&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">twitter&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">getUserTimeline&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">paging&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="k">for&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">Status&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">status&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">timeline&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">System&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">out&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">status&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">getText&lt;/span>&lt;span class="p">());&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item></channel></rss>

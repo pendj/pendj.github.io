@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>主题 on 天才熊猫君</title><link>https://blog.icharles.work/post/theme/</link><description>Recent content in 主题 on 天才熊猫君</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 18 Jul 2023 12:11:12 +0800</lastBuildDate><atom:link href="https://blog.icharles.work/post/theme/index.xml" rel="self" type="application/rss+xml"/><item><title>Stack使用方式</title><link>https://blog.icharles.work/p/stack%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F/</link><pubDate>Tue, 18 Jul 2023 12:11:12 +0800</pubDate><guid>https://blog.icharles.work/p/stack%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F/</guid><description>&lt;h3 id="shortcodes">Shortcodes&lt;/h3>
+&lt;p>Stack 附带了一组可以在内容中使用的短代码。
+此页面仅包含特定于 Stack 的短代码。Hugo 的内置短代码记录在此处。&lt;/p>
+&lt;blockquote>
+&lt;p>下面为了避免代码执行,在&amp;lt;&amp;gt;侧加了转义符&amp;rsquo;',使用时去掉&lt;/p>
+&lt;/blockquote>
+&lt;h4 id="哔哩哔哩视频">哔哩哔哩视频&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">{{\&amp;lt; bilibili VIDEO_ID PART_NUMBER \&amp;gt;}}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="腾讯视频">腾讯视频&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">{{\&amp;lt; tencent VIDEO_ID \&amp;gt;}}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="youtube-视频">Youtube 视频&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">{{\&amp;lt; youtube VIDEO_ID \&amp;gt;}}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="通用视频文件">通用视频文件&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">{{\&amp;lt; video VIDEO_URL \&amp;gt;}}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">{{\&amp;lt; video src=&amp;#34;VIDEO_URL&amp;#34; autoplay=&amp;#34;true&amp;#34; poster=&amp;#34;./video-poster.png&amp;#34; \&amp;gt;}}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>可以VIDEO_URL是 URL 或相对于目录的路径static。
+例如，src=&amp;quot;/video/my-video.mp4&amp;quot;将嵌入您网站文件夹的视频文件static/video/my-video.mp4。
+该autoplay属性是可选的。它可用于指定是否应自动播放视频。该poster属性是可选的。它可用于指定视频的海报图像。&lt;/p>
+&lt;h4 id="gitlab">GitLab&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">{{\&amp;lt; gitlab SNIPPET_ID \&amp;gt;}}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>可以SNIPPET_ID在片段的 URL 中找到。例如，https://gitlab.com/-/snippets/1234567 为1234567。&lt;/p>
+&lt;h4 id="引用">引用&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">{{\&amp;lt; quote author=&amp;#34;A famous person&amp;#34; source=&amp;#34;The book they wrote&amp;#34; url=&amp;#34;https://en.wikipedia.org/wiki/Book&amp;#34; \&amp;gt;}}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">{{\&amp;lt; /quote \&amp;gt;}}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item></channel></rss>

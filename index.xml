@@ -1,0 +1,2957 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>天才熊猫君</title><link>https://blog.icharles.work/</link><description>Recent content on 天才熊猫君</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 10 Apr 2024 13:36:34 +0800</lastBuildDate><atom:link href="https://blog.icharles.work/index.xml" rel="self" type="application/rss+xml"/><item><title>面试知识点</title><link>https://blog.icharles.work/p/%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9/</link><pubDate>Wed, 10 Apr 2024 13:36:34 +0800</pubDate><guid>https://blog.icharles.work/p/%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9/</guid><description>&lt;h2 id="开场白">开场白&lt;/h2>
+&lt;p>您好,我叫XX.统招本科毕业于XX,有6年开发经验,2年管理经验,从0到1构建多个项目,可带3-5人小团队.具有独立完成复杂工作,指导初中级开发的能力.同时熟悉系统设计、性能优化、敏捷开发.
+在上⼀个公司我参与了中国山东网项目开发,主要职责是对开源框架进行微服务改造,核心业务模块拆分以及负责开发一些与平台运营相关的系统.&lt;/p>
+&lt;h2 id="集合">集合&lt;/h2>
+&lt;ol>
+&lt;li>List | ArrayList | LinkedList | CopyOnWriteArrayList&lt;/li>
+&lt;li>Set | HashSet | LinkedHashSet | TreeSet&lt;/li>
+&lt;li>Queue | PriorityQueue | BlockingQueue | DelayQueue&lt;/li>
+&lt;li>Map | HashMap | LinkedHashMap | ConcurrentHashMap&lt;/li>
+&lt;/ol>
+&lt;h2 id="多线程">多线程&lt;/h2>
+&lt;ol>
+&lt;li>线程的生命周期和状态&lt;/li>
+&lt;li>死锁 | 避免死锁&lt;/li>
+&lt;li>Java 内存模型&lt;/li>
+&lt;li>volatile&lt;/li>
+&lt;li>乐观锁与悲观锁&lt;/li>
+&lt;li>synchronized&lt;/li>
+&lt;li>ReentrantLock | Condition&lt;/li>
+&lt;li>ReentrantReadWriteLock | StampedLock&lt;/li>
+&lt;li>ThreadLocal&lt;/li>
+&lt;li>线程池 | ThreadPoolExcutor | 参数&lt;/li>
+&lt;li>常见并发容器&lt;/li>
+&lt;li>AQS | 常见同步工具类
+&lt;ul>
+&lt;li>Semaphore (permits accquire(permits&amp;ndash;) release(permits++) ) 使用场景：控制并发访问量和单机限流&lt;/li>
+&lt;li>CountDownLatch (count countdown(count&amp;ndash;) await(count==0)) 使用场景：并行任务和同步操作&lt;/li>
+&lt;li>CyclicBarrier (parties await)
+使用场景：主要应用场景和 &lt;code>CountDownLatch&lt;/code> 类似&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Atomic | CAS算法 Unsafe.compareAndSwap native&lt;/li>
+&lt;li>CompletableFuture&lt;/li>
+&lt;/ol>
+&lt;h2 id="jvm">JVM&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>内存区域&lt;/p>
+&lt;ul>
+&lt;li>堆 + 字符串常量池 (对象实例 + 字符串)&lt;/li>
+&lt;li>程序计数器 (1. 字节码解释器改变程序计数器来依次读取指令,实现流程控制 2. 记录线程执行的位置)&lt;/li>
+&lt;li>栈 (栈帧&amp;ndash;&amp;gt; 局部变量表 + 操作数栈(中间计算结果) + 动态链接(调用其他方法时,将符号引用转化为直接引用) +
+方法返回地址)&lt;/li>
+&lt;li>本地方法栈 (native方法 同栈帧)&lt;/li>
+&lt;li>方法区(元空间(类信息 + 字段信息 + 方法信息 + 静态变量 + 常量 + JIT编译后的代码缓存) + 运行时常量池(类符号引用 +
+字段符号引用 + 方法符号引用 + 接口方法符号))&lt;/li>
+&lt;li>本地内存&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>类创建过程&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>加载(类加载器加载)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>连接&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>验证(验证 class文件格式检查 字节码语义检查 程序语义检查 类正确性检查)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>准备(分配内存 初始化零值 设置对象头(类的元数据 哈希码 GC分代年龄 是否启用偏向锁))&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>解析(将运行时常量池符号引用替换为直接引用,得到类、字段、方法在内存中的指针或偏移量)&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>初始化(clinit() 调用构造方法)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>卸载(类的class对象被GC)&lt;/p>
+&lt;ul>
+&lt;li>实例对象被GC&lt;/li>
+&lt;li>没有被引用&lt;/li>
+&lt;li>类加载器被GC (BootstrapClassLoader,ExtClassLoader,AppClassLoader 不会被GC)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>
+&lt;p>死亡对象判断算法 (引用计数 + 可达性分析)&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>GC ROOTS对象：&lt;/p>
+&lt;ul>
+&lt;li>成员对象&lt;/li>
+&lt;li>静态对象&lt;/li>
+&lt;li>常量对象&lt;/li>
+&lt;li>实例对象&lt;/li>
+&lt;li>同步锁持有对象&lt;/li>
+&lt;li>native对象&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>引用类型&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>强引用 不会被GC&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>弱应用 被发现就会被GC&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>软引用 内存不足,就会被GC&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>虚引用 随时会被GC&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>垃圾收集算法&lt;/p>
+&lt;ul>
+&lt;li>标记 - 清除 (先标记存活对象,标记完成后后清除剩余对象)&lt;/li>
+&lt;li>复制 (腾出一半空间,将可用对象复制到这片空间,然后清除另一半的空间)&lt;/li>
+&lt;li>标记 - 整理 (标记存活对象,然后向一端移动,清理端边界以外的对象)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>垃圾收集器 (Serial + Serial Old | Paraller New (Paraller Scavenge + Paraller Old) | CMS (初始标记 -&amp;gt; 并发标记 - &amp;gt; 重新标记 -&amp;gt; 并发清除)| G1 | ZGC)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>类加载过程&lt;/p>
+&lt;ul>
+&lt;li>加载 根据全类名找到二进制数据，转换成方法区结构，生成一个Class对象作为方法区入口&lt;/li>
+&lt;li>验证 class文件格式检查 字节码语言检查 程序语义检查 类正确性检查&lt;/li>
+&lt;li>准备 分配内存 初始化零值 设置对象头&lt;/li>
+&lt;li>解析 常量池中符号引用转化成直接引用，获取类和字段在内存中的偏移量&lt;/li>
+&lt;li>初始化 执行clinit方法&lt;/li>
+&lt;li>使用&lt;/li>
+&lt;li>卸载 被GC回收/该类的所有实例对象被GC/该类的类加载器的实例被GC/该类没有被任何地方引用&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>类加载器 | 破坏双亲委派&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>JVM参数 以及 线上排查问题思路&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>GC日志记录&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>-XX:+PrintGCDetails&lt;/code>：打印基本 GC 信息&lt;/li>
+&lt;li>&lt;code>-XX:+PrintGCDateStamps&lt;/code>：打印 GC 日期信息&lt;/li>
+&lt;li>&lt;code>-XX:+PrintTernuringDistribution&lt;/code>：打印对象分布&lt;/li>
+&lt;li>&lt;code>-XX:+PrintHeapAtGC&lt;/code>：打印堆数据&lt;/li>
+&lt;li>&lt;code>-XX:+PrintReferenceGC&lt;/code>：打印Reference处理信息&lt;/li>
+&lt;li>&lt;code>-XX:+PrintGCApplicationStoppedTime&lt;/code>：打印Stop The World的时间&lt;/li>
+&lt;li>&lt;code>-XX:+PrintSafepointStatistics&lt;/code>：打印safepoint信息&lt;/li>
+&lt;li>&lt;code>-XX:PrintSafepointStatisticsCount=1&lt;/code>：1个safepoint&lt;/li>
+&lt;li>&lt;code>-Xloggc:/path/to/gc-%t.log&lt;/code>：GC日志输出文件的文件路径&lt;/li>
+&lt;li>&lt;code>-XX:+UseGCLogFileRotation&lt;/code>：开启日志文件分割&lt;/li>
+&lt;li>&lt;code>-XX:NumberOfGCLogFiles=14&lt;/code>：最多分割几个文件，超过之后就从头开始写&lt;/li>
+&lt;li>&lt;code>-XX:GCLogFileSize=50M&lt;/code>：每个文件大小上限&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>处理OOM&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>-XX:+HeapDumpOnOutOfMemoryError&lt;/code> ：遇到OOM时将heap转储到物理文件中&lt;/li>
+&lt;li>&lt;code>-XX:HeapDumpPath=./java_pid&amp;lt;pid&amp;gt;.hprof&lt;/code>：写入文件的路径&lt;/li>
+&lt;li>&lt;code>-XX:OnOutOfMemoryError=&amp;quot;&amp;lt; cmd args &amp;gt;;&amp;lt; cmd args &amp;gt;&amp;quot;&lt;/code>：当内存不足时会执行命令&lt;/li>
+&lt;li>&lt;code>-XX:+UseGCOverheadLimit&lt;/code>：限制GC花费的VM时间比例&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>线上示例&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>设置应用的元空间大小、堆内存大小、新生代大小、栈大小、Eden区和Survivor区比例&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-dockerfile" data-lang="dockerfile">&lt;span class="line">&lt;span class="cl">&lt;span class="k">ENV&lt;/span> &lt;span class="nv">JAVA_OPTS&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;-XX:MetaspaceSize=128m -XX:MaxMetaspaceSize=128m -Xms512m -Xmx512m -Xmn128m -Xss256k -XX:SurvivorRatio=8&amp;#34;&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>以服务器模式启动、禁止系统调用System.gc()、使用ParNewGC为新生代垃圾回收器、CMS为老年代垃圾回收器、老年代使用的空间达到
+70% 时就开始垃圾回收、 CMS 垃圾回收时卸载不再需要的类、并行处理软引用、弱引用和虚引用、在 CMS 的 remark 阶段之前进行一次
+young generation 垃圾回收、出现内存溢出错误时导出堆信息、打印垃圾回收的详细信息，包括每次垃圾回收的详细情况、时间戳、堆的情况、应用暂停的时间等&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-dockerfile" data-lang="dockerfile">&lt;span class="line">&lt;span class="cl">&lt;span class="k">ENV&lt;/span> &lt;span class="nv">JAVA_FIXED_ARGS&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;-server -XX:+DisableExplicitGC -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:+UseCMSInitiatingOccupancyOnly\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s2"> -XX:CMSInitiatingOccupancyFraction=70 -XX:+ExplicitGCInvokesConcurrentAndUnloadsClasses -XX:+CMSClassUnloadingEnabled\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s2"> -XX:+ParallelRefProcEnabled -XX:+CMSScavengeBeforeRemark -XX:+HeapDumpOnOutOfMemoryError -XX:+PrintGCDetails\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s2"> -XX:+PrintGCTimeStamps -XX:+PrintHeapAtGC -XX:+PrintGCApplicationStoppedTime -XX:+PrintGCDateStamps&amp;#34;&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>设置JVM错误文件的路径地址(%p = pid)、发生OOM转储文件的路径、垃圾回收日志的路径(%t=timestamp)&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-dockerfile" data-lang="dockerfile">&lt;span class="line">&lt;span class="cl">&lt;span class="k">ENV&lt;/span> &lt;span class="nv">JAVA_GC_LOG_PATH&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;-XX:ErrorFile=/var/applog/gc/starfish-info-backend/hs_err_pid%p.log -XX:HeapDumpPath=/var/applog/gc/starfish-info-backend\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s2"> -Xloggc:/var/applog/gc/starfish-info-backend/gc%t.log&amp;#34;&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>设置环境变量为生产环境&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-dockerfile" data-lang="dockerfile">&lt;span class="line">&lt;span class="cl">&lt;span class="k">ENV&lt;/span> &lt;span class="nv">PARAMS&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;--spring.profiles.active=prod&amp;#34;&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>Dockerfile启动java进程的命令&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-dockerfile" data-lang="dockerfile">&lt;span class="line">&lt;span class="cl">&lt;span class="k">ENTRYPOINT&lt;/span> &lt;span class="o">[&lt;/span>&lt;span class="s2">&amp;#34;sh&amp;#34;&lt;/span>, &lt;span class="s2">&amp;#34;-c&amp;#34;&lt;/span>, &lt;span class="s2">&amp;#34;java -Dloader.path=/app/libs/ -Djava.security.egd=file:/dev/./urandom -Dfile.encoding=UTF-8\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s2"> &lt;/span>&lt;span class="nv">$JAVA_OPTS&lt;/span>&lt;span class="s2"> &lt;/span>&lt;span class="nv">$JAVA_FIXED_ARGS&lt;/span>&lt;span class="s2"> &lt;/span>&lt;span class="nv">$JAVA_GC_LOG_PATH&lt;/span>&lt;span class="s2"> -jar /app/app.jar &lt;/span>&lt;span class="nv">$PARAMS&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="o">]&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;p>堆结构:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>新生代&lt;/th>
+&lt;th>老年代&lt;/th>
+&lt;th>元空间&lt;/th>
+&lt;th>本地内存&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Eden | S0 |S1&lt;/td>
+&lt;td>Ternured&lt;/td>
+&lt;td>MetaSpace(初始20.8m)&lt;/td>
+&lt;td>代码缓存 + Thread (线程私有)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>-XX:NewSize=2048M&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>-XX:MaxNewSize=3096M&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>-Xmn2048m&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>-XX:NewRatio=1 (老年代:新生代 = 1:1)&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>-Xms8G&lt;/td>
+&lt;td>-Xms8G&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>-Xmx8G&lt;/td>
+&lt;td>-Xmx8G&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>-XX:MetaspaceSize=512m&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>-XX:MaxMetaspaceSize=512m&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>-Xss256k（栈大小）&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="spring-spring-mvc-springboot">Spring Spring MVC SpringBoot&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>Spring IOC &amp;amp; Spring AOP&lt;/p>
+&lt;ul>
+&lt;li>IOC: 将创建对象的控制权交给Spring容器&lt;/li>
+&lt;li>AOP: 在程序执行过程中动态织入代码,实现对横切关注点的模块化管理&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Spring 核心流程图 （创建Bean过程）&lt;/p>
+&lt;ol>
+&lt;li>根据注解或配置文件获取Bean的定义&lt;/li>
+&lt;li>通过反射创建Bean的实例&lt;/li>
+&lt;li>通过set方法设置属性&lt;/li>
+&lt;li>如果实现了BeanNameAware|BeanClassLoaderAware|BeanFactoryAware接口，则调用对应的set方法&lt;/li>
+&lt;li>如果实现了BeanPostProcessor接口，则调用postProcessorBeforeInitialization()方法&lt;/li>
+&lt;li>如果实现了InitializingBean接口,则调用afterPropertiesSet方法&lt;/li>
+&lt;li>如果指定了init-method方法，则执行指定方法&lt;/li>
+&lt;li>如果实现了BeanPostProcessor接口，则调用postProcessorAfterInitialization()方法&lt;/li>
+&lt;li>使用Bean&lt;/li>
+&lt;li>如果实现了DisposableBean接口，则调用destory()方法&lt;/li>
+&lt;li>如果指定了destory-method方法，则执行指定方法&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>
+&lt;p>Spring AOP通知方式&lt;/p>
+&lt;ul>
+&lt;li>前置通知&lt;/li>
+&lt;li>后置通知&lt;/li>
+&lt;li>返回通知&lt;/li>
+&lt;li>异常通知&lt;/li>
+&lt;li>环绕通知&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Spring 管理事务方式| 隔离级别 | 传播行为&lt;/p>
+&lt;ul>
+&lt;li>事务管理方式：
+&lt;ul>
+&lt;li>编程式： TransacationManager手动提交&lt;/li>
+&lt;li>声明式： xml|注解 (@Transactional) 自动提交&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>隔离级别：
+&lt;ul>
+&lt;li>采用数据库的隔离级别 (Default)&lt;/li>
+&lt;li>读未提交 (Read Uncommited)&lt;/li>
+&lt;li>读已提交 (Read Commited)&lt;/li>
+&lt;li>可重复读 (MySQL数据库的默认隔离级别 Repetable Read)&lt;/li>
+&lt;li>串行化 (Serializable)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>传播行为：
+&lt;ul>
+&lt;li>Requried：必须要有一个事务,没有就创建&lt;/li>
+&lt;li>Requried_New：必要需要有一个事务,有也创建&lt;/li>
+&lt;li>Support: 可以有一个事务,没有就以非事务运行&lt;/li>
+&lt;li>Not_Support: 有没有都以非事务运行&lt;/li>
+&lt;li>Mandatory: 必须要有一个事务,没有就抛异常&lt;/li>
+&lt;li>Never: 绝对不能有事务,有就抛异常&lt;/li>
+&lt;li>Nested: 有就嵌套事务,没有就创建&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Spring MVC 流程&lt;/p>
+&lt;ol>
+&lt;li>客户端请求,DispatcherServlet拦截请求&lt;/li>
+&lt;li>DispatcherServlet调用HandlerMapping,HandlerMapping根据请求路径找到对应的Handler&lt;/li>
+&lt;li>DispatcherServlet调用HandlerAdapter执行Handler&lt;/li>
+&lt;li>Handler处理完请求后,返回ModelAndView给DispatcherServlet,Model是返回的数据对象,View是逻辑视图&lt;/li>
+&lt;li>DispatcherServlet调用ViewResolver对逻辑视图进行解析,找到真正的视图&lt;/li>
+&lt;li>DispatcherServlet把返回的Model传给视图进行渲染&lt;/li>
+&lt;li>把渲染后的视图返回响应&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>
+&lt;p>SpringBoot 常用注解 自动装配原理&lt;/p>
+&lt;p>常用注解： @SpringBootApplication (@ComponetScan @Configuration @EnableAutoConfiguration = @Import(
+AutoConfigurationImportSelector))&lt;/p>
+&lt;p>自动装配原理:
+SpringBoot通过@EnableAutoConfiguration注解实现了自动装配,@EnableAutoConfiguration通过AutoConfigurationImportSelector的getAutoConfigurationEntry方法,使用SpringFactoryLoader加载META-INF/Spring.factories文件,获取EnableAutoConfiguration指定的类,并过滤掉不满足Condition的类,实现自动装配.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>什么是SpringBootStarter 自定义Starter&lt;/p>
+&lt;ul>
+&lt;li>starter是为SpringBoot提供一套快速的默认配置的机制，使用SpringFactoryLoader实现.&lt;/li>
+&lt;li>实现自定义starter需要: 1.导入Spring依赖 2.自定义配置类 3.编写META-INF/spring.factories，指定enableAutoConfiguration要加载的类&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>spring循环依赖怎么解决（说出三级缓存源码细节）&lt;/p>
+&lt;ol>
+&lt;li>SingletonObjects 一级缓存 存放成品Bean&lt;/li>
+&lt;li>EarlySingletonObjects 二级缓存 存放过渡Bean包括原始Bean和代理Bean&lt;/li>
+&lt;li>SingletonFactories 三级缓存 存放ObjectsFactory对象,实际使用getEarlyBeanReference()方法获取原始Bean或代理Bean&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;p>如果是只有两级缓存,代理Bean每次生成的对象会不一样,不满足Spring单例原则.&lt;/p>
+&lt;p>2.6.X版本默认关闭循环依赖,如需开启在配置文件中指定spring.main.allow-circular-references=true&lt;/p>
+&lt;p>前置条件:对象是单例的且开启了循环依赖,默认会将未初始化完成的Bean放入三级缓存中,循环依赖的对象会从三级缓存中找到依赖的对象,并在三级缓存销毁,放入二级缓存中.等初始化完成就从二级缓存中销毁,放入一级缓存中.&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="mysql">MySQL&lt;/h2>
+&lt;ol>
+&lt;li>MySQL基础架构
+&lt;ul>
+&lt;li>连接器&lt;/li>
+&lt;li>查询缓存&lt;/li>
+&lt;li>分析器&lt;/li>
+&lt;li>优化器&lt;/li>
+&lt;li>执行器&lt;/li>
+&lt;li>存储引擎&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>MySQL存储引擎
+&lt;ul>
+&lt;li>MyISAM | InooDB 区别如下
+&lt;ul>
+&lt;li>MyISAM不支持事务，InooDB支持事务&lt;/li>
+&lt;li>MyISAM和InooDBd都使用B+树作为数据结构，但实现方式不一样&lt;/li>
+&lt;li>MyISAM只有表锁，InooDB有行锁，表锁，读锁，写锁，MVCC等&lt;/li>
+&lt;li>MyISAM只有非聚簇索引，InooDB既有聚簇索引也有非聚簇索引&lt;/li>
+&lt;li>MyISAM不支持外键，InooDB支持外键&lt;/li>
+&lt;li>MyISAM不支持崩溃恢复，InooDB可以依赖redo log恢复数据&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>MySQL索引
+&lt;ul>
+&lt;li>聚簇索引 | 非聚簇索引&lt;/li>
+&lt;li>主键索引 | 普通索引,唯一索引,外键索引,联合索引,全文索引&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;ul>
+&lt;li>最左前缀匹配原则： 使用联合索引时，有最左匹配原则，即从左往右，依次匹配&lt;/li>
+&lt;li>索引下推： 即将查询条件进行优化，直接过滤掉不满足条件的记录&lt;/li>
+&lt;li>为什么选择B+树作为索引的数据结构，有什么优点: IO查询稳定,范围查询更快.&lt;/li>
+&lt;li>一个高度为3的B+树最多能存多少条记录:&lt;/li>
+&lt;/ul>
+&lt;p>​ 记录数 = 根节点指针数 * 单个叶子节点记录数
+​ = 16&lt;em>1024/(6(InnoDB指针大小)+4(int主键大小)/8(bigint主键大小)) * (16kb(页大小)/1kb(单条数据最大长度))
+​ = 16&lt;/em>1024/10(14) (一层容量指针数) * 16*1024/10(14) (二层容量指针数) * 16
+​ = 1170 * 1170 * 16
+​ = 21,902,400&lt;/p>
+&lt;ul>
+&lt;li>如果走辅助索引,最多需要经过几次IO: 3层 找到主键 再3层 找到数据 = 6次&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;ol start="4">
+&lt;li>MySQL日志
+&lt;ul>
+&lt;li>undo log
+&lt;ul>
+&lt;li>存放所有事务进行修改前的原始数据&lt;/li>
+&lt;li>用于保证事务的原子性,另外MVCC的实现依赖于:隐藏字段和Read View以及undo log.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>redo log
+&lt;ul>
+&lt;li>用于保证数据库的持久性,会先通过buffer pool去读或修改数据,然后记录到redo log上,等待刷盘.&lt;/li>
+&lt;li>存在刷盘机制,0-提交事务不刷盘,等待后台线程刷盘 1-提交事务就刷盘 2-提交事务写入文件缓存,等待后台线程刷盘&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>bin log
+&lt;ul>
+&lt;li>用于数据库备份,会记录所有涉及更新数据的逻辑操作.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;p>为了解决写入redo log和bin log可能会出现不一致的情况，Mysql使用两阶段提交方案解决这个问题.&lt;/p>
+&lt;ol>
+&lt;li>在尚未提交事务时,会先prepare记录redo log.&lt;/li>
+&lt;li>在已提交事务时,会先写入bin log日志,然后在redo log日志进行commit,提交写入redo log.&lt;/li>
+&lt;li>即使在提交事务时,写入bin log发生异常,也不会有影响,只会回滚事务.&lt;/li>
+&lt;li>在写入redo log时发生异常,不会回滚事务,而是通过找到bin log来写入数据.&lt;/li>
+&lt;/ol>
+&lt;/blockquote>
+&lt;ol start="5">
+&lt;li>
+&lt;p>MySQL事务&lt;/p>
+&lt;ul>
+&lt;li>特性: C是目的，AID是手段
+&lt;ul>
+&lt;li>A 原则性&lt;/li>
+&lt;li>C 一致性&lt;/li>
+&lt;li>I 隔离性&lt;/li>
+&lt;li>D 持久性&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>并发问题:
+&lt;ul>
+&lt;li>丢失修改: 修改操作被覆盖了&lt;/li>
+&lt;li>脏读: 读到了未提交的数据&lt;/li>
+&lt;li>不可重复读：两次读结果不一样&lt;/li>
+&lt;li>幻读： 两次读的结果变多了&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>解决方案：
+&lt;ul>
+&lt;li>锁
+&lt;ul>
+&lt;li>读锁（共享锁）&lt;/li>
+&lt;li>写锁（排他锁）&lt;/li>
+&lt;li>表锁&lt;/li>
+&lt;li>行锁&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>MVCC： 多版本并发控制，版本号唯一，使用隐藏字段、Read View、Undo log实现&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>事务隔离级别： 使用锁和MVCC共同实现
+&lt;ul>
+&lt;li>读未提交： 解决丢失修改&lt;/li>
+&lt;li>读已提交： 解决了丢失修改，脏读&lt;/li>
+&lt;li>可重复读： 解决了丢失修改，脏读，不可重复读&lt;/li>
+&lt;li>串行化： 解决了丢失修改，脏读，不可重复读，幻读&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>MySQL锁&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>读锁（共享锁）： 锁兼容,读取时多个事务可同时获取. 一般不加锁，除非显式指定了 select &amp;hellip; lock in share mode / select &amp;hellip; for share&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>写锁（排他锁）: 锁不兼容,修改时只能由一个事务获取. 一般不加锁，除非显式指定了 select &amp;hellip; for update&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>表锁： 针对非索引字段加锁&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>行锁： 针对索引字段加锁&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>记录锁： Record Lock,单行记录上锁&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>间隙锁： Gap Lock,多行记录上锁但不包括本身&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>临键锁： Next-Key Lock = Record Lock + Gap Lock,多行记录上锁包括本身&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;p>RR的事务隔离级别下，行锁默认使用临键锁，但操作主键索引或唯一键索引时，会降级成记录锁&lt;/p>
+&lt;p>快照读： 即普通的select 语句，不加锁，读的是记录的历史版本.&lt;/p>
+&lt;p>当前读： 即加了读写锁的select 语句，读的是记录的当前版本.&lt;/p>
+&lt;/blockquote>
+&lt;ol start="7">
+&lt;li>MVCC实现
+&lt;ul>
+&lt;li>读： 读当前事务开始时间的版本数据
+&lt;ul>
+&lt;li>写： 创建一个新的版本，写入版本数据&lt;/li>
+&lt;li>在RR隔离级别下，如果是当前读（一致性锁定读）的情况下(for update/ insert / update / delete)，通过加入临键锁，锁住当前记录和范围，防止其他事务插入数据，出现幻读&lt;/li>
+&lt;li>但如果是快照读（一致性非锁定读），即使是RR隔离级别，也会出现幻读&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>
+&lt;p>实现方式： 隐藏字段 、 Read View 、 undo log&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>隐藏字段&lt;/p>
+&lt;ul>
+&lt;li>DB_TRX_ID : 最后一次插入或更新该行的事务id&lt;/li>
+&lt;li>DB_ROW_ID: 没有设置主键且没有唯一非空索引时，使用它来充当聚簇索引&lt;/li>
+&lt;li>DB_ROLL_PTR: 回滚指针,指向undo log&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Read View&lt;/p>
+&lt;ul>
+&lt;li>可见性判断,里面保存了&amp;quot;当前对本事务不可见的其他活跃性事务&amp;quot;
+&lt;ul>
+&lt;li>m_low_limit_id: 目前出现过的最大的事务的ID+1,即下一个被分配事物的ID,大于等于这个ID的数据版本均不可见&lt;/li>
+&lt;li>m_up_limit_id: 活跃事务列表m_ids中最小的事务ID,如果m_ids为空,则等价于m_low_limit_id.小于这个ID的数据版本均可见&lt;/li>
+&lt;li>m_ids: Read View 创建时其他未提交的活跃事务的ID列表.创建Read
+View时,将当前未提交事务的ID记录下来,后续即使他们修改了记录行的值,对当前事务也是不可见的.m_ids不包括当前事务自己和已提交的事务.&lt;/li>
+&lt;li>m_creator_trx_id: 创建该Read View的事务ID.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>undo log&lt;/p>
+&lt;ul>
+&lt;li>用于事务回滚，恢复到修改前的样子&lt;/li>
+&lt;li>用于MVCC，读历史版本的数据，实现一致性非锁定读&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>数据可见性算法 ： &amp;hellip;&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>不可重复读问题:&lt;/p>
+&lt;ul>
+&lt;li>RC: 每次读都会有新的Read View记录,有不可重复读问题&lt;/li>
+&lt;li>RR: 事务开始时,只有第一次读有Read View记录,所以没有不可重复读问题&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>幻读问题:&lt;/p>
+&lt;ul>
+&lt;li>RR: 加入临键锁,解决幻读问题&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;ol start="8">
+&lt;li>
+&lt;p>MySQL执行计划分析&lt;/p>
+&lt;ul>
+&lt;li>explain + SQL
+&lt;ul>
+&lt;li>id： 查询序号&lt;/li>
+&lt;li>select_type： 查询类型，用于区分普通查询，联合查询，子查询等
+&lt;ul>
+&lt;li>SIMPLE： 简单查询，不含UNION或子查询&lt;/li>
+&lt;li>PRIMARY： 如果存在子查询，外层的SELECT标记为PRIMARY&lt;/li>
+&lt;li>SUBQUERY： 子查询中的第一个SELECT&lt;/li>
+&lt;li>UNION： 联合查询&lt;/li>
+&lt;li>DERIVED：在 FROM 中出现的子查询将被标记为 DERIVED&lt;/li>
+&lt;li>UNION RESULT： UNION的查询结果&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>table：查询表名&lt;/li>
+&lt;li>partitions：匹配分区&lt;/li>
+&lt;li>type（重要）：表的访问方法
+&lt;ul>
+&lt;li>system：表中只有一行记录的情况下，访问方法是 system ，是 const 的一种特例&lt;/li>
+&lt;li>const：表中最多只有一行匹配的记录，一次查询就可以找到，常用于使用主键或唯一索引的所有字段作为查询条件&lt;/li>
+&lt;li>eq_ref： 当连表查询时，前一张表的行在当前这张表中只有一行与之对应。是除了 system 与 const 之外最好的 join
+方式，常用于使用主键或唯一索引的所有字段作为连表条件&lt;/li>
+&lt;li>ref： 使用普通索引作为查询条件，查询结果可能找到多个符合条件的行&lt;/li>
+&lt;li>fulltext&lt;/li>
+&lt;li>ref_or_null&lt;/li>
+&lt;li>index_merge： 当查询条件使用了多个索引时，表示开启了 Index Merge 优化，此时执行计划中的 key 列列出了使用到的索引&lt;/li>
+&lt;li>unique_subquery&lt;/li>
+&lt;li>index_subquery&lt;/li>
+&lt;li>range：对索引列进行范围查询，执行计划中的 key 列表示哪个索引被使用了&lt;/li>
+&lt;li>index：查询遍历了整棵索引树，与 ALL 类似，只不过扫描的是索引，而索引一般在内存中，速度更快&lt;/li>
+&lt;li>ALL：全表扫描&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>possible_keys：查询可能用到的索引，null则可能没用到索引&lt;/li>
+&lt;li>key（重要）：实际用到的索引，null则没用到索引&lt;/li>
+&lt;li>key_len：索引最大长度，key=null那key_len=null&lt;/li>
+&lt;li>ref：当使用索引等值查询时，与索引作比较的列或常量&lt;/li>
+&lt;li>rows：大致需要读取的行数，越小越好&lt;/li>
+&lt;li>filtered：条件过滤后的留存记录百分比&lt;/li>
+&lt;li>Extra（重要）：查询的额外信息
+&lt;ul>
+&lt;li>Using filesort: 排序时使用了外部索引进行排序，没用到内部索引进行排序&lt;/li>
+&lt;li>Using temporary： 创建临时表来存储查询结果，常见于order by 或 group by&lt;/li>
+&lt;li>Using index: 使用了覆盖索引，不用回表，查询效率非常高&lt;/li>
+&lt;li>Using index condition： 查询优化器使用到了索引下推这个特性&lt;/li>
+&lt;li>Using where： 使用where条件进行了过滤，一般在没用到索引时出现&lt;/li>
+&lt;li>Using join buffer： 连表查询&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>MySQL优化&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>避免隐式转换，隐式转换(两边数据类型不一致)会导致索引失效&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>避免使用select * 而是使用 select 字段&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>避免过多join表，不超过5个&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>选择合适的字段类型&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>避免出现大事务，拆分成小事务分批提交&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>正确使用索引&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>深度分页使用范围查询、子查询、延迟关联优化&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>使用连续自增主键，而不是使用uuid(uuid范围查询无法排序)&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="redis">Redis&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>Redis为什么快&lt;/p>
+&lt;ul>
+&lt;li>基于内存,访问快&lt;/li>
+&lt;li>基于Reactor模型开发了一套事件处理模型，主要是单线程事件循环和IO多路复用&lt;/li>
+&lt;li>内部使用了多种优化后的数据类型,效率高&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>常见的读写缓存策略&lt;/p>
+&lt;ul>
+&lt;li>旁路缓存模式（应用程序直接与「数据库、缓存」交互，并负责对缓存的维护）
+&lt;ul>
+&lt;li>读：先从缓存读，读不到由「应用程序」从数据库读取数据后返回，再把数据放入缓存&lt;/li>
+&lt;li>写：写入数据库，删掉缓存（服务端写）&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>读写穿透模式（应用程序与「缓存」交互，「缓存」与「数据库」交互,负责缓存的维护）
+&lt;ul>
+&lt;li>读：先从缓存读，读不到由「缓存」从数据库读，并将结果放入缓存,返回数据给应用&lt;/li>
+&lt;li>写：写入缓存，缓存不存在则更新数据库，存在则更新缓存,由「缓存」自己写数据库&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>异步缓存写入 (应用程序与「缓存」交互，「缓存」与「数据库」交互,负责缓存的维护)
+&lt;ul>
+&lt;li>读：先从缓存读，读不到从数据库读，再放入缓存后返回&lt;/li>
+&lt;li>写：写入缓存，不更新db,改为异步批量更新db&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Redis应用场景&lt;/p>
+&lt;ul>
+&lt;li>分布式锁&lt;/li>
+&lt;li>限流&lt;/li>
+&lt;li>消息队列&lt;/li>
+&lt;li>延时队列&lt;/li>
+&lt;li>分布式session&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Redis线程模型&lt;/p>
+&lt;ul>
+&lt;li>读写单线程，异步删除、网络请求多线程&lt;/li>
+&lt;li>基于Reactor模式开发了一套文件事件处理器，以单线程方式运行，以I/O多路复用来监听多个套接字
+&lt;ul>
+&lt;li>文件事件处理器
+&lt;ul>
+&lt;li>多个socket（客户端连接）&lt;/li>
+&lt;li>I/O多路复用程序（支持多个连接）&lt;/li>
+&lt;li>文件事件分派器（将socket关联到事件处理器）&lt;/li>
+&lt;li>事件处理器（连接应答处理器、命令请求处理器、命令回复处理器）&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Redis数据结构以及应用场景&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>String&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>结构特点&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>SDS(Simple Dynamic String)实现，好处在于&lt;/p>
+&lt;ul>
+&lt;li>可以扩容，避免缓冲区异常&lt;/li>
+&lt;li>获取字符串长度复杂度为O(1)&lt;/li>
+&lt;li>减少内存分配次数&lt;/li>
+&lt;li>二进制安全&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>使用场景&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>存储token/session/userId，序列化后的对象等&lt;/p>
+&lt;ul>
+&lt;li>实现分布式锁(setnx key value)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>List&lt;/p>
+&lt;ul>
+&lt;li>结构特点
+&lt;ul>
+&lt;li>双向链表，支持反向查找和遍历&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>使用场景
+&lt;ul>
+&lt;li>最新文章、最新动态&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Set&lt;/p>
+&lt;ul>
+&lt;li>结构特点
+&lt;ul>
+&lt;li>无序集合，类似Java中的HashSet&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>使用场景
+&lt;ul>
+&lt;li>网站UV统计，文章点赞/已读统计，关注&lt;/li>
+&lt;li>抽奖系统&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Sorted Set(Zset)&lt;/p>
+&lt;ul>
+&lt;li>结构特点
+&lt;ul>
+&lt;li>类似TreeSet和HashMap的结合,但增加了个权重参数score,使得可以排序，还可以根据score范围查询&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>使用场景
+&lt;ul>
+&lt;li>排行榜&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>BitMap&lt;/p>
+&lt;ul>
+&lt;li>结构特点
+&lt;ul>
+&lt;li>key是元素本身，value是0/1，是一个存储0/1的数组，每个value占一个bit位&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>使用场景
+&lt;ul>
+&lt;li>用户签到情况、活跃用户情况、是否点赞/关注&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>HyperLogLog（基数统计）&lt;/p>
+&lt;ul>
+&lt;li>结构特点
+&lt;ul>
+&lt;li>基数计数概率算法，并不会直接存储元数据，而是通过一定的概率统计方法预估基数值（集合中包含元素的个数）&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>使用场景
+&lt;ul>
+&lt;li>热门网站每日/每周/每月访问 ip 数统计、热门帖子 uv 统计&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Geospatial&lt;/p>
+&lt;ul>
+&lt;li>结构特点
+&lt;ul>
+&lt;li>存储地理位置信息，基于 Sorted Set 实现&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>使用场景
+&lt;ul>
+&lt;li>附近的人&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Redis持久化机制&lt;/p>
+&lt;ul>
+&lt;li>快照（snapshotting,RDB）
+&lt;ul>
+&lt;li>是Redis默认持久化方式，通过创建快照来获取数据在某个时间点的副本&lt;/li>
+&lt;li>默认使用bgsave进行持久化，通过创建子线程执行，而save操作会阻塞主线程&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>追加读（append-only file,AOF）
+&lt;ul>
+&lt;li>每条更改数据的命令会先放入缓冲区(server.aof_buf)，然后写入AOF文件，最后通过fsync策略来决定何时同步到硬盘.&lt;/li>
+&lt;li>AOF工作流程
+&lt;ul>
+&lt;li>命令追加（append）: 写命令放入AOF缓冲区&lt;/li>
+&lt;li>文件写入（write）：将AOF缓冲区的数据写入系统内核缓冲区&lt;/li>
+&lt;li>文件同步（fsync）：AOF缓存区根据fsync策略向磁盘做同步操作，写入AOF文件&lt;/li>
+&lt;li>文件重写（rewrite）：AOF文件越来越来，需要定期重写来压缩AOF文件&lt;/li>
+&lt;li>重新加载（reload）: 通过加载AOF文件来恢复数据&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>fsync策略
+&lt;ul>
+&lt;li>appendfsync always:
+主线程调用write执行完成后，后台线程（aof_fsync线程）立马调用fsync函数进行同步 (&lt;code>write + fsync&lt;/code>)&lt;/li>
+&lt;li>appenfsync eversec:
+主线程调用write执行完成后，后台线程（aof_fsync线程）每秒调用fsync函数进行同步(&lt;code>write + 1秒 + fsync&lt;/code>)&lt;/li>
+&lt;li>appendfsync
+no：主线程调用write执行完成后，由操作系统决定什么时候调用fsync函数进行同步（&lt;code>write 不 fsync ,操作系统决定,Linux一般是30秒&lt;/code>）&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>rewrite
+&lt;ul>
+&lt;li>通过读取当前数据库的状态，然后生成一个新的AOF文件来替换旧的AOF文件&lt;/li>
+&lt;li>同时维护了一个AOF重写缓冲区,以记录创建过程中出现的写命令,等创建完成后,将写命令追加到新的AOF文件中&lt;/li>
+&lt;li>通过&lt;code>BGREWRITEAOF&lt;/code>命令来触发重写操作,会创建一个子线程进行重写操作&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>混合（RDB+AOF）
+&lt;ul>
+&lt;li>使用&lt;code>aof-use-rdb-preamble&lt;/code>命令开启混合持久化,AOF 重写的时候就直接把 RDB 的内容写到 AOF 文件开头,但会导致可读性较差.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>如何选择持久化
+&lt;ul>
+&lt;li>数据安全性要求高,选择RDB+AOF同时开启或者混合模式&lt;/li>
+&lt;li>数据安全性要求不高时,选择RDB&lt;/li>
+&lt;li>不建议只开启AOF,不易备份或快速重启恢复&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Redis内存管理策略&lt;/p>
+&lt;ul>
+&lt;li>过期数据存储方式
+&lt;ul>
+&lt;li>通过字典(redisDb)来存储key的过期时间,由dict属性存储键值对,expires属性存储过期时间&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>过期数据删除策略
+&lt;ul>
+&lt;li>惰性删除
+&lt;ul>
+&lt;li>用到key时检查,是否需要删除.但会导致堆积过多过期key&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>定期删除
+&lt;ul>
+&lt;li>隔一段时间抽取一批key检查,是否需要删除.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>内存淘汰机制
+&lt;ul>
+&lt;li>volatile-lru: 淘汰最近最少使用的数据 (已设置过期时间)&lt;/li>
+&lt;li>volatile-ttl: 淘汰要过期的数据 (已设置过期时间)&lt;/li>
+&lt;li>volatile-random: 随机淘汰数据 (已设置过期时间)&lt;/li>
+&lt;li>allkeys-lru: 内存不足时,淘汰最近最少的数据 (全部)&lt;/li>
+&lt;li>allkyes-random: 内存不足时,随机淘汰数据 (全部)&lt;/li>
+&lt;li>no-eviction: 禁止写入数据&lt;/li>
+&lt;li>volatile-lfu: 淘汰最不经常使用的数据 (已设置过期时间)&lt;/li>
+&lt;li>allkeys-lfu: 淘汰最不经常使用的数据 (全部)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Redis生产问题&lt;/p>
+&lt;ul>
+&lt;li>缓存穿透
+&lt;ul>
+&lt;li>访问大量无效key,透过缓存,直接请求数据库&lt;/li>
+&lt;li>解决方案
+&lt;ul>
+&lt;li>缓存无效key&lt;/li>
+&lt;li>布隆过滤器&lt;/li>
+&lt;li>接口限流,IP黑名单&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>缓存击穿
+&lt;ul>
+&lt;li>缓存的热点数据过期或不存在,大量请求数据库&lt;/li>
+&lt;li>解决方案
+&lt;ul>
+&lt;li>缓存key时间设置比较长&lt;/li>
+&lt;li>提前预热热点数据&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>缓存雪崩
+&lt;ul>
+&lt;li>同一时间,大量缓存数据失效,大量请求数据库&lt;/li>
+&lt;li>解决方案
+&lt;ul>
+&lt;li>多级缓存&lt;/li>
+&lt;li>限流&lt;/li>
+&lt;li>缓存预热&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>缓存数据库一致性
+&lt;ul>
+&lt;li>旁路缓存模式: 先更新数据库,再删缓存.&lt;/li>
+&lt;li>增加缓存更新重试机制: 隔断时间重试删除缓存,或者引入消息队列来删缓存(删除缓存消息写入mq,mq来重试删除.)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Redis集群&lt;/p>
+&lt;ul>
+&lt;li>Redis 多集群：主从模式,一主多从 （端口：6379）
+&lt;ul>
+&lt;li>优点: 简单&lt;/li>
+&lt;li>缺点: 需要手动维护主节点信息,发生故障需要手动恢复&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Redis Sentinel：哨兵模式,一主多从,三哨兵 （端口：26379）
+&lt;ul>
+&lt;li>优点: 在主从模式的基础上,增加哨兵节点,以维护Redis节点状态,自动故障转移&lt;/li>
+&lt;li>缺点: 不好动态扩容&lt;/li>
+&lt;li>常见问题
+&lt;ul>
+&lt;li>有什么作用
+&lt;ul>
+&lt;li>监控：监控所有Redis节点状态&lt;/li>
+&lt;li>故障转移：如果master出现异常，Sentinel会实现故障转移，将一台slave升级成master&lt;/li>
+&lt;li>通知：通知新的master连接信息给slave，让它们执行replicaof成为新的master的slave&lt;/li>
+&lt;li>配置提供：通知新的master连接信息给客户端&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>检测节点是否下线
+&lt;ul>
+&lt;li>主观下线：某个Sentinel节点认为Redis节点下线（PING请求，PONG(LOADING/MASTERDOWN)超过响应时间）&lt;/li>
+&lt;li>客观下线：超过半数Sentinel节点认为Redis节点下线&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>如何选举新的master节点
+&lt;ol>
+&lt;li>slave在线: 节点必须在线&lt;/li>
+&lt;li>slave优先级：通过slave-priority设置优先级，最高的成为master,没有优先级就看复制进度&lt;/li>
+&lt;li>复制进度：数据最完整，复制进度最快的slave成为master&lt;/li>
+&lt;li>runid: 如果优先级和复制进度一样，则runid最小的成为master&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>Sentinel如何选举Leader
+&lt;ul>
+&lt;li>通过Raft算法选举出Leader&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Sentinel可以防止脑裂吗
+&lt;ul>
+&lt;li>发生网络隔离（也就是脑裂）时，master必须能写入slave，并能从节点得到响应。否则就拒绝接受新的写入命令&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Redis Cluster：切片集群,三主三从（端口：6379和16379）
+&lt;ul>
+&lt;li>优点: 官方推荐,提供主从复制、故障转移功能,很⽅便地进⾏横向拓展,动态扩容和缩容是其最⼤的优势&lt;/li>
+&lt;li>缺点: 需要多服务器,适合数据量大,并发量⼤的场景&lt;/li>
+&lt;li>常见问题
+&lt;ul>
+&lt;li>如何分片
+&lt;ul>
+&lt;li>Redis使用哈希槽分区,每个键值对属于一个哈希槽.&lt;code>哈希槽 = key ^ CRC-16 % 16384&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>如何找到对应的哈希槽
+&lt;ul>
+&lt;li>根据Key通过上面的计算公式找到对应的哈希槽,然后再查询哈希槽和节点的映射关系&lt;/li>
+&lt;li>如果是当前节点负责就返回响应结果&lt;/li>
+&lt;li>如果不是则发送重定向错误,告诉客户端当前的哈希槽由哪个节点负责&lt;/li>
+&lt;li>客户端则向目标节点发送请求并更新缓存的哈希槽分配信息&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>为什么哈希槽是16384个(2^14)
+&lt;ul>
+&lt;li>哈希槽太大会导致心跳包变大,消耗带宽&lt;/li>
+&lt;li>哈希槽总数越少,对存储的哈希槽信息的bitmap压缩效果好&lt;/li>
+&lt;li>16384个槽节点占用空间2k(16384/8),空间小,并且不太会超过1000个主节点,完全够用&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Redis Cluster 扩容缩容
+&lt;ul>
+&lt;li>扩容缩容的本质是重新分片,动态迁移哈希槽&lt;/li>
+&lt;li>提供重定向机制(ASK|MOVED),在发生扩容缩容时,仍能对外提供服务&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Redis Cluster 节点通信
+&lt;ul>
+&lt;li>Cluster 各个节点使用Gossip协议通信,每个节点都维护了一份集群的状态信息&lt;/li>
+&lt;li>Cluster 内置了Sentinel机制,通过Gossip协议相互探测健康状态,发生故障自动切换&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;p>一致性哈希：&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="分布式">分布式&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>分布式共识算法&lt;/p>
+&lt;ul>
+&lt;li>CAP理论
+&lt;ul>
+&lt;li>C|Consistency: 一致性, 所有节点访问同一份最新的数据副本&lt;/li>
+&lt;li>A|Availability: 可用性, 非故障节点在合理时间返回合理的响应&lt;/li>
+&lt;li>P|Partition Tolerance: 分区容错性,当出现网络分区时,仍能对外提供服务&lt;/li>
+&lt;li>一般时CP或AP架构,当发生网络分区时,P是一定需要保证的.选择CP还是AP就看业务场景&lt;/li>
+&lt;li>但没有发生网络分区时,CA是能同时保证的.&lt;/li>
+&lt;li>CP架构: ZooKeeper | AP架构: Eureka | CP&amp;amp;AP架构: Nacos&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>BASE理论
+&lt;ul>
+&lt;li>BA|Basically Available：基本可用, 允许损失部分可用性&lt;/li>
+&lt;li>S|Soft-state：软状态, 允许系统存在中间状态,且不会影响系统整体可用性&lt;/li>
+&lt;li>E|Eventually Consistent：最终一致性, 系统中的所有数据副本在经过一段时间同步后,最终会达到一致的状态.&lt;/li>
+&lt;li>当发生网络分区时，要保证AP时，会放弃C，而BASE理论则是不保证强一致性，但要保证最终一致性.是对AP方案的补充.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Paxos算法
+&lt;ul>
+&lt;li>Basic Paxos：多节点就value达成共识
+&lt;ul>
+&lt;li>三种角色
+&lt;ul>
+&lt;li>提议者：接受客户端请求，发起提案（提案ID和提案value）&lt;/li>
+&lt;li>接受者：对提案进行投票，同时记住投票历史&lt;/li>
+&lt;li>学习者：超过半数投票的提案将会被执行运算，并发送给客户端&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Multi Paxos：执行多个Basic Paxos&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Raft算法
+&lt;ul>
+&lt;li>拜占庭将军：在会出现故障或叛变节点时，需要保证系统的整体可用性&lt;/li>
+&lt;li>共识算法：即使面对故障，服务器也可以在共享状态上达成一致&lt;/li>
+&lt;li>基础
+&lt;ul>
+&lt;li>节点类型：某一时间，节点一定会是以下的身份类型
+&lt;ul>
+&lt;li>Leader：负责发起心跳，响应客户端，创建日志，同步日志&lt;/li>
+&lt;li>Candidate：发起竞选（Follower竞争Leader产生的临时角色）&lt;/li>
+&lt;li>Follower：接受Leader的心跳和日志同步数据，投票给Candidate&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>任期：每次选举的开始就是一次任期（term），如果没有选出Leader将会开启下个任期和选举&lt;/li>
+&lt;li>日志：
+&lt;ul>
+&lt;li>log = entry&amp;lt;term,index,cmd&amp;gt;[] ;&lt;/li>
+&lt;li>日志由entry数组构成，每一个事件成为一个entry，只有Leader可以创建entry；&lt;/li>
+&lt;li>term = 任期；index = enry在log中下标；cmd = 应用到状态机的操作；&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>领导人选举：
+&lt;ul>
+&lt;li>使用心跳机制来触发选举，超过半数投票的Candidate获得选举，成为Leader&lt;/li>
+&lt;li>Follower会自增term号并转换状态为Candidate，并向其他节点发起RequestVoteRPC请求，直到有Leader出现或进行下一轮选举&lt;/li>
+&lt;li>避免出现无限重复投票的情况，采用选举随机超时策略，增加一个选举随机超时时间&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>日志复制：Leader 和 Follower 的日志需要保持一致，不一致时会删除Follower不一致的地方，将Leader记录的后续日志发给Follower&lt;/li>
+&lt;li>安全性
+&lt;ul>
+&lt;li>选举限制&lt;/li>
+&lt;li>节点崩溃&lt;/li>
+&lt;li>时间与可用性&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Gossip协议：分散式发散消息
+&lt;ul>
+&lt;li>集中式发散消息：一个节点向其他节点共享信息&lt;/li>
+&lt;li>分散式发散消息：每个节点周期性随机向其他节点共享信息&lt;/li>
+&lt;li>Redis Cluster 采用&lt;code>Gossip&lt;/code>协议来进行共享信息，每个节点都维护了一份Redis集群的状态信息&lt;/li>
+&lt;li>消息传播模式
+&lt;ul>
+&lt;li>反熵：消除不同节点的数据差异，提高节点相似度，从而降低熵值（不确定性）&lt;/li>
+&lt;li>传谣（谣言传播）：一个节点一旦有了新数据就成为了活跃节点，活跃节点周期性向其他节点发送新数据，直到所有节点都有了新数据&lt;/li>
+&lt;li>差异：
+&lt;ul>
+&lt;li>反熵用于传播所有数据，传谣用于传播新数据&lt;/li>
+&lt;li>反熵一般需要设计一个闭环，传谣适合节点数量更多和动态变化的场景&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>API网关：请求转发 + 请求过滤&lt;/p>
+&lt;p>&lt;img src="https://oss.javaguide.cn/github/javaguide/distributed-system/api-gateway/up-35e102c633bbe8e0dea1e075ea3fee5dcfb.png"
+loading="lazy"
+>&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>Netflix Zuul&lt;/p>
+&lt;ul>
+&lt;li>Zuul 主要通过过滤器（类似于 AOP）来过滤请求，从而实现网关必备的各种功能&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Spring Cloud Gateway&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>Spring Cloud Gateway 不仅提供统一的路由方式，并且基于 Filter 链的方式提供了网关基本的功能,和 Zuul 2.x
+的差别不大，也是通过过滤器来处理请求&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>工作流程&lt;/p>
+&lt;ul>
+&lt;li>路由判断(Predicate)：先经过Gateway Handler Mapping处理，经过Predicate判断符合哪个路由规则，再映射到后端服务&lt;/li>
+&lt;li>请求过滤(Pre-Request)：然后请求到达Gateway Web Mapping处理，经过Filter Chain进行拦截和修改(
+增加请求头、参数校验)，再转发请求到后端服务&lt;/li>
+&lt;li>服务处理(Handler)：后端处理请求&lt;/li>
+&lt;li>响应过滤(Post-Request)：后端处理请求完成后，返回给Gateway再次经过Filter Chain进行处理，再响应给客户端&lt;/li>
+&lt;li>响应返回：过滤处理完成后，响应给客户端&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Predicate&lt;/p>
+&lt;ul>
+&lt;li>断言配置：满足断言的条件后，就能映射到指定的服务&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://oss.javaguide.cn/github/javaguide/system-design/distributed-system/api-gateway/spring-cloud-gateway-predicate-rules.png"
+loading="lazy"
+>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>动态路由：使用Nacos Server和Spring Cloud Alibaba Nacos Config实现动态路由，自动感知配置变化，动态配置网关信息&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Filter&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>Pre：请求到服务前，对请求进行拦截和修改，如参数校验，权限校验，流量监控，日志输出，协议转换等&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Post：请求处理完成后，对响应内容进行修改，如修改响应头、日志输出、流量监控&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>限流：Sentinel 模块实现限流，提供两种资源维度的限流：route 维度和自定义 API 维度&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>全局异常处理：实现ErrorWebExceptionHandler的Handle方法&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>OpenResty&lt;/p>
+&lt;ul>
+&lt;li>OpenResty 是一个基于 Nginx 与 Lua 的高性能 Web 平台,通过简单的 Lua 语言来扩展网关的功能，比如实现自定义的路由规则、过滤器、缓存策略等&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Kong&lt;/p>
+&lt;ul>
+&lt;li>基于OpenResty（Nginx + Lua），由Kong Server、Apache Cassandra/PostgreSQL、Kong Dashboard组成，本身就是一个 Lua 应用程序&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>APISIX&lt;/p>
+&lt;ul>
+&lt;li>基于 OpenResty 和 etcd&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Shenyu&lt;/p>
+&lt;ul>
+&lt;li>基于 WebFlux&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>分布式ID&lt;/p>
+&lt;ul>
+&lt;li>基本要求
+&lt;ul>
+&lt;li>全局唯一：ID 全局唯一性&lt;/li>
+&lt;li>高性能：生成速度要快&lt;/li>
+&lt;li>高可用：生成服务要可用&lt;/li>
+&lt;li>方便易用：拿来即用&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>解决方案
+&lt;ul>
+&lt;li>数据库主键自增（MySQL、Redis）：MySQL号段模式，Redis incr指令&lt;/li>
+&lt;li>UUID、Snowflake（雪花算法）：生成速度快，ID有序，比较灵活但有可能出现时钟回拨导致重复ID问题&lt;/li>
+&lt;li>UidGenerator：对雪花算法进行了改进，QPS更高，但18年后不再维护&lt;/li>
+&lt;li>Leaf：支持号段模式和雪花算法，支持双号段，解决了时钟回拨问题，QPS 压测结果近 5w/s&lt;/li>
+&lt;li>Tinyid：基于数据库号段模式，支持双号段，纯本地操作，无 HTTP 请求消耗&lt;/li>
+&lt;li>IdGenerator：兼容所有雪花算法，解决了时钟回拨问题，不依赖外部存储系统，支持多语言调用&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>分布式锁&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>基本要求&lt;/p>
+&lt;ul>
+&lt;li>互斥：任意一个时刻，锁只能被一个线程持有&lt;/li>
+&lt;li>高可用：当一个锁服务出现问题，能够自动切换到另外一个锁服务；即 锁一定会被释放&lt;/li>
+&lt;li>可重入：节点可重复获取锁&lt;/li>
+&lt;li>高性能：快速获取或释放锁&lt;/li>
+&lt;li>非阻塞：拿不到锁不能无限等待&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>解决方案&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>MySQL实现&lt;/p>
+&lt;ul>
+&lt;li>通过唯一索引或排它锁实现，但有性能差、不具备锁失效等机制&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Redis&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;code>lua + setnx&lt;/code>指令获取简易锁&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># KEYS[1]-lockKey, ARGV[1]--requestId, ARGV[2]--expire&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">if&lt;/span> redis.call&lt;span class="o">(&lt;/span>&lt;span class="s1">&amp;#39;setNx&amp;#39;&lt;/span>, KEYS&lt;span class="o">[&lt;/span>1&lt;span class="o">]&lt;/span>, ARGV&lt;span class="o">[&lt;/span>1&lt;span class="o">])&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="m">1&lt;/span> &lt;span class="k">then&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> tonumber&lt;span class="o">(&lt;/span>ARGV&lt;span class="o">[&lt;/span>2&lt;span class="o">])&lt;/span> &amp;gt; &lt;span class="m">0&lt;/span> &lt;span class="k">then&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> redis.call&lt;span class="o">(&lt;/span>&lt;span class="s1">&amp;#39;expire&amp;#39;&lt;/span>, KEYS&lt;span class="o">[&lt;/span>1&lt;span class="o">]&lt;/span>, ARGV&lt;span class="o">[&lt;/span>2&lt;span class="o">])&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> end
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="m">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">else&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> redis.call&lt;span class="o">(&lt;/span>&lt;span class="s1">&amp;#39;get&amp;#39;&lt;/span>, KEYS&lt;span class="o">[&lt;/span>1&lt;span class="o">])&lt;/span> &lt;span class="o">==&lt;/span> ARGV&lt;span class="o">[&lt;/span>1&lt;span class="o">]&lt;/span> &lt;span class="k">then&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> tonumber&lt;span class="o">(&lt;/span>ARGV&lt;span class="o">[&lt;/span>2&lt;span class="o">])&lt;/span> &amp;gt; &lt;span class="m">0&lt;/span> &lt;span class="k">then&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> redis.call&lt;span class="o">(&lt;/span>&lt;span class="s1">&amp;#39;expire&amp;#39;&lt;/span>, KEYS&lt;span class="o">[&lt;/span>1&lt;span class="o">]&lt;/span>, ARGV&lt;span class="o">[&lt;/span>2&lt;span class="o">])&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> end
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="m">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">else&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="m">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> end
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">end
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>&lt;code>lua + del&lt;/code>指令释放简易锁&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 释放锁时，先比较锁对应的 value 值是否相等，避免锁的误释放&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">if&lt;/span> redis.call&lt;span class="o">(&lt;/span>&lt;span class="s2">&amp;#34;get&amp;#34;&lt;/span>,KEYS&lt;span class="o">[&lt;/span>1&lt;span class="o">])&lt;/span> &lt;span class="o">==&lt;/span> ARGV&lt;span class="o">[&lt;/span>1&lt;span class="o">]&lt;/span> &lt;span class="k">then&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> redis.call&lt;span class="o">(&lt;/span>&lt;span class="s2">&amp;#34;del&amp;#34;&lt;/span>,KEYS&lt;span class="o">[&lt;/span>1&lt;span class="o">])&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">else&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="m">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">end
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>Redisson：锁的优雅续期&lt;/p>
+&lt;ul>
+&lt;li>使用&lt;code>Watch Dog&lt;/code>来监控和续期锁，执行未完成，每隔10秒就执行续期操作，将超时时间设置为30秒&lt;/li>
+&lt;li>内置了可重入锁、自旋锁、公平锁、多重锁、红锁、读写锁&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Zookeeper&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>基于&lt;code>临时顺序节点&lt;/code>和&lt;code>Watcher（事件监听器)&lt;/code> 实现，推荐使用 Curator 来实现 ZooKeeper 分布式锁，是Netflix开源的ZooKeeper
+Java框架&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-java" data-lang="java">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// 分布式可重入排它锁&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">InterProcessLock&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">lock1&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">InterProcessMutex&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">client&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">lockPath1&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="c1">// 分布式不可重入排它锁&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">InterProcessLock&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">lock2&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">InterProcessSemaphoreMutex&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">client&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">lockPath2&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="c1">// 将多个锁作为一个整体&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">InterProcessMultiLock&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">lock&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">InterProcessMultiLock&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">Arrays&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">asList&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">lock1&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">lock2&lt;/span>&lt;span class="p">));&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>获取锁&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-java" data-lang="java">&lt;span class="line">&lt;span class="cl">&lt;span class="n">lock&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">acquire&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">10&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">TimeUnit&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">SECONDS&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>释放锁&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-java" data-lang="java">&lt;span class="line">&lt;span class="cl">&lt;span class="n">lock&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">release&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Etcd&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>分布式事务&lt;/p>
+&lt;ul>
+&lt;li>CAP基础理论和BASE理论&lt;/li>
+&lt;li>一致性
+&lt;ul>
+&lt;li>强一致性：写什么读到的就是什么&lt;/li>
+&lt;li>弱一致性：不一定能读到最新值，只能在某个时刻能达到数据一致&lt;/li>
+&lt;li>最终一致性：保证一定时间内达到数据一致&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>柔性事务：追求最终一致，是BASE理论+业务实践，如TCC、Saga、MQ事务、本地消息表
+&lt;ul>
+&lt;li>TCC（补偿事务）
+&lt;ul>
+&lt;li>Try 尝试阶段：尝试执行。完成业务检查，并预留好必须的业务资源&lt;/li>
+&lt;li>Confirm 确认阶段：确认执行。当所有参与者Try阶段执行成功时，就会执行Confirm，并处理预留的业务资源&lt;/li>
+&lt;li>Cancel 取消阶段：取消执行，释放Try预留的业务资源&lt;/li>
+&lt;li>常见框架：ByteTCC、Seata、Hmily&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Saga
+&lt;ul>
+&lt;li>长事务解决方案，将长事务拆分成多个本地短事务，每个短事务都会有个补偿动作，执行失败会恢复&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>MQ事务
+&lt;ul>
+&lt;li>RocketMQ：两阶段提交，超过最大重试次数，放入死信队列，手动处理，如果消息队列挂掉，数据库事务无法执行&lt;/li>
+&lt;li>QMQ：本地消息表，将分布式事务拆分成本地事务，即使消息队列挂掉也不影响数据库执行&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>刚性事务：追求强一致，如2PC、3PC
+&lt;ul>
+&lt;li>2PC（两阶段提交）
+&lt;ul>
+&lt;li>准备阶段：事务管理者向参与者询问本地事务操作是否执行成功，根据结果并不执行提交事务，而是进行提交阶段&lt;/li>
+&lt;li>提交阶段：事务管理者向参与者询问提交事务操作是否执行成功，根据结果来执行提交或回滚操作，完成后会结束当前分布式事务&lt;/li>
+&lt;li>存在问题
+&lt;ul>
+&lt;li>同步阻塞：事务阶段会一直占用相关资源，导致阻塞&lt;/li>
+&lt;li>数据不一致：网络问题导致部分参与者收不到comitt/rollback情况时，会导致数据不一致&lt;/li>
+&lt;li>单点问题：管理者挂掉会导致参与者一直卡在提交阶段&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>3PC（三阶段提交）
+&lt;ul>
+&lt;li>询问阶段：询问参与者能否执行本地数据库操作&lt;/li>
+&lt;li>准备阶段：当所有参与者都可执行时，才会执行本地事务操作，然后继续2PC阶段的步骤&lt;/li>
+&lt;li>提交阶段：同2PC阶段步骤&lt;/li>
+&lt;li>引入超时机制避免出现一直阻塞&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>分布式配置中心&lt;/p>
+&lt;ul>
+&lt;li>Spring Cloud Config&lt;/li>
+&lt;li>Nacos&lt;/li>
+&lt;li>Apollo&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>RPC&lt;/p>
+&lt;ul>
+&lt;li>角色
+&lt;ul>
+&lt;li>客户端（服务消费端）：调用远程方法的一端&lt;/li>
+&lt;li>客户端Stub（桩）：代理类，将调用的类、方法、方法参数等传递到服务端&lt;/li>
+&lt;li>网络传输：将调用的信息传递到服务端，然后将服务器执行的结果返回给客户端&lt;/li>
+&lt;li>服务端Stub（桩）：服务端实际收到请求后，执行对应的方法并返回结果给客户端&lt;/li>
+&lt;li>服务端（服务提供端·）：提供远程方法的一端&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>原理
+&lt;ol>
+&lt;li>客户端（Client）以本地方式调用远程服务&lt;/li>
+&lt;li>客户端Stub收到调用后，将类、方法、方法参数组装成能进行网络传输的消息体（序列化）：RpcRequest&lt;/li>
+&lt;li>客户端Stub找到远程调用的地址，并将消息以序列化方式发送到服务提供端&lt;/li>
+&lt;li>服务端Stub收到消息将消息反序列化为Java对象：RpcRequest&lt;/li>
+&lt;li>服务端Stub根据RpcRequest的类、方法、方法参数调用本地方法&lt;/li>
+&lt;li>服务端Stub得到方法执行结果并将其组装成进行网络传输的消息体（序列化）：RpcResponse&lt;/li>
+&lt;li>客户端Stub接收到消息，并将其反序列化成为Java对象，得到最终结果&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>解决方案
+&lt;ul>
+&lt;li>Dubbo&lt;/li>
+&lt;li>Motan&lt;/li>
+&lt;li>gRPC&lt;/li>
+&lt;li>Thrift&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="nacos--elasticsearch--kafka">Nacos | ElasticSearch | Kafka&lt;/h2>
+&lt;h3 id="nacos">Nacos&lt;/h3>
+&lt;h3 id="elasticsearch">ElasticSearch&lt;/h3>
+&lt;h3 id="kafka">Kafka&lt;/h3>
+&lt;ul>
+&lt;li>消息模型：发布-订阅模型
+&lt;ul>
+&lt;li>使用主题（Topic）作为消息通信载体，通过主题传递给所有订阅zhe&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;/li>
+&lt;li>&lt;/li>
+&lt;/ul>
+&lt;h2 id="你还有什么要问我的吗">你还有什么要问我的吗 &lt;/h2>
+&lt;ol>
+&lt;li>同级：能不能谈谈你作为⼀个公司⽼员⼯对公司的感受？&lt;/li>
+&lt;li>领导：
+&lt;ul>
+&lt;li>部⻔的主要⼈员分配以及对应的主要⼯作能简单介绍⼀下吗？&lt;/li>
+&lt;li>未来如果我要加⼊这个团队，你对我的期望是什么？&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>boss: 贵公司的发展⽬标和⽅向是什么?&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;p>GC 日志&lt;/p>
+&lt;p>2024-03-23T10:15:23.123-0800:
+1.234: [GC (Allocation Failure) [PSYoungGen: 65536K-&amp;gt;16384K(76288K)] 65536K-&amp;gt;32768K(251392K), 0.0157545 secs] [Times: user=0.02 sys=0.01, real=0.02 secs]
+2024-03-23T10:15:25.456-0800:
+3.456: [GC (Allocation Failure) [PSYoungGen: 81920K-&amp;gt;20480K(76288K)] 98304K-&amp;gt;57344K(251392K), 0.0196028 secs] [Times: user=0.02 sys=0.01, real=0.02 secs]
+2024-03-23T10:15:27.789-0800:
+5.789: [Full GC (Ergonomics) [PSYoungGen: 20480K-&amp;gt;0K(76288K)] [ParOldGen: 36864K-&amp;gt;49152K(175104K)] 57344K-&amp;gt;49152K(251392K), [Metaspace: 20480K-&amp;gt;20480K(1067008K)], 0.1056299 secs] [Times: user=0.11 sys=0.01, real=0.11 secs]
+2024-03-23T10:15:30.123-0800:
+8.123: [GC (Allocation Failure) [PSYoungGen: 65536K-&amp;gt;16384K(76288K)] 114688K-&amp;gt;81920K(251392K), 0.0257884 secs] [Times: user=0.03 sys=0.01, real=0.03 secs]
+2024-03-23T10:15:32.456-0800:
+10.456: [GC (Allocation Failure) [PSYoungGen: 81920K-&amp;gt;20480K(76288K)] 139264K-&amp;gt;106496K(251392K), 0.0212413 secs] [Times: user=0.02 sys=0.00, real=0.02 secs]
+2024-03-23T10:15:34.789-0800:
+12.789: [Full GC (Ergonomics) [PSYoungGen: 20480K-&amp;gt;0K(76288K)] [ParOldGen: 86016K-&amp;gt;90112K(200704K)] 106496K-&amp;gt;90112K(251392K), [Metaspace: 20480K-&amp;gt;20480K(1067008K)], 0.1468552 secs] [Times: user=0.14 sys=0.01, real=0.15 secs]&lt;/p>
+&lt;/blockquote></description></item><item><title>人工智能 - 神经网络</title><link>https://blog.icharles.work/p/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</link><pubDate>Thu, 04 Jan 2024 13:41:04 +0800</pubDate><guid>https://blog.icharles.work/p/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</guid><description>&lt;h3 id="人工智能">人工智能&lt;/h3>
+&lt;blockquote>
+&lt;p>学习参考资料: &lt;a class="link" href="https://www.captainbed.cn/whatisnn/" target="_blank" rel="noopener"
+>1.1.1 什么是神经网络 (captainbed.cn)&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;h4 id="神经网络">神经网络&lt;/h4>
+&lt;h5 id="什么是神经网络">什么是神经网络&lt;/h5>
+&lt;p>人工智能的神经网络受到人体大脑的启发，构建出来。&lt;/p>
+&lt;p>在人的大脑中，有着数十亿叫神经元的细胞，它们连接成为一个网络。&lt;/p>
+&lt;p>而在人工智能中，模仿人的大脑，也创建出N个神经元，它们连接成为神经网络。&lt;/p>
+&lt;p>而每个神经元负责接受外部刺激，处理信息，转化成结果。&lt;/p>
+&lt;p>&lt;img src="https://pendjun.obs.cn-south-4.myhuaweicloud.com/img/timg-2.jpg"
+loading="lazy"
+alt="神经网络"
+>&lt;/p>
+&lt;p>&lt;img src="https://pendjun.obs.cn-south-4.myhuaweicloud.com/img/TIME59BBEE7898720180827112521.png"
+loading="lazy"
+alt="人工神经网络"
+>&lt;/p>
+&lt;p>&lt;img src="https://pendjun.obs.cn-south-4.myhuaweicloud.com/img/20181014193738897.png"
+loading="lazy"
+alt="神经元处理刺激"
+>&lt;/p>
+&lt;h5 id="数据传入神经网络">数据传入神经网络&lt;/h5>
+&lt;p>对于不同特征的数据（例如语音、图像、传感器或其他等等）在计算机中都会有对应的数字表示形式。通常它们会被转化成一个特征向量，传入到神经网络中。&lt;/p>
+&lt;p>举例：假设一个图像有64*64个像素，每个像素就是一个颜色点，每个颜色点在(红(0-255),蓝(0-255),绿(0-255))&lt;code>三原色可以调配出所有色彩&lt;/code>之间,&lt;/p>
+&lt;p>所以在计算机中,3*64*64个颜色点构成这张图像 = 12288 总特征数,这个12288维特征向量就代表了这张图像.神经网络接收这个特征向量,预测并得出结果.&lt;/p>
+&lt;h5 id="神经网络如何进行预测">神经网络如何进行预测&lt;/h5>
+&lt;h6 id="逻辑回归公式">逻辑回归公式&lt;/h6>
+&lt;p>预测的过程其实只是基于一个简单的公式(&lt;code>逻辑回归公式&lt;/code>)：&lt;code>z = dot(w,x) + b &lt;/code>&lt;/p>
+&lt;p>&lt;code>x&lt;/code>表示&lt;code>输入特征向量&lt;/code>,如果有三个特征就可以用(x1,x2,x3)表示&lt;/p>
+&lt;p>&lt;code>w&lt;/code>表示&lt;code>权重&lt;/code>,代表每个特征的重要程度&lt;/p>
+&lt;p>&lt;code>b&lt;/code>表示&lt;code>阈值&lt;/code>,用于影响预测结果&lt;/p>
+&lt;p>&lt;code>dot&lt;/code>表示&lt;code>将w和x进行向量相乘&lt;/code>&lt;/p>
+&lt;p>&lt;code>z&lt;/code>表示&lt;code>预测结果&lt;/code>&lt;/p>
+&lt;p>于是上面的公式展开后就成 &lt;code>z = (w1*x1 + w2*x2 + w3*x3) + b&lt;/code>&lt;/p>
+&lt;p>&lt;img src="https://pendjun.obs.cn-south-4.myhuaweicloud.com/img/20181014210626518.png"
+loading="lazy"
+alt="逻辑回归公式"
+>&lt;/p>
+&lt;p>举例:&lt;/p>
+&lt;p>假设你现在想喝奶茶,但现在天气不好,配送时间太长,而你又可能马上要下班了.&lt;/p>
+&lt;p>那么影响结果的因素有3个特征,而你对每个因素的看重程度代表着权重,&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>天气好不好对你不重要. &lt;code>w1=0,x1=1&lt;/code>(w1=0表示无所谓,x1=1表示确实不好);&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>配送时间太长有影响. &lt;code>w2=3,x2=1&lt;/code> (w2=3表示有一定程度影响但不大,x2=1表示确实有影响)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>马上要下班了,想马上回家. &lt;code>w3=6,x3=1&lt;/code>(w3=1表示想回家的优先级很高,x3=0表示想回家)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>想回家的期望值很高. &lt;code>b=-10&lt;/code>&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>那么我们得出公式: &lt;code>z = (0*1 + 3*1 + 6*1) - 10&lt;/code> ,结果是-1.&lt;/p>
+&lt;p>根据结果表示&lt;code>z&amp;lt;0&lt;/code>则不会喝,&lt;code>z&amp;gt;0&lt;/code>会喝,所以我们预测你不会现在想喝奶茶.&lt;/p>
+&lt;h6 id="激活函数">激活函数&lt;/h6>
+&lt;p>在实际的神经网络中,上面的&lt;code>逻辑回归&lt;/code>只能适用于非常简单的逻辑.在复杂场景中计算得出的z值就不太准确,所以我们需要在&lt;code>逻辑回归&lt;/code>外面再套一层函数.&lt;/p>
+&lt;p>这个函数就叫做&lt;code>激活函数&lt;/code>.下面简单介绍一种激活函数:&lt;code>sigmoid&lt;/code>&lt;/p>
+&lt;p>&lt;img src="https://pendjun.obs.cn-south-4.myhuaweicloud.com/img/201810142126508048-3.png"
+loading="lazy"
+alt="激活函数公式"
+>&lt;/p>
+&lt;p>&lt;img src="https://pendjun.obs.cn-south-4.myhuaweicloud.com/img/timg-34.jpg"
+loading="lazy"
+alt="激活函数图像"
+>&lt;/p>
+&lt;p>这个函数的作用是: 将z映射到[0,1]之间.x表示z值,y表示预测结果.可以看出,z越大,y越趋向于1,z越小,y越趋向于0.&lt;/p>
+&lt;p>在刚才的例子中,假设z的结果是1,而y&amp;rsquo;值=0.8,则表示有80%的概率会买.但z值是-1,所以不会买.&lt;/p></description></item><item><title>读创业有感</title><link>https://blog.icharles.work/p/%E8%AF%BB%E5%88%9B%E4%B8%9A%E6%9C%89%E6%84%9F/</link><pubDate>Thu, 04 Jan 2024 13:36:34 +0800</pubDate><guid>https://blog.icharles.work/p/%E8%AF%BB%E5%88%9B%E4%B8%9A%E6%9C%89%E6%84%9F/</guid><description>&lt;h3 id="读创业有感">读创业有感&lt;/h3>
+&lt;blockquote>
+&lt;p>非常感谢&lt;a class="link" href="*tomhawstein@gmail.com*" >Hawstein&lt;/a>,以及他的文章&lt;a class="link" href="https://mp.weixin.qq.com/s/x6PLSIMn_1qcKnXWPT-J-Q" target="_blank" rel="noopener"
+>一个独立创造者的五年&lt;/a>,让我深受启发,在此记录观后心得.&lt;/p>
+&lt;/blockquote>
+&lt;h4 id="起点---梦想开始的地方">起点 - 梦想开始的地方&lt;/h4>
+&lt;p>独立创造者的故事: &lt;a class="link" href="https://www.indiehackers.com/" target="_blank" rel="noopener"
+>Indie Hackers: Work Together to Build Profitable Online Businesses&lt;/a>&lt;/p>
+&lt;p>在这里每天会有独立创造者分享他们的故事,如果脑中缺少想要做什么东西的想法,不妨多看一看他人的故事.&lt;/p>
+&lt;h4 id="轴承---梦想的支撑">轴承 - 梦想的支撑&lt;/h4>
+&lt;p>有了好的想法,甚至是有了自己的产品之后,需要处理的东西.&lt;/p>
+&lt;ul>
+&lt;li>银行账户 - 美国账户(BOA 支行)&lt;/li>
+&lt;li>海外支付服务提供商 - &lt;a class="link" href="https://stripe.com/zh-cn-jp" target="_blank" rel="noopener"
+>Stripe&lt;/a>&lt;/li>
+&lt;li>电话 - SSN (Social Security Number)/EIN(Employer Identification Number)&lt;/li>
+&lt;li>注册公司 - &lt;a class="link" href="https://www.firstbase.io/" target="_blank" rel="noopener"
+>Firstbase&lt;/a> / Stripe Atlas&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>注意事项:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>Stripe会要求提供美国政府签发的文件,以进一步验证账户所有人的名字以及地址,提供 &lt;code>办理 EIN 时 IRS 给的 147C 信件&lt;/code>就可以了.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>EIN 则每个人都可以申请。更妙的是，你可以在 Fiverr 花点钱让别人帮你快速申请下来。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>使用&lt;a class="link" href="https://www.firstbase.io/" target="_blank" rel="noopener"
+>Firstbase&lt;/a>注册公司. &lt;a class="link" href="https://stripe.com/zh-cn-jp/atlas" target="_blank" rel="noopener"
+>Stripe Atlas&lt;/a> 只能做 C 公司.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>使用&lt;a class="link" href="https://mercury.com/" target="_blank" rel="noopener"
+>Mercury&lt;/a>用于银行业务.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>美国公司可以做到 0 交税（在美国只报税不交税）&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>仔细选择免税地点，以避免双重征税 (&lt;a class="link" href="https://incorporations.io/" target="_blank" rel="noopener"
+>https://incorporations.io/&lt;/a>)&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;h4 id="挥棒---抓住梦想">挥棒 - 抓住梦想&lt;/h4>
+&lt;p>产品可以停留在想法,待进行各方面的调研之后(竞品调研、用户调研、市场调研)，先沉淀下来。&lt;/p>
+&lt;p>当想要实现的欲望越来越强烈时，就该主动出击，抓住机会。&lt;/p>
+&lt;blockquote>
+&lt;p>可以什么都不做。但是一旦发现一个绝佳好球，再全力挥棒.&lt;/p>
+&lt;/blockquote>
+&lt;p>做MVP产品 , 快速发布 , 快速响应 , 快速调整.&lt;/p>
+&lt;h4 id="推广---梦想成为现实">推广 - 梦想成为现实&lt;/h4>
+&lt;ul>
+&lt;li>朋友帮忙写好评&lt;/li>
+&lt;li>用户帮忙写好评&lt;/li>
+&lt;li>给潜在客户发私信或邮件&lt;/li>
+&lt;li>在互联网留下产品名字和官网链接&lt;/li>
+&lt;li>内容营销&lt;/li>
+&lt;li>付费广告(Google Ads)&lt;/li>
+&lt;li>推广佣金给用户&lt;/li>
+&lt;li>口碑传播&lt;/li>
+&lt;/ul>
+&lt;h4 id="随想">随想&lt;/h4>
+&lt;ul>
+&lt;li>在产品运行时,与客户沟通,搜集他们的问题和需求,也可能是成为一个新产品的机会.&lt;/li>
+&lt;li>在做产品时,碰到的问题或解决方案不够好时,也可能是成为一个新产品的机会.&lt;/li>
+&lt;li>与客户交朋友.&lt;/li>
+&lt;li>生意即艺术,享受做生意的过程,并在每一步都可以发挥自己的创造力.将会成为更好的产品.&lt;/li>
+&lt;li>遇见有趣的人或事,也是一种收获.&lt;/li>
+&lt;/ul></description></item><item><title>饥荒 蜗牛神教</title><link>https://blog.icharles.work/p/%E9%A5%A5%E8%8D%92-%E8%9C%97%E7%89%9B%E7%A5%9E%E6%95%99/</link><pubDate>Wed, 30 Aug 2023 12:11:12 +0800</pubDate><guid>https://blog.icharles.work/p/%E9%A5%A5%E8%8D%92-%E8%9C%97%E7%89%9B%E7%A5%9E%E6%95%99/</guid><description>&lt;h2 id="蜗牛壳攻略">蜗牛壳攻略&lt;/h2>
+&lt;h3 id="刷蜗牛壳流程">刷蜗牛壳流程&lt;/h3>
+&lt;ol>
+&lt;li>准备物资: 火把 + 3个水壶 + 1个火腿棒 + 2-3个猪皮头盔 + 食物(找蓝蘑菇林,挖蘑菇+活木)&lt;/li>
+&lt;li>在石笋区找到蜗牛巢,将矿石放入背包,远离蜗牛巢一个屏幕距离放下背包,避免矿石吸引蜗牛仇恨攻击人物&lt;/li>
+&lt;li>用火把点燃蜗牛巢,概率刷新尖壳蜗牛和圆壳蜗牛,然后熄灭蜗牛巢.圆壳蜗牛会收到惊吓远离玩家,杀死会掉落蜗牛壳,尖壳蜗牛会回到蜗牛巢&lt;/li>
+&lt;li>用鼠标点击蜗牛攻击,避免F键打到蜗牛巢&lt;/li>
+&lt;/ol>
+&lt;h3 id="注意事项">注意事项:&lt;/h3>
+&lt;ol>
+&lt;li>点击右键缩壳,在缩壳状态下点击右键会脱下.可以使用走位或F键脱离缩壳状态.&lt;/li>
+&lt;li>缩壳5秒后可以脱离仇恨,但如果护甲被打掉,人物就会站起来,脱离仇恨失败.&lt;/li>
+&lt;/ol>
+&lt;h2 id="清理远古流程">清理远古流程&lt;/h2>
+&lt;h3 id="远古暴动">远古暴动&lt;/h3>
+&lt;p>远古暴动分为四个周期,周期循环:&lt;/p>
+&lt;ol>
+&lt;li>平静期 : 影灯闭合,无影怪 &lt;code>危险指数: *&lt;/code>&lt;/li>
+&lt;li>预警期 : 影灯开启,但无影怪 &lt;code>危险指数: **&lt;/code>&lt;/li>
+&lt;li>暴动期 : 影灯开启,并有大量影怪 &lt;code>危险指数: *****&lt;/code>&lt;/li>
+&lt;li>黎明期 : 影灯部分闭合,但有残留影怪 &lt;code>危险指数: ***&lt;/code>&lt;/li>
+&lt;/ol>
+&lt;h3 id="清理远古">清理远古&lt;/h3>
+&lt;p>远古分为几个区域,每个区域有不同数量的雕像和怪物&lt;/p>
+&lt;h4 id="五雕像区域">五雕像区域&lt;/h4>
+&lt;p>区域特征: 有5个雕像,1个主教和2个战车.&lt;/p>
+&lt;p>清理思路: 站在主教外侧偏雕像的位置, F键攻击主教,并吸引战车撞主教. 当主教攻击或战车撞击时,缩壳躲避攻击. 利用战车清理雕像.&lt;/p>
+&lt;h4 id="八雕像区域">八雕像区域&lt;/h4>
+&lt;p>区域特征: 有8个雕像,2个主教.&lt;/p>
+&lt;p>清理思路: 注意主教攻击时缩壳,就可以简单清理了.&lt;/p>
+&lt;h4 id="危险圣地">危险圣地&lt;/h4>
+&lt;p>区域特征: 多个五雕像区域连接到了一起,同样每个区域会有1个主教和2个战车.但会有更多的发条怪.&lt;/p>
+&lt;p>清理思路: 同五雕像区域,但注意别贪刀,多利用蜗牛壳躲避战车撞击.&lt;/p></description></item><item><title>饥荒 初期建家</title><link>https://blog.icharles.work/p/%E9%A5%A5%E8%8D%92-%E5%88%9D%E6%9C%9F%E5%BB%BA%E5%AE%B6/</link><pubDate>Sat, 29 Jul 2023 12:11:12 +0800</pubDate><guid>https://blog.icharles.work/p/%E9%A5%A5%E8%8D%92-%E5%88%9D%E6%9C%9F%E5%BB%BA%E5%AE%B6/</guid><description>&lt;h2 id="初期建家">初期建家&lt;/h2>
+&lt;h3 id="基础合成公式">基础合成公式&lt;/h3>
+&lt;h4 id="工具">工具&lt;/h4>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>工具&lt;/th>
+&lt;th>材料1&lt;/th>
+&lt;th>材料2&lt;/th>
+&lt;th>材料3&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>火把&lt;/td>
+&lt;td>草*2&lt;/td>
+&lt;td>树枝*2&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>斧头&lt;/td>
+&lt;td>燧石*1&lt;/td>
+&lt;td>树枝*1&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>鹤嘴锄(铲子、剃刀)&lt;/td>
+&lt;td>燧石*2&lt;/td>
+&lt;td>树枝*2&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>锤子&lt;/td>
+&lt;td>石头*3&lt;/td>
+&lt;td>树枝*3&lt;/td>
+&lt;td>草*6&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>捕虫网&lt;/td>
+&lt;td>蜘蛛丝*2&lt;/td>
+&lt;td>树枝*4&lt;/td>
+&lt;td>绳子&lt;em>1(草&lt;/em>3)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>陷阱&lt;/td>
+&lt;td>草*6&lt;/td>
+&lt;td>树枝*2&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>黄金斧头(铲子、鹤嘴锄、干草叉、园艺锄)&lt;/td>
+&lt;td>金*2&lt;/td>
+&lt;td>树枝*4&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>长矛&lt;/td>
+&lt;td>燧石*1&lt;/td>
+&lt;td>树枝*2&lt;/td>
+&lt;td>绳子*1&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>背包&lt;/td>
+&lt;td>草*4&lt;/td>
+&lt;td>树枝*4&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>养蜂帽&lt;/td>
+&lt;td>蜘蛛丝*8&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>绳子*1&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>提灯&lt;/td>
+&lt;td>荧光果*2&lt;/td>
+&lt;td>树枝*3&lt;/td>
+&lt;td>绳子*2&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>火腿棒&lt;/td>
+&lt;td>猪皮*1&lt;/td>
+&lt;td>树枝*2&lt;/td>
+&lt;td>肉*2&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>橄榄球头盔&lt;/td>
+&lt;td>猪皮*1&lt;/td>
+&lt;td>绳子*1&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>牛角帽&lt;/td>
+&lt;td>牛角*1&lt;/td>
+&lt;td>牛毛*8&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>鼹鼠帽&lt;/td>
+&lt;td>电子元件*2&lt;/td>
+&lt;td>鼹鼠*2&lt;/td>
+&lt;td>发光浆果*1&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>排箫&lt;/td>
+&lt;td>曼德拉草*1&lt;/td>
+&lt;td>芦苇*5&lt;/td>
+&lt;td>绳子*1&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h4 id="建筑">建筑&lt;/h4>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>建筑&lt;/th>
+&lt;th>材料1&lt;/th>
+&lt;th>材料2&lt;/th>
+&lt;th>材料3&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>精炼材料&lt;/td>
+&lt;td>木板=木*4&lt;/td>
+&lt;td>石砖=石头*3&lt;/td>
+&lt;td>绳子=草*3&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>电子元件&lt;/td>
+&lt;td>金子&lt;em>2+石砖&lt;/em>1(石头*3)&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>莎草纸=芦苇*4&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>科技一本&lt;/td>
+&lt;td>金子*1&lt;/td>
+&lt;td>木*4&lt;/td>
+&lt;td>石头*4&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>科技二本&lt;/td>
+&lt;td>木板&lt;em>4(木&lt;/em>16)&lt;/td>
+&lt;td>石砖&lt;em>2(石头&lt;/em>6)&lt;/td>
+&lt;td>电子元件&lt;em>2(金&lt;/em>4 石头*6)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>魔法一本&lt;/td>
+&lt;td>兔子*4&lt;/td>
+&lt;td>木板&lt;em>4(木&lt;/em>16)&lt;/td>
+&lt;td>高礼帽&lt;em>1(蜘蛛丝&lt;/em>6)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>魔法二本&lt;/td>
+&lt;td>活木*3&lt;/td>
+&lt;td>紫宝石*1&lt;/td>
+&lt;td>噩梦燃料*7&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>火坑&lt;/td>
+&lt;td>木*2&lt;/td>
+&lt;td>石头*12&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>烹饪锅&lt;/td>
+&lt;td>石砖&lt;em>3(石头&lt;/em>9)&lt;/td>
+&lt;td>木炭*6&lt;/td>
+&lt;td>树枝*6&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>箱子&lt;/td>
+&lt;td>木板&lt;em>3(木&lt;/em>12)&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>冰箱&lt;/td>
+&lt;td>金子*5&lt;/td>
+&lt;td>齿轮*1&lt;/td>
+&lt;td>石砖&lt;em>1(石头&lt;/em>3)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>晾肉架&lt;/td>
+&lt;td>木炭*2&lt;/td>
+&lt;td>树枝*3&lt;/td>
+&lt;td>绳子&lt;em>3(草&lt;/em>9)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>帐篷&lt;/td>
+&lt;td>蜘蛛丝*6&lt;/td>
+&lt;td>树枝*4&lt;/td>
+&lt;td>绳子*3&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>遮阳棚&lt;/td>
+&lt;td>蜘蛛丝*2&lt;/td>
+&lt;td>木板*4&lt;/td>
+&lt;td>绳子*3&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>猪屋&lt;/td>
+&lt;td>木板*4&lt;/td>
+&lt;td>石砖*3&lt;/td>
+&lt;td>猪皮*4&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>兔屋&lt;/td>
+&lt;td>木板*4&lt;/td>
+&lt;td>胡萝卜*10&lt;/td>
+&lt;td>兔绒*4&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>避雷针&lt;/td>
+&lt;td>金子*4&lt;/td>
+&lt;td>石头*3&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>捕鸟陷阱&lt;/td>
+&lt;td>树枝*3&lt;/td>
+&lt;td>蜘蛛丝*4&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>鸟笼&lt;/td>
+&lt;td>莎草纸*2&lt;/td>
+&lt;td>金子*6&lt;/td>
+&lt;td>种子*2&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>蜂箱&lt;/td>
+&lt;td>蜜蜂*4&lt;/td>
+&lt;td>木板*2&lt;/td>
+&lt;td>蜂巢*1&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;blockquote>
+&lt;p>最小工具开局:&lt;/p>
+&lt;ol>
+&lt;li>燧石3+树枝10+草8+3石头(斧子 稿子 锤子 火把 铲子) 草4+树枝4(背包)&lt;/li>
+&lt;li>木头4+石头4+金子1(打包1本)&lt;/li>
+&lt;li>敲2个猪人房,金子4,大肉2,草6,树枝2(二本,火腿棒,头盔*2)&lt;/li>
+&lt;/ol>
+&lt;p>总共需要: 燧石3,石头7,树枝16,草18,金子5,大肉2&lt;/p>
+&lt;hr>
+&lt;p>以常规开局为例,需要准备的建筑有:&lt;/p>
+&lt;p>日常: 1个石坑+1个帐篷+1个遮阳棚&lt;/p>
+&lt;p>烹饪:2个冰箱+6个烹饪锅+6个晾肉架+1个鸟笼&lt;/p>
+&lt;p>科技:1个科技2本(包含了科技1本) 1个魔法2本(包含了魔法1本)&lt;/p>
+&lt;p>需要准备的材料有:&lt;/p>
+&lt;ul>
+&lt;li>木: 2+16+4+16+16 = 54&lt;/li>
+&lt;li>石头: 12+6+54+4+6+6 = 88&lt;/li>
+&lt;li>草: 9+9 = 18&lt;/li>
+&lt;li>金子: 10+12+1+4 = 27&lt;/li>
+&lt;li>木炭: 36&lt;/li>
+&lt;li>树枝: 4+36 = 40&lt;/li>
+&lt;li>蜘蛛丝: 6+2+6 = 14&lt;/li>
+&lt;li>齿轮:2 | 芦苇:8 | 种子:2&lt;/li>
+&lt;li>兔子:4 | 活木:3| 紫宝石:1|噩梦燃料:7&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;h3 id="地图资源点">地图资源点&lt;/h3>
+&lt;blockquote>
+&lt;p>为了更快找到资源点,必须要做的事情: 跳每一个虫洞,下每一个洞穴&lt;/p>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>龙蝇沙漠(必须找到)&lt;/li>
+&lt;li>绿洲沙漠(必须找到)&lt;/li>
+&lt;li>带海象的平原或森林(必须找到)&lt;/li>
+&lt;li>沼泽(必须找到)&lt;/li>
+&lt;li>猪王(必须找到)&lt;/li>
+&lt;li>蜂后(必须找到)&lt;/li>
+&lt;li>马赛克混合地区(可不找到)&lt;/li>
+&lt;li>带曼德拉草的森林(可不找到)&lt;/li>
+&lt;/ul></description></item><item><title>ChatGPT使用技巧</title><link>https://blog.icharles.work/p/chatgpt%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</link><pubDate>Thu, 27 Jul 2023 10:23:05 +0800</pubDate><guid>https://blog.icharles.work/p/chatgpt%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</guid><description>&lt;h2 id="chatgpt使用技巧">ChatGPT使用技巧&lt;/h2>
+&lt;h3 id="基础篇">基础篇&lt;/h3>
+&lt;ol>
+&lt;li>
+&lt;p>给定prompt更多,更精准的定义词或条件.&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;code>Write a short inspiring poem about OpenAI, focusing on the recent DALL-E product launch (DALL-E is a text to image ML model) in the style of a {famous poet}&lt;/code>&lt;/p>
+&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>明确知道自己想要什么时,告诉它要做什么(to do),而不是不要做什么(not to do).&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;code>Please suggest me 10 essential words for IELTS&lt;/code>&lt;/p>
+&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>不明确自己想要什么时,先告诉它不要什么(not to do)后,缩小范围,再告诉它要做什么(to do).&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;code>Please recommend me some places to visit in Hong Kong including amusement parks.&lt;/code>&lt;/p>
+&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>在prompt中给出示例,基于示例回答.&lt;/p>
+&lt;blockquote>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">Suggest three names for an animal that is a superhero.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Animal: Cat
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Names: Captain Sharpclaw, Agent Fluffball, The Incredible Feline
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Animal: Dog
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Names: Ruff the Protector, Wonder Canine, Sir Barks-a-Lot
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Animal: Horse
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Names:
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>越完整的题目越容易生成更好的答案.&lt;/p>
+&lt;blockquote>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">如果一个房地产经纪人的佣金是某个房子的售价的6％，那么这个房子的售价是多少？
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">（1）售价减去房地产经纪人的佣金为84,600美元。
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">（2）购买价是36,000美元，售价是购买价的250%。
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">（A）仅陈述（1）足以回答问题，但仅陈述（2）不能回答问题。
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">（B）仅陈述（2）足以回答问题，但仅陈述（1）不能回答问题。
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">（C）两个陈述合起来足以回答问题，但没有一个陈述单独足以回答问题。
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">（D）每个陈述单独足以回答问题。
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">（E）陈述（1）和（2）合起来不能回答问题。
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>给出引导词,引导模型输出特定引导的内容.&lt;/p>
+&lt;blockquote>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">Create a MySQL query for all students in the Computer Science Department:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Table departments, columns = [DepartmentId, DepartmentName]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Table students, columns = [DepartmentId, StudentId, StudentName]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">SELECT
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>增加温度(temperature)，[0-2]的有效区间.&lt;/p>
+&lt;blockquote>
+&lt;p>如果你是梅西的追随者，请用100字表达情感。temperature=2&lt;/p>
+&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>加入角色，让内容更符合需求.&lt;/p>
+&lt;blockquote>
+&lt;p>假如你是一个 Redis 终端，我将输入命令，您将回复终端应显示的内容&lt;/p>
+&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>信息解释&lt;/p>
+&lt;blockquote>
+&lt;p>Explanation of what the code does:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">Python&lt;/span> &lt;span class="mi">3&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">remove_common_prefix&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">prefix&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">ws_prefix&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">x&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;completion&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">x&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;completion&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">str&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="nb">len&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">prefix&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">:]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="n">ws_prefix&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> \&lt;span class="c1"># keep the single whitespace as prefix &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">x&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;completion&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34; &amp;#34;&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="n">x&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;completion&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">return&lt;/span> &lt;span class="n">x&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>用“”“(或###)将指令和文本分开,增加”“”会提升 AI 反馈的准确性.&lt;/p>
+&lt;blockquote>
+&lt;p>text = f&amp;quot;&amp;quot;&amp;quot;
+You should express what you want a model to do by &lt;br>
+providing instructions that are as clear and &lt;br>
+specific as you can possibly make them. &lt;br>
+This will guide the model towards the desired output, &lt;br>
+and reduce the chances of receiving irrelevant &lt;br>
+or incorrect responses. Don&amp;rsquo;t confuse writing a &lt;br>
+clear prompt with writing a short prompt. &lt;br>
+In many cases, longer prompts provide more clarity &lt;br>
+and context for the model, which can lead to &lt;br>
+more detailed and relevant outputs.
+&amp;quot;&amp;quot;&amp;quot;&lt;/p>
+&lt;p>prompt = f&amp;quot;&amp;quot;&amp;quot;
+Summarize the text delimited by triple backticks &lt;br>
+into a single sentence.
+&lt;code>{text}&lt;/code>
+&amp;quot;&amp;quot;&amp;quot;&lt;/p>
+&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>指定内容进行提炼,按格式输出&lt;/p>
+&lt;blockquote>
+&lt;p>Extract the important entities mentioned in the article below. First extract all company names, then extract all people names, then extract specific topics which fit the content and finally extract general overarching themes
+Desired format:
+Company names: &amp;lt;comma_separated_list_of_company_names&amp;gt;
+People names: -||-
+Specific topics: -||-
+General themes: -||-&lt;/p>
+&lt;p>Text: &amp;ldquo;&amp;ldquo;&amp;ldquo;Powering Next Generation
+Applications with OpenAI Codex
+Codex is now powering 70 different applications across a variety of use cases through the OpenAI API.&lt;/p>
+&lt;p>May 24, 2022
+4 minute read
+OpenAI Codex, a natural language-to-code system based on GPT-3, helps turn simple English instructions into over a dozen popular coding languages. Codex was released last August through our API and is the principal building block of GitHub Copilot.&lt;/p>
+&lt;p>Warp is a Rust-based terminal, reimagined from the ground up to help both individuals and teams be more productive in the command-line.&lt;/p>
+&lt;p>Terminal commands are typically difficult to remember, find and construct. Users often have to leave the terminal and search the web for answers and even then the results might not give them the right command to execute. Warp uses Codex to allow users to run a natural language command to search directly from within the terminal and get a result they can immediately use.&lt;/p>
+&lt;p>“Codex allows Warp to make the terminal more accessible and powerful. Developers search for entire commands using natural language rather than trying to remember them or assemble them piecemeal. Codex-powered command search has become one of our game changing features.”&lt;/p>
+&lt;p>—Zach Lloyd, Founder, Warp&lt;/p>
+&lt;p>Machinet helps professional Java developers write quality code by using Codex to generate intelligent unit test templates.&lt;/p>
+&lt;p>Machinet was able to accelerate their development several-fold by switching from building their own machine learning systems to using Codex. The flexibility of Codex allows for the ability to easily add new features and capabilities saving their users time and helping them be more productive.&lt;/p>
+&lt;p>“Codex is an amazing tool in our arsenal. Not only does it allow us to generate more meaningful code, but it has also helped us find a new design of product architecture and got us out of a local maximum.”&lt;/p>
+&lt;p>—Vladislav Yanchenko, Founder, Machinet&amp;rdquo;&amp;rdquo;&amp;rdquo;&lt;/p>
+&lt;/blockquote>
+&lt;p>output:&lt;/p>
+&lt;blockquote>
+&lt;p>Company names: OpenAI, Microsoft, GitHub, Pygma, Replit, Warp, Machinet
+People names: Emile Paffard-Wray, Amjad Masad, Zach Lloyd, Vladislav Yanchenko
+Specific topics: GPT-3, OpenAI API, Azure OpenAI Service, GitHub Copilot, Pygma, Replit, Warp, Machinet
+General themes: Natural language-to-code, Productivity, Problem solving, Creativity, Learning&lt;/p>
+&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>根据格式词,格式化输出&lt;/p>
+&lt;blockquote>
+&lt;p>Summarize the main points of the following speech
+Use the following format:
+Topic 1: &amp;lt;topic_name_1&amp;gt;&lt;/p>
+&lt;ul>
+&lt;li>&amp;lt;point_1&amp;gt;
+&amp;gt; ..
+&amp;gt; Topic 2: &amp;lt;topic_name_2&amp;gt;&lt;/li>
+&lt;li>&amp;lt;point_1&amp;gt;
+&amp;gt; ..
+&amp;gt; Topic 10: ..&lt;/li>
+&lt;/ul>
+&lt;p>Text: &amp;quot;&amp;quot;&amp;quot;
+Thank you so much, Fred, for that lovely introduction. And thanks to the Atlantic Council for hosting me today.&lt;/p>
+&lt;p>The course of the global economy over the past two years has been shaped by COVID-19 and our efforts to fight the pandemic. It’s now evident, though, that the war between Russia and Ukraine has redrawn the contours of the world economic outlook. Vladimir Putin’s unprovoked attack on Ukraine and its people is taking a devastating human toll, with lives tragically lost, families internally displaced or becoming refugees, and communities and cities destroyed.
+&amp;hellip;&lt;/p>
+&lt;p>&amp;quot;&amp;quot;&amp;quot;&lt;/p>
+&lt;/blockquote>
+&lt;p>output&lt;/p>
+&lt;blockquote>
+&lt;p>Topic 1: The war in Ukraine&lt;/p>
+&lt;ul>
+&lt;li>The war is taking a human toll with lives lost, families displaced, and communities destroyed&lt;/li>
+&lt;li>The Biden administration is committed to holding Russia accountable&lt;/li>
+&lt;li>The war has violated international law and is a challenge to the international order&lt;/li>
+&lt;/ul>
+&lt;p>Topic 2: The global economy&lt;/p>
+&lt;ul>
+&lt;li>The war is having negative impacts on the global economy, including higher commodity prices and inflation&lt;/li>
+&lt;li>The IMF and World Bank will be focused on helping developing countries weather the impacts of the war&lt;/li>
+&lt;li>The ultimate outcome for the global economy depends on the path of the war&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;/li>
+&lt;/ol>
+&lt;h3 id="高级篇">高级篇&lt;/h3>
+&lt;h4 id="chatgpt-prompt-framework">ChatGPT Prompt Framework&lt;/h4>
+&lt;h5 id="basic-prompt-framework">Basic Prompt Framework&lt;/h5>
+&lt;ul>
+&lt;li>&lt;strong>Instruction（必须）：&lt;/strong> 指令，即你希望模型执行的具体任务。&lt;/li>
+&lt;li>&lt;strong>Context（选填）：&lt;/strong> 背景信息，或者说是上下文信息，这可以引导模型做出更好的反应。&lt;/li>
+&lt;li>&lt;strong>Input Data（选填）：&lt;/strong> 输入数据，告知模型需要处理的数据。&lt;/li>
+&lt;li>&lt;strong>Output Indicator（选填）：&lt;/strong> 输出指示器，告知模型我们要输出的类型或格式&lt;/li>
+&lt;/ul>
+&lt;h5 id="crispe-prompt-framework">CRISPE Prompt Framework&lt;/h5>
+&lt;ul>
+&lt;li>&lt;strong>CR：&lt;/strong> Capacity and Role（能力与角色）。你希望 ChatGPT 扮演怎样的角色。&lt;/li>
+&lt;li>&lt;strong>I：&lt;/strong> Insight（洞察力），背景信息和上下文（坦率说来我觉得用 Context 更好）。&lt;/li>
+&lt;li>&lt;strong>S：&lt;/strong> Statement（指令），你希望 ChatGPT 做什么。&lt;/li>
+&lt;li>&lt;strong>P：&lt;/strong> Personality（个性），你希望 ChatGPT 以什么风格或方式回答你。&lt;/li>
+&lt;li>&lt;strong>E：&lt;/strong> Experiment（尝试），要求 ChatGPT 为你提供多个答案。&lt;/li>
+&lt;/ul>
+&lt;h4 id="chain-of-thought">Chain of Thought&lt;/h4>
+&lt;h5 id="step-of-thought">Step of thought&lt;/h5>
+&lt;blockquote>
+&lt;p>Let&amp;rsquo;s work this out in a step by step way to be sure we have the right answer.&lt;/p>
+&lt;/blockquote>
+&lt;h5 id="self-consistency">Self-Consistency&lt;/h5>
+&lt;blockquote>
+&lt;p>推理路径A：&lt;/p>
+&lt;p>商店有 10 个苹果。
+店里有 8 个橙子。
+卖了 6 个苹果。
+卖了 4 个橙子。
+还剩下 10 - 6 = 4 个苹果。
+剩下 8 - 4 = 4 个橙子。
+商店现在有 4 个苹果 + 4 个橙子 = 8 个水果。&lt;/p>
+&lt;p>推理路径 B：&lt;/p>
+&lt;p>商店最初有 10 个苹果和 8 个橙子。
+商店卖了 6 个苹果，所以还剩下 10 - 6 = 4 个苹果。
+商店卖了 4 个橙子，所以还剩下 8 - 4 = 4 个橙子。
+商店现在有 4 个苹果 + 4 个橙子 = 8 个水果。&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;img src="https://pan.icharles.work/images/2023/06/26/649947b590654.jpg"
+loading="lazy"
+>&lt;/p></description></item><item><title>接入社交媒体三方平台-Twitter篇</title><link>https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/</link><pubDate>Thu, 20 Jul 2023 14:36:31 +0800</pubDate><guid>https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/</guid><description>&lt;h1 id="社交媒体三方平台">社交媒体三方平台&lt;/h1>
+&lt;h2 id="twitter">Twitter&lt;/h2>
+&lt;h3 id="接入前准备流程">接入前准备流程&lt;/h3>
+&lt;ol>
+&lt;li>申请Twitter账号,访问&lt;a class="link" href="https://developer.twitter.com/en" target="_blank" rel="noopener"
+>开发者平台&lt;/a>并点击订阅&lt;/li>
+&lt;li>订阅选择套餐,此处为了演示我选择免费套餐.套餐如下图&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/img_6.png"
+width="1920"
+height="937"
+srcset="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/img_6_hu616d4bd9617d6582e32ceebe5664bc7b_264050_480x0_resize_box_3.png 480w, https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/img_6_hu616d4bd9617d6582e32ceebe5664bc7b_264050_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="img_6.png"
+class="gallery-image"
+data-flex-grow="204"
+data-flex-basis="491px"
+>&lt;/p>
+&lt;ol start="3">
+&lt;li>填写描述信息,点击提交&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/img_7.png"
+width="1920"
+height="937"
+srcset="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/img_7_huffc482de8332f8396a2d4d0223cc52f2_52687_480x0_resize_box_3.png 480w, https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/img_7_huffc482de8332f8396a2d4d0223cc52f2_52687_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="img_7.png"
+class="gallery-image"
+data-flex-grow="204"
+data-flex-basis="491px"
+>&lt;/p>
+&lt;blockquote>
+&lt;p>参考示例:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-text" data-lang="text">&lt;span class="line">&lt;span class="cl">As a platform developer, my use cases of Twitter&amp;#39;s data and API include integrating real-time tweets into applications,
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">allowing users to view and interact with trending topics, hashtags, and user profiles. Additionally, I leverage the API to enable users to post tweets,
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">schedule tweets, and access their timelines. Analyzing user sentiment, engagement metrics, and trending content helps optimize content strategies.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">I also utilize Twitter&amp;#39;s data to gather insights for research and sentiment analysis. Ensuring compliance with Twitter&amp;#39;s data usage policies and user privacy is a priority in all use cases.
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/blockquote>
+&lt;ol start="4">
+&lt;li>点击&lt;code>Keys and tokens&lt;/code>,Regenerate重新生成&lt;code>API Key&lt;/code>和&lt;code>API Key Secret&lt;/code>,保存下来&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/img_8.png"
+width="1920"
+height="937"
+srcset="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/img_8_hu807c019bcca4a944e1ef9184b39e4488_75588_480x0_resize_box_3.png 480w, https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/img_8_hu807c019bcca4a944e1ef9184b39e4488_75588_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="img_8.png"
+class="gallery-image"
+data-flex-grow="204"
+data-flex-basis="491px"
+>&lt;/p>
+&lt;p>&lt;img src="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/img_9.png"
+width="1920"
+height="937"
+srcset="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/img_9_huf4725ba71a607820a0ad1b52934df287_76746_480x0_resize_box_3.png 480w, https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/img_9_huf4725ba71a607820a0ad1b52934df287_76746_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="img_9.png"
+class="gallery-image"
+data-flex-grow="204"
+data-flex-basis="491px"
+>&lt;/p>
+&lt;ol start="5">
+&lt;li>点击&lt;code>User authentication settings&lt;/code>模块下的&lt;code>Set up&lt;/code>按钮,配置&lt;code>Twitter&lt;/code>授权登录的必填信息&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/img_10.png"
+width="1920"
+height="937"
+srcset="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/img_10_huc26ce97f645dc2a870d4fae76c3aa939_176427_480x0_resize_box_3.png 480w, https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/img_10_huc26ce97f645dc2a870d4fae76c3aa939_176427_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="img_10.png"
+class="gallery-image"
+data-flex-grow="204"
+data-flex-basis="491px"
+>&lt;/p>
+&lt;ol start="6">
+&lt;li>保存后会生成&lt;code>Client ID&lt;/code>和&lt;code>Client Secret&lt;/code>,保存下来&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/img_11.png"
+width="1920"
+height="937"
+srcset="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/img_11_hucf69be47ba95e9e5de45d92e6a1d6a09_334782_480x0_resize_box_3.png 480w, https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-twitter%E7%AF%87/img_11_hucf69be47ba95e9e5de45d92e6a1d6a09_334782_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="img_11.png"
+class="gallery-image"
+data-flex-grow="204"
+data-flex-basis="491px"
+>&lt;/p>
+&lt;h3 id="接入工作">接入工作&lt;/h3>
+&lt;ol>
+&lt;li>导入Twitter API依赖&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-xml" data-lang="xml">&lt;span class="line">&lt;span class="cl">&lt;span class="c">&amp;lt;!--twitter--&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;dependency&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;groupId&amp;gt;&lt;/span>org.twitter4j&lt;span class="nt">&amp;lt;/groupId&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;artifactId&amp;gt;&lt;/span>twitter4j-core&lt;span class="nt">&amp;lt;/artifactId&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;version&amp;gt;&lt;/span>4.1.2&lt;span class="nt">&amp;lt;/version&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;/dependency&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol start="2">
+&lt;li>参考&lt;a class="link" href="https://developer.twitter.com/en/docs/twitter-api/tweets/manage-tweets/introduction" target="_blank" rel="noopener"
+>Twitter API&lt;/a>官方文档和&lt;a class="link" href="https://github.com/Twitter4J/Twitter4J/tree/main/twitter4j-examples/src/main/java/examples" target="_blank" rel="noopener"
+>twitter4j&lt;/a>编写代码&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>创建授权凭据&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-java" data-lang="java">&lt;span class="line">&lt;span class="cl">&lt;span class="n">ConfigurationBuilder&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">cb&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">ConfigurationBuilder&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">cb&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">setDebugEnabled&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kc">true&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">setOAuthConsumerKey&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">CONSUMER_KEY&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">setOAuthConsumerSecret&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">CONSUMER_SECRET&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">setOAuthAccessToken&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">ACCESS_TOKEN&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">setOAuthAccessTokenSecret&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">ACCESS_TOKEN_SECRET&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">TwitterFactory&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">tf&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">TwitterFactory&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">cb&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">build&lt;/span>&lt;span class="p">());&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">Twitter&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">twitter&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">tf&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">getInstance&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>访问API接口&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-java" data-lang="java">&lt;span class="line">&lt;span class="cl">&lt;span class="cm">/**
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cm"> * 获取用户时间线
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cm"> */&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">User&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">user&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">twitter&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">verifyCredentials&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">System&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">out&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Welcome, @&amp;#34;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">user&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">getScreenName&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s">&amp;#34;!&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">Paging&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">paging&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">Paging&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">1&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">10&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c1">// Get the first 10 tweets on the user&amp;#39;s timeline&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">ResponseList&lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="n">Status&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">timeline&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">twitter&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">getUserTimeline&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">paging&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="k">for&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">Status&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">status&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">timeline&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">System&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">out&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">status&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">getText&lt;/span>&lt;span class="p">());&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>接入社交媒体三方平台-Youtube篇</title><link>https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/</link><pubDate>Wed, 19 Jul 2023 10:06:18 +0800</pubDate><guid>https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/</guid><description>&lt;h1 id="社交媒体三方平台">社交媒体三方平台&lt;/h1>
+&lt;h2 id="youtube">Youtube&lt;/h2>
+&lt;h3 id="接入前准备流程">接入前准备流程&lt;/h3>
+&lt;ol>
+&lt;li>申请Google账号,访问&lt;a class="link" href="https://console.cloud.google.com/" target="_blank" rel="noopener"
+>谷歌云平台&lt;/a>&lt;/li>
+&lt;li>在导航栏中找到&lt;code>API和服务&lt;/code>,进入&lt;code>已启用的API和服务&lt;/code>,搜索&lt;code>YouTube Data API v3&lt;/code>&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/img.png"
+width="1920"
+height="930"
+srcset="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/img_huaef687d03d8fc819a4414ed7506b29ac_153172_480x0_resize_box_3.png 480w, https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/img_huaef687d03d8fc819a4414ed7506b29ac_153172_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="img.png"
+class="gallery-image"
+data-flex-grow="206"
+data-flex-basis="495px"
+>&lt;/p>
+&lt;ol start="3">
+&lt;li>进入&lt;code>YouTube Data API v3&lt;/code>,点击&lt;code>启用&lt;/code>&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/img_1.png"
+width="1041"
+height="716"
+srcset="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/img_1_huaf2034347d00fbaa3616c1070011e269_47082_480x0_resize_box_3.png 480w, https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/img_1_huaf2034347d00fbaa3616c1070011e269_47082_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="img_1.png"
+class="gallery-image"
+data-flex-grow="145"
+data-flex-basis="348px"
+>&lt;/p>
+&lt;ol start="4">
+&lt;li>进入&lt;code>YouTube Data API v3&lt;/code>API/服务详情,点击创建凭据&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/img_2.png"
+width="1920"
+height="937"
+srcset="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/img_2_hubf492fb09fe3d494e2cca5097cc6621d_71672_480x0_resize_box_3.png 480w, https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/img_2_hubf492fb09fe3d494e2cca5097cc6621d_71672_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="img_2.png"
+class="gallery-image"
+data-flex-grow="204"
+data-flex-basis="491px"
+>&lt;/p>
+&lt;ol start="5">
+&lt;li>勾选用户数据,点击下一步,填写每一个步骤的信息,在第五步下载凭证,最后点击完成&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/img_4.png"
+width="1556"
+height="932"
+srcset="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/img_4_hu0b84208300361d6cfec0dcaeb9c325f9_62718_480x0_resize_box_3.png 480w, https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/img_4_hu0b84208300361d6cfec0dcaeb9c325f9_62718_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="img_4.png"
+class="gallery-image"
+data-flex-grow="166"
+data-flex-basis="400px"
+>&lt;/p>
+&lt;blockquote>
+&lt;p>注意,在范围中选择&lt;code>YouTube Data API v3&lt;/code>的部分,按需选择&lt;/p>
+&lt;p>&lt;img src="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/img_3.png"
+width="1920"
+height="937"
+srcset="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/img_3_hu9a66ec90955cfb9ec07897fd94c25be8_113872_480x0_resize_box_3.png 480w, https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/img_3_hu9a66ec90955cfb9ec07897fd94c25be8_113872_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="img_3.png"
+class="gallery-image"
+data-flex-grow="204"
+data-flex-basis="491px"
+>&lt;/p>
+&lt;/blockquote>
+&lt;ol start="6">
+&lt;li>下载凭证后,将凭证放入项目的&lt;code>config&lt;/code>文件夹中,并重命名为&lt;code>client_secret.json&lt;/code>&lt;/li>
+&lt;/ol>
+&lt;h3 id="接入工作">接入工作&lt;/h3>
+&lt;ol>
+&lt;li>导入YouTube API依赖&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-xml" data-lang="xml">&lt;span class="line">&lt;span class="cl">&lt;span class="c">&amp;lt;!--Youtube--&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;dependency&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;groupId&amp;gt;&lt;/span>com.google.apis&lt;span class="nt">&amp;lt;/groupId&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;artifactId&amp;gt;&lt;/span>google-api-services-youtube&lt;span class="nt">&amp;lt;/artifactId&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;version&amp;gt;&lt;/span>v3-rev20230123-2.0.0&lt;span class="nt">&amp;lt;/version&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;/dependency&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;dependency&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;groupId&amp;gt;&lt;/span>com.google.api-client&lt;span class="nt">&amp;lt;/groupId&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;artifactId&amp;gt;&lt;/span>google-api-client-gson&lt;span class="nt">&amp;lt;/artifactId&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;version&amp;gt;&lt;/span>2.2.0&lt;span class="nt">&amp;lt;/version&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;/dependency&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol start="2">
+&lt;li>参考&lt;a class="link" href="https://developers.google.com/youtube/v3/docs?hl=zh-cn" target="_blank" rel="noopener"
+>YouTube API&lt;/a>官方文档,编写代码&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>创建授权凭据(准备工作中的client_secret.json文件)&lt;/li>
+&lt;li>确定访问权限范围&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/img_5.png"
+width="920"
+height="727"
+srcset="https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/img_5_hucd678098ca4097f6acf562654ce40a7a_74144_480x0_resize_box_3.png 480w, https://blog.icharles.work/p/%E6%8E%A5%E5%85%A5%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0-youtube%E7%AF%87/img_5_hucd678098ca4097f6acf562654ce40a7a_74144_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="img_5.png"
+class="gallery-image"
+data-flex-grow="126"
+data-flex-basis="303px"
+>&lt;/p>
+&lt;ul>
+&lt;li>运行授权请求&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-java" data-lang="java">&lt;span class="line">&lt;span class="cl">&lt;span class="n">List&lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="n">NameValuePair&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">parameters&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">ArrayList&lt;/span>&lt;span class="o">&amp;lt;&amp;gt;&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">parameters&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">add&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">BasicNameValuePair&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;code&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">code&lt;/span>&lt;span class="p">));&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">parameters&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">add&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">BasicNameValuePair&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;client_id&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">clientSecrets&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">getWeb&lt;/span>&lt;span class="p">().&lt;/span>&lt;span class="na">getClientId&lt;/span>&lt;span class="p">()));&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">parameters&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">add&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">BasicNameValuePair&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;client_secret&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">clientSecrets&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">getWeb&lt;/span>&lt;span class="p">().&lt;/span>&lt;span class="na">getClientSecret&lt;/span>&lt;span class="p">()));&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">parameters&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">add&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">BasicNameValuePair&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;grant_type&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s">&amp;#34;authorization_code&amp;#34;&lt;/span>&lt;span class="p">));&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">parameters&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">add&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">BasicNameValuePair&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;redirect_uri&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="n">redirectUri&lt;/span>&lt;span class="p">));&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">UrlEncodedFormEntity&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">encodedFormEntity&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">UrlEncodedFormEntity&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">parameters&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">StandardCharsets&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">UTF_8&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">name&lt;/span>&lt;span class="p">());&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">String&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">url&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s">&amp;#34;https://oauth2.googleapis.com/token&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">HttpPost&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">request&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">HttpPost&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">request&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">setEntity&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">encodedFormEntity&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">String&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">response&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">HttpClientUtil&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">doPost&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">url&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">encodedFormEntity&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">System&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">out&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">response&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">TokenResponse&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">tokenResponse&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">JSON&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">parseObject&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">response&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="n">TokenResponse&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">class&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">Credential&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">credential&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">flow&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">createAndStoreCredential&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">tokenResponse&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">state&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">CREDENTIAL_MAP&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">put&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">state&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="n">credential&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>访问API接口&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;span class="lnt">35
+&lt;/span>&lt;span class="lnt">36
+&lt;/span>&lt;span class="lnt">37
+&lt;/span>&lt;span class="lnt">38
+&lt;/span>&lt;span class="lnt">39
+&lt;/span>&lt;span class="lnt">40
+&lt;/span>&lt;span class="lnt">41
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-java" data-lang="java">&lt;span class="line">&lt;span class="cl">&lt;span class="cm">/**
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cm">* 上传视频接口
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cm">* @return
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cm">*/&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">Credential&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">credential&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">YoutubeAuthController&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">CREDENTIAL_MAP&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">get&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">uid&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">YouTube&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">youtubeService&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">YouTube&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">Builder&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">httpTransport&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">jsonFactory&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">credential&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="na">build&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">Video&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">uploadedVideo&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">Video&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">VideoStatus&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">status&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">VideoStatus&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">status&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">setPrivacyStatus&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;public&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">uploadedVideo&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">setStatus&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">status&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">VideoSnippet&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">snippet&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">VideoSnippet&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">snippet&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">setTitle&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">file&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">getOriginalFilename&lt;/span>&lt;span class="p">());&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">uploadedVideo&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">setSnippet&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">snippet&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">InputStreamContent&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">mediaContent&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">InputStreamContent&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;application/octet-stream&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">BufferedInputStream&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">file&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">getInputStream&lt;/span>&lt;span class="p">()));&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">YouTube&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">Videos&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">Insert&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">videoInsert&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">youtubeService&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">videos&lt;/span>&lt;span class="p">().&lt;/span>&lt;span class="na">insert&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;snippet,status,id,player&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">uploadedVideo&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">mediaContent&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">MediaHttpUploader&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">uploader&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">videoInsert&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">getMediaHttpUploader&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">uploader&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">setDirectUploadEnabled&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kc">false&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">MediaHttpUploaderProgressListener&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">progressListener&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">e&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="k">switch&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">e&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">getUploadState&lt;/span>&lt;span class="p">())&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">case&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">INITIATION_STARTED&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">System&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">out&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Initiation Started&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">break&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">case&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">INITIATION_COMPLETE&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">System&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">out&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Initiation Completed&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">break&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">case&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">MEDIA_IN_PROGRESS&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">System&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">out&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Upload in progress&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">System&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">out&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Upload percentage: &amp;#34;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">e&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">getProgress&lt;/span>&lt;span class="p">());&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">break&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">case&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">MEDIA_COMPLETE&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">System&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">out&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Upload Completed!&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">break&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">case&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">NOT_STARTED&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">System&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">out&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Upload Not Started!&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">break&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">};&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">uploader&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">setProgressListener&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">progressListener&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">videoInsert&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">execute&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>学习CY_StarUp课程有感</title><link>https://blog.icharles.work/p/%E5%AD%A6%E4%B9%A0cy_starup%E8%AF%BE%E7%A8%8B%E6%9C%89%E6%84%9F/</link><pubDate>Tue, 18 Jul 2023 16:56:44 +0800</pubDate><guid>https://blog.icharles.work/p/%E5%AD%A6%E4%B9%A0cy_starup%E8%AF%BE%E7%A8%8B%E6%9C%89%E6%84%9F/</guid><description>&lt;blockquote>
+&lt;p>很多人在你刚开始时就给你提供建议,告知风险以及需要承担的后果,但我想告诉你的是:想到就去做,不然点子就只会点子而不是现实.&lt;/p>
+&lt;/blockquote>
+&lt;ol>
+&lt;li>想到就去做(Just do it!)&lt;/li>
+&lt;li>一个点子(新的或者是借鉴别人的)&lt;/li>
+&lt;li>一份计划书&lt;/li>
+&lt;li>启动金&lt;/li>
+&lt;/ol></description></item><item><title>Stack使用方式</title><link>https://blog.icharles.work/p/stack%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F/</link><pubDate>Tue, 18 Jul 2023 12:11:12 +0800</pubDate><guid>https://blog.icharles.work/p/stack%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F/</guid><description>&lt;h3 id="shortcodes">Shortcodes&lt;/h3>
+&lt;p>Stack 附带了一组可以在内容中使用的短代码。
+此页面仅包含特定于 Stack 的短代码。Hugo 的内置短代码记录在此处。&lt;/p>
+&lt;blockquote>
+&lt;p>下面为了避免代码执行,在&amp;lt;&amp;gt;侧加了转义符&amp;rsquo;',使用时去掉&lt;/p>
+&lt;/blockquote>
+&lt;h4 id="哔哩哔哩视频">哔哩哔哩视频&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">{{\&amp;lt; bilibili VIDEO_ID PART_NUMBER \&amp;gt;}}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="腾讯视频">腾讯视频&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">{{\&amp;lt; tencent VIDEO_ID \&amp;gt;}}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="youtube-视频">Youtube 视频&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">{{\&amp;lt; youtube VIDEO_ID \&amp;gt;}}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="通用视频文件">通用视频文件&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">{{\&amp;lt; video VIDEO_URL \&amp;gt;}}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">{{\&amp;lt; video src=&amp;#34;VIDEO_URL&amp;#34; autoplay=&amp;#34;true&amp;#34; poster=&amp;#34;./video-poster.png&amp;#34; \&amp;gt;}}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>可以VIDEO_URL是 URL 或相对于目录的路径static。
+例如，src=&amp;quot;/video/my-video.mp4&amp;quot;将嵌入您网站文件夹的视频文件static/video/my-video.mp4。
+该autoplay属性是可选的。它可用于指定是否应自动播放视频。该poster属性是可选的。它可用于指定视频的海报图像。&lt;/p>
+&lt;h4 id="gitlab">GitLab&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">{{\&amp;lt; gitlab SNIPPET_ID \&amp;gt;}}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>可以SNIPPET_ID在片段的 URL 中找到。例如，https://gitlab.com/-/snippets/1234567 为1234567。&lt;/p>
+&lt;h4 id="引用">引用&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">{{\&amp;lt; quote author=&amp;#34;A famous person&amp;#34; source=&amp;#34;The book they wrote&amp;#34; url=&amp;#34;https://en.wikipedia.org/wiki/Book&amp;#34; \&amp;gt;}}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">{{\&amp;lt; /quote \&amp;gt;}}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>饥荒 奶奶岛篇</title><link>https://blog.icharles.work/p/%E9%A5%A5%E8%8D%92-%E5%A5%B6%E5%A5%B6%E5%B2%9B%E7%AF%87/</link><pubDate>Tue, 18 Jul 2023 12:11:12 +0800</pubDate><guid>https://blog.icharles.work/p/%E9%A5%A5%E8%8D%92-%E5%A5%B6%E5%A5%B6%E5%B2%9B%E7%AF%87/</guid><description>&lt;h2 id="奶奶岛篇">奶奶岛篇&lt;/h2>
+&lt;h3 id="任务">任务&lt;/h3>
+&lt;blockquote>
+&lt;p>完成下面任务会增加好感度,但重复完成任务不会增加好感度, 参考视频:
+&lt;a class="link" href="https://www.bilibili.com/video/BV1nk4y1N7Uv/?p=17&amp;amp;spm_id_from=pageDriver" target="_blank" rel="noopener"
+>https://www.bilibili.com/video/BV1nk4y1N7Uv/?p=17&amp;spm_id_from=pageDriver&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;h4 id="任务一修房子">任务一:修房子&lt;/h4>
+&lt;ul>
+&lt;li>一阶段:收集10个木板,10个饼干切割机壳(盐水浅滩群系,带新鲜火腿棒+船补丁),1只萤火虫(捕虫网捕捉)&lt;/li>
+&lt;li>二阶段:收集10个大理石,5个石砖,3个荧光果&lt;/li>
+&lt;li>三阶段:收集10个月岩,5个绳子,5个地毯地板&lt;/li>
+&lt;/ul>
+&lt;h4 id="任务二种植">任务二:种植&lt;/h4>
+&lt;ul>
+&lt;li>蜂巢周围种十朵花&lt;/li>
+&lt;li>种植8个浆果丛并施肥&lt;/li>
+&lt;/ul>
+&lt;h4 id="任务三杀花">任务三:杀花&lt;/h4>
+&lt;ul>
+&lt;li>春季,蜂箱旁会刷食人花,杀死食人花&lt;/li>
+&lt;/ul>
+&lt;h4 id="任务四清理垃圾">任务四:清理垃圾&lt;/h4>
+&lt;ul>
+&lt;li>用夹夹绞盘打捞岛旁的水中垃圾&lt;/li>
+&lt;/ul>
+&lt;h4 id="任务五送伞">任务五:送伞&lt;/h4>
+&lt;ul>
+&lt;li>下雨时给奶奶送伞(花伞,雨伞,眼球伞,暗影伞均可)&lt;/li>
+&lt;/ul>
+&lt;h4 id="任务六保暖">任务六:保暖&lt;/h4>
+&lt;ul>
+&lt;li>下雪时给奶奶送保暖衣物(透气背心,松软背心,犬牙背心,熊皮背心均可)&lt;/li>
+&lt;/ul>
+&lt;h4 id="任务七晒肉">任务七:晒肉&lt;/h4>
+&lt;ul>
+&lt;li>岛上的6个晒肉架,晒肉&lt;/li>
+&lt;/ul>
+&lt;h4 id="任务八喂食">任务八:喂食&lt;/h4>
+&lt;ul>
+&lt;li>给奶奶吃花沙拉(需要仙人掌花材料)&lt;/li>
+&lt;/ul></description></item><item><title>归档</title><link>https://blog.icharles.work/archives/</link><pubDate>Sun, 06 Mar 2022 00:00:00 +0000</pubDate><guid>https://blog.icharles.work/archives/</guid><description/></item><item><title>链接</title><link>https://blog.icharles.work/%E9%93%BE%E6%8E%A5/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://blog.icharles.work/%E9%93%BE%E6%8E%A5/</guid><description>&lt;p>To use this feature, add &lt;code>links&lt;/code> section to frontmatter.&lt;/p>
+&lt;p>This page&amp;rsquo;s frontmatter:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">links&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">title&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">GitHub&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">description&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">GitHub is the world&amp;#39;s largest software development platform.&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">website&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">https://github.com&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">title&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">TypeScript&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">description&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">website&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">https://www.typescriptlang.org&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ts-logo-128.jpg&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>image&lt;/code> field accepts both local and external images.&lt;/p></description></item><item><title>搜索</title><link>https://blog.icharles.work/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://blog.icharles.work/search/</guid><description/></item></channel></rss>

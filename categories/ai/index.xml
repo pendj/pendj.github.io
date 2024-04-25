@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>AI on 天才熊猫君</title><link>https://blog.icharles.work/categories/ai/</link><description>Recent content in AI on 天才熊猫君</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 04 Jan 2024 13:41:04 +0800</lastBuildDate><atom:link href="https://blog.icharles.work/categories/ai/index.xml" rel="self" type="application/rss+xml"/><item><title>人工智能 - 神经网络</title><link>https://blog.icharles.work/p/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</link><pubDate>Thu, 04 Jan 2024 13:41:04 +0800</pubDate><guid>https://blog.icharles.work/p/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</guid><description>&lt;h3 id="人工智能">人工智能&lt;/h3>
+&lt;blockquote>
+&lt;p>学习参考资料: &lt;a class="link" href="https://www.captainbed.cn/whatisnn/" target="_blank" rel="noopener"
+>1.1.1 什么是神经网络 (captainbed.cn)&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;h4 id="神经网络">神经网络&lt;/h4>
+&lt;h5 id="什么是神经网络">什么是神经网络&lt;/h5>
+&lt;p>人工智能的神经网络受到人体大脑的启发，构建出来。&lt;/p>
+&lt;p>在人的大脑中，有着数十亿叫神经元的细胞，它们连接成为一个网络。&lt;/p>
+&lt;p>而在人工智能中，模仿人的大脑，也创建出N个神经元，它们连接成为神经网络。&lt;/p>
+&lt;p>而每个神经元负责接受外部刺激，处理信息，转化成结果。&lt;/p>
+&lt;p>&lt;img src="https://pendjun.obs.cn-south-4.myhuaweicloud.com/img/timg-2.jpg"
+loading="lazy"
+alt="神经网络"
+>&lt;/p>
+&lt;p>&lt;img src="https://pendjun.obs.cn-south-4.myhuaweicloud.com/img/TIME59BBEE7898720180827112521.png"
+loading="lazy"
+alt="人工神经网络"
+>&lt;/p>
+&lt;p>&lt;img src="https://pendjun.obs.cn-south-4.myhuaweicloud.com/img/20181014193738897.png"
+loading="lazy"
+alt="神经元处理刺激"
+>&lt;/p>
+&lt;h5 id="数据传入神经网络">数据传入神经网络&lt;/h5>
+&lt;p>对于不同特征的数据（例如语音、图像、传感器或其他等等）在计算机中都会有对应的数字表示形式。通常它们会被转化成一个特征向量，传入到神经网络中。&lt;/p>
+&lt;p>举例：假设一个图像有64*64个像素，每个像素就是一个颜色点，每个颜色点在(红(0-255),蓝(0-255),绿(0-255))&lt;code>三原色可以调配出所有色彩&lt;/code>之间,&lt;/p>
+&lt;p>所以在计算机中,3*64*64个颜色点构成这张图像 = 12288 总特征数,这个12288维特征向量就代表了这张图像.神经网络接收这个特征向量,预测并得出结果.&lt;/p>
+&lt;h5 id="神经网络如何进行预测">神经网络如何进行预测&lt;/h5>
+&lt;h6 id="逻辑回归公式">逻辑回归公式&lt;/h6>
+&lt;p>预测的过程其实只是基于一个简单的公式(&lt;code>逻辑回归公式&lt;/code>)：&lt;code>z = dot(w,x) + b &lt;/code>&lt;/p>
+&lt;p>&lt;code>x&lt;/code>表示&lt;code>输入特征向量&lt;/code>,如果有三个特征就可以用(x1,x2,x3)表示&lt;/p>
+&lt;p>&lt;code>w&lt;/code>表示&lt;code>权重&lt;/code>,代表每个特征的重要程度&lt;/p>
+&lt;p>&lt;code>b&lt;/code>表示&lt;code>阈值&lt;/code>,用于影响预测结果&lt;/p>
+&lt;p>&lt;code>dot&lt;/code>表示&lt;code>将w和x进行向量相乘&lt;/code>&lt;/p>
+&lt;p>&lt;code>z&lt;/code>表示&lt;code>预测结果&lt;/code>&lt;/p>
+&lt;p>于是上面的公式展开后就成 &lt;code>z = (w1*x1 + w2*x2 + w3*x3) + b&lt;/code>&lt;/p>
+&lt;p>&lt;img src="https://pendjun.obs.cn-south-4.myhuaweicloud.com/img/20181014210626518.png"
+loading="lazy"
+alt="逻辑回归公式"
+>&lt;/p>
+&lt;p>举例:&lt;/p>
+&lt;p>假设你现在想喝奶茶,但现在天气不好,配送时间太长,而你又可能马上要下班了.&lt;/p>
+&lt;p>那么影响结果的因素有3个特征,而你对每个因素的看重程度代表着权重,&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>天气好不好对你不重要. &lt;code>w1=0,x1=1&lt;/code>(w1=0表示无所谓,x1=1表示确实不好);&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>配送时间太长有影响. &lt;code>w2=3,x2=1&lt;/code> (w2=3表示有一定程度影响但不大,x2=1表示确实有影响)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>马上要下班了,想马上回家. &lt;code>w3=6,x3=1&lt;/code>(w3=1表示想回家的优先级很高,x3=0表示想回家)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>想回家的期望值很高. &lt;code>b=-10&lt;/code>&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>那么我们得出公式: &lt;code>z = (0*1 + 3*1 + 6*1) - 10&lt;/code> ,结果是-1.&lt;/p>
+&lt;p>根据结果表示&lt;code>z&amp;lt;0&lt;/code>则不会喝,&lt;code>z&amp;gt;0&lt;/code>会喝,所以我们预测你不会现在想喝奶茶.&lt;/p>
+&lt;h6 id="激活函数">激活函数&lt;/h6>
+&lt;p>在实际的神经网络中,上面的&lt;code>逻辑回归&lt;/code>只能适用于非常简单的逻辑.在复杂场景中计算得出的z值就不太准确,所以我们需要在&lt;code>逻辑回归&lt;/code>外面再套一层函数.&lt;/p>
+&lt;p>这个函数就叫做&lt;code>激活函数&lt;/code>.下面简单介绍一种激活函数:&lt;code>sigmoid&lt;/code>&lt;/p>
+&lt;p>&lt;img src="https://pendjun.obs.cn-south-4.myhuaweicloud.com/img/201810142126508048-3.png"
+loading="lazy"
+alt="激活函数公式"
+>&lt;/p>
+&lt;p>&lt;img src="https://pendjun.obs.cn-south-4.myhuaweicloud.com/img/timg-34.jpg"
+loading="lazy"
+alt="激活函数图像"
+>&lt;/p>
+&lt;p>这个函数的作用是: 将z映射到[0,1]之间.x表示z值,y表示预测结果.可以看出,z越大,y越趋向于1,z越小,y越趋向于0.&lt;/p>
+&lt;p>在刚才的例子中,假设z的结果是1,而y&amp;rsquo;值=0.8,则表示有80%的概率会买.但z值是-1,所以不会买.&lt;/p></description></item><item><title>ChatGPT使用技巧</title><link>https://blog.icharles.work/p/chatgpt%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</link><pubDate>Thu, 27 Jul 2023 10:23:05 +0800</pubDate><guid>https://blog.icharles.work/p/chatgpt%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</guid><description>&lt;h2 id="chatgpt使用技巧">ChatGPT使用技巧&lt;/h2>
+&lt;h3 id="基础篇">基础篇&lt;/h3>
+&lt;ol>
+&lt;li>
+&lt;p>给定prompt更多,更精准的定义词或条件.&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;code>Write a short inspiring poem about OpenAI, focusing on the recent DALL-E product launch (DALL-E is a text to image ML model) in the style of a {famous poet}&lt;/code>&lt;/p>
+&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>明确知道自己想要什么时,告诉它要做什么(to do),而不是不要做什么(not to do).&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;code>Please suggest me 10 essential words for IELTS&lt;/code>&lt;/p>
+&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>不明确自己想要什么时,先告诉它不要什么(not to do)后,缩小范围,再告诉它要做什么(to do).&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;code>Please recommend me some places to visit in Hong Kong including amusement parks.&lt;/code>&lt;/p>
+&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>在prompt中给出示例,基于示例回答.&lt;/p>
+&lt;blockquote>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">Suggest three names for an animal that is a superhero.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Animal: Cat
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Names: Captain Sharpclaw, Agent Fluffball, The Incredible Feline
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Animal: Dog
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Names: Ruff the Protector, Wonder Canine, Sir Barks-a-Lot
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Animal: Horse
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Names:
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>越完整的题目越容易生成更好的答案.&lt;/p>
+&lt;blockquote>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">如果一个房地产经纪人的佣金是某个房子的售价的6％，那么这个房子的售价是多少？
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">（1）售价减去房地产经纪人的佣金为84,600美元。
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">（2）购买价是36,000美元，售价是购买价的250%。
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">（A）仅陈述（1）足以回答问题，但仅陈述（2）不能回答问题。
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">（B）仅陈述（2）足以回答问题，但仅陈述（1）不能回答问题。
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">（C）两个陈述合起来足以回答问题，但没有一个陈述单独足以回答问题。
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">（D）每个陈述单独足以回答问题。
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">（E）陈述（1）和（2）合起来不能回答问题。
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>给出引导词,引导模型输出特定引导的内容.&lt;/p>
+&lt;blockquote>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">Create a MySQL query for all students in the Computer Science Department:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Table departments, columns = [DepartmentId, DepartmentName]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Table students, columns = [DepartmentId, StudentId, StudentName]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">SELECT
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>增加温度(temperature)，[0-2]的有效区间.&lt;/p>
+&lt;blockquote>
+&lt;p>如果你是梅西的追随者，请用100字表达情感。temperature=2&lt;/p>
+&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>加入角色，让内容更符合需求.&lt;/p>
+&lt;blockquote>
+&lt;p>假如你是一个 Redis 终端，我将输入命令，您将回复终端应显示的内容&lt;/p>
+&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>信息解释&lt;/p>
+&lt;blockquote>
+&lt;p>Explanation of what the code does:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">Python&lt;/span> &lt;span class="mi">3&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">remove_common_prefix&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">prefix&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">ws_prefix&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">x&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;completion&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">x&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;completion&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">str&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="nb">len&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">prefix&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">:]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="n">ws_prefix&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> \&lt;span class="c1"># keep the single whitespace as prefix &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">x&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;completion&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34; &amp;#34;&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="n">x&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;completion&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">return&lt;/span> &lt;span class="n">x&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>用“”“(或###)将指令和文本分开,增加”“”会提升 AI 反馈的准确性.&lt;/p>
+&lt;blockquote>
+&lt;p>text = f&amp;quot;&amp;quot;&amp;quot;
+You should express what you want a model to do by &lt;br>
+providing instructions that are as clear and &lt;br>
+specific as you can possibly make them. &lt;br>
+This will guide the model towards the desired output, &lt;br>
+and reduce the chances of receiving irrelevant &lt;br>
+or incorrect responses. Don&amp;rsquo;t confuse writing a &lt;br>
+clear prompt with writing a short prompt. &lt;br>
+In many cases, longer prompts provide more clarity &lt;br>
+and context for the model, which can lead to &lt;br>
+more detailed and relevant outputs.
+&amp;quot;&amp;quot;&amp;quot;&lt;/p>
+&lt;p>prompt = f&amp;quot;&amp;quot;&amp;quot;
+Summarize the text delimited by triple backticks &lt;br>
+into a single sentence.
+&lt;code>{text}&lt;/code>
+&amp;quot;&amp;quot;&amp;quot;&lt;/p>
+&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>指定内容进行提炼,按格式输出&lt;/p>
+&lt;blockquote>
+&lt;p>Extract the important entities mentioned in the article below. First extract all company names, then extract all people names, then extract specific topics which fit the content and finally extract general overarching themes
+Desired format:
+Company names: &amp;lt;comma_separated_list_of_company_names&amp;gt;
+People names: -||-
+Specific topics: -||-
+General themes: -||-&lt;/p>
+&lt;p>Text: &amp;ldquo;&amp;ldquo;&amp;ldquo;Powering Next Generation
+Applications with OpenAI Codex
+Codex is now powering 70 different applications across a variety of use cases through the OpenAI API.&lt;/p>
+&lt;p>May 24, 2022
+4 minute read
+OpenAI Codex, a natural language-to-code system based on GPT-3, helps turn simple English instructions into over a dozen popular coding languages. Codex was released last August through our API and is the principal building block of GitHub Copilot.&lt;/p>
+&lt;p>Warp is a Rust-based terminal, reimagined from the ground up to help both individuals and teams be more productive in the command-line.&lt;/p>
+&lt;p>Terminal commands are typically difficult to remember, find and construct. Users often have to leave the terminal and search the web for answers and even then the results might not give them the right command to execute. Warp uses Codex to allow users to run a natural language command to search directly from within the terminal and get a result they can immediately use.&lt;/p>
+&lt;p>“Codex allows Warp to make the terminal more accessible and powerful. Developers search for entire commands using natural language rather than trying to remember them or assemble them piecemeal. Codex-powered command search has become one of our game changing features.”&lt;/p>
+&lt;p>—Zach Lloyd, Founder, Warp&lt;/p>
+&lt;p>Machinet helps professional Java developers write quality code by using Codex to generate intelligent unit test templates.&lt;/p>
+&lt;p>Machinet was able to accelerate their development several-fold by switching from building their own machine learning systems to using Codex. The flexibility of Codex allows for the ability to easily add new features and capabilities saving their users time and helping them be more productive.&lt;/p>
+&lt;p>“Codex is an amazing tool in our arsenal. Not only does it allow us to generate more meaningful code, but it has also helped us find a new design of product architecture and got us out of a local maximum.”&lt;/p>
+&lt;p>—Vladislav Yanchenko, Founder, Machinet&amp;rdquo;&amp;rdquo;&amp;rdquo;&lt;/p>
+&lt;/blockquote>
+&lt;p>output:&lt;/p>
+&lt;blockquote>
+&lt;p>Company names: OpenAI, Microsoft, GitHub, Pygma, Replit, Warp, Machinet
+People names: Emile Paffard-Wray, Amjad Masad, Zach Lloyd, Vladislav Yanchenko
+Specific topics: GPT-3, OpenAI API, Azure OpenAI Service, GitHub Copilot, Pygma, Replit, Warp, Machinet
+General themes: Natural language-to-code, Productivity, Problem solving, Creativity, Learning&lt;/p>
+&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>根据格式词,格式化输出&lt;/p>
+&lt;blockquote>
+&lt;p>Summarize the main points of the following speech
+Use the following format:
+Topic 1: &amp;lt;topic_name_1&amp;gt;&lt;/p>
+&lt;ul>
+&lt;li>&amp;lt;point_1&amp;gt;
+&amp;gt; ..
+&amp;gt; Topic 2: &amp;lt;topic_name_2&amp;gt;&lt;/li>
+&lt;li>&amp;lt;point_1&amp;gt;
+&amp;gt; ..
+&amp;gt; Topic 10: ..&lt;/li>
+&lt;/ul>
+&lt;p>Text: &amp;quot;&amp;quot;&amp;quot;
+Thank you so much, Fred, for that lovely introduction. And thanks to the Atlantic Council for hosting me today.&lt;/p>
+&lt;p>The course of the global economy over the past two years has been shaped by COVID-19 and our efforts to fight the pandemic. It’s now evident, though, that the war between Russia and Ukraine has redrawn the contours of the world economic outlook. Vladimir Putin’s unprovoked attack on Ukraine and its people is taking a devastating human toll, with lives tragically lost, families internally displaced or becoming refugees, and communities and cities destroyed.
+&amp;hellip;&lt;/p>
+&lt;p>&amp;quot;&amp;quot;&amp;quot;&lt;/p>
+&lt;/blockquote>
+&lt;p>output&lt;/p>
+&lt;blockquote>
+&lt;p>Topic 1: The war in Ukraine&lt;/p>
+&lt;ul>
+&lt;li>The war is taking a human toll with lives lost, families displaced, and communities destroyed&lt;/li>
+&lt;li>The Biden administration is committed to holding Russia accountable&lt;/li>
+&lt;li>The war has violated international law and is a challenge to the international order&lt;/li>
+&lt;/ul>
+&lt;p>Topic 2: The global economy&lt;/p>
+&lt;ul>
+&lt;li>The war is having negative impacts on the global economy, including higher commodity prices and inflation&lt;/li>
+&lt;li>The IMF and World Bank will be focused on helping developing countries weather the impacts of the war&lt;/li>
+&lt;li>The ultimate outcome for the global economy depends on the path of the war&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;/li>
+&lt;/ol>
+&lt;h3 id="高级篇">高级篇&lt;/h3>
+&lt;h4 id="chatgpt-prompt-framework">ChatGPT Prompt Framework&lt;/h4>
+&lt;h5 id="basic-prompt-framework">Basic Prompt Framework&lt;/h5>
+&lt;ul>
+&lt;li>&lt;strong>Instruction（必须）：&lt;/strong> 指令，即你希望模型执行的具体任务。&lt;/li>
+&lt;li>&lt;strong>Context（选填）：&lt;/strong> 背景信息，或者说是上下文信息，这可以引导模型做出更好的反应。&lt;/li>
+&lt;li>&lt;strong>Input Data（选填）：&lt;/strong> 输入数据，告知模型需要处理的数据。&lt;/li>
+&lt;li>&lt;strong>Output Indicator（选填）：&lt;/strong> 输出指示器，告知模型我们要输出的类型或格式&lt;/li>
+&lt;/ul>
+&lt;h5 id="crispe-prompt-framework">CRISPE Prompt Framework&lt;/h5>
+&lt;ul>
+&lt;li>&lt;strong>CR：&lt;/strong> Capacity and Role（能力与角色）。你希望 ChatGPT 扮演怎样的角色。&lt;/li>
+&lt;li>&lt;strong>I：&lt;/strong> Insight（洞察力），背景信息和上下文（坦率说来我觉得用 Context 更好）。&lt;/li>
+&lt;li>&lt;strong>S：&lt;/strong> Statement（指令），你希望 ChatGPT 做什么。&lt;/li>
+&lt;li>&lt;strong>P：&lt;/strong> Personality（个性），你希望 ChatGPT 以什么风格或方式回答你。&lt;/li>
+&lt;li>&lt;strong>E：&lt;/strong> Experiment（尝试），要求 ChatGPT 为你提供多个答案。&lt;/li>
+&lt;/ul>
+&lt;h4 id="chain-of-thought">Chain of Thought&lt;/h4>
+&lt;h5 id="step-of-thought">Step of thought&lt;/h5>
+&lt;blockquote>
+&lt;p>Let&amp;rsquo;s work this out in a step by step way to be sure we have the right answer.&lt;/p>
+&lt;/blockquote>
+&lt;h5 id="self-consistency">Self-Consistency&lt;/h5>
+&lt;blockquote>
+&lt;p>推理路径A：&lt;/p>
+&lt;p>商店有 10 个苹果。
+店里有 8 个橙子。
+卖了 6 个苹果。
+卖了 4 个橙子。
+还剩下 10 - 6 = 4 个苹果。
+剩下 8 - 4 = 4 个橙子。
+商店现在有 4 个苹果 + 4 个橙子 = 8 个水果。&lt;/p>
+&lt;p>推理路径 B：&lt;/p>
+&lt;p>商店最初有 10 个苹果和 8 个橙子。
+商店卖了 6 个苹果，所以还剩下 10 - 6 = 4 个苹果。
+商店卖了 4 个橙子，所以还剩下 8 - 4 = 4 个橙子。
+商店现在有 4 个苹果 + 4 个橙子 = 8 个水果。&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;img src="https://pan.icharles.work/images/2023/06/26/649947b590654.jpg"
+loading="lazy"
+>&lt;/p></description></item></channel></rss>
